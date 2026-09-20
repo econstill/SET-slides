@@ -1,0 +1,15 @@
+# Local files
+.DS_Store
+
+# LaTeX build products (keep the named seminar PDF tracked)
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+main.pdf
