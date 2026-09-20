@@ -46,7 +46,7 @@ For a 45-minute talk, skim slides 9–12 and 17–20, but retain 3, 8, 15–16, 
 | 26 | When marginal cost at zero is zero, every player participates at every equilibrium; this statement does not require uniqueness. |
 | 27 | On a complete graph, strictly convex costs give a unique equal-effort equilibrium. Linear costs instead allow a continuum of allocations of the same total effort. |
 | 28 | On a star, the hub contributes less than the leaves. On nested-split graphs, the lower-degree agents contribute more; degree alone does not rank actions on arbitrary graphs. |
-| 29 | Reiterate the distinct questions: equivalence, existence, uniqueness, and adjustment dynamics. |
+| 29 | Reiterate the distinct questions the slides establish: equilibrium equivalence, existence, and uniqueness. The paper does not formally analyze a general adjustment dynamic. |
 | 30 | Close with the economic gains from the two new network applications and invite questions. |
 
 ## Optional backup pages
@@ -57,5 +57,5 @@ Slides 31–36 contain the coordinate proof, a matrix example, the nonlinear Per
 
 - The paper's Figure 1 is a map from a game to a variational inequality and then to a transformed variational inequality. It is not itself a picture of a fixed-point theorem.
 - Sign equivalence on a rectangular domain preserves the *set* of VI solutions. Potential symmetry alone does not make every stationary point a global optimum; curvature is needed.
-- In the CES complementarity model, the log-transformed matrix gives uniqueness, while a separate Perron argument gives existence below the threshold.
+- In the CES complementarity model, the log-transformed matrix gives uniqueness, while a separate Perron argument gives existence below the threshold. Its bounded best-response iteration is part of that existence proof, not a general dynamic-stability result.
 - In the strategic-substitutes model, the displayed spectral bound is sufficient, not necessary. The complete-network result is a concrete example where strict convexity of costs yields uniqueness at the boundary of that bound.
