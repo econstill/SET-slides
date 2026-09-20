@@ -6,13 +6,14 @@ Beamer template.
 
 ## Files
 
-- [Slides (PDF)](SET-English-Seminar.pdf): 54 pages — 47 main pages including
-  the title, six backup proof/example pages, and one reference page.
-- [Editable source](main.tex): self-contained Beamer source with inline
-  diagrams, plots, references, and hidden English speaker notes.
-- [Presenter guide](SET-English-Presenter-Guide.md): slide-by-slide notes
-  and suggested 60-, 75-, and 90-minute routes. The detailed main-deck
-  pacing totals approximately 81.5 minutes.
+- [Slides (PDF)](SET-English-Seminar.pdf): 37 pages — 30 main pages including
+  the title, six optional backup pages, and one reference page.
+- [Editable source](main.tex): Beamer source with the paper's Figure 1 on
+  slide 3, inline diagrams and plots, and hidden English speaker notes.
+- [Figure 1 crop](assets/set-figure1-methodology.png): the original
+  methodology diagram from page 17 of the supplied paper.
+- [Presenter guide](SET-English-Presenter-Guide.md): application-focused
+  speaking route and suggested timing.
 
 ## Compile
 
@@ -24,9 +25,10 @@ xelatex -interaction=nonstopmode -halt-on-error main.tex
 xelatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The output is `main.pdf`. No BibTeX run, external images, or external
-bibliography file is required. On Overleaf, select `main.tex` as the main
-document and **XeLaTeX** as the compiler.
+The output is `main.pdf`; copy it to `SET-English-Seminar.pdf` after a
+successful build. Keep the `assets/` directory next to `main.tex`. No BibTeX
+run or external bibliography file is required. On Overleaf, select `main.tex`
+as the main document and **XeLaTeX** as the compiler.
 
 Speaker notes are stored in `\talknote{minutes}{text}` commands. Replace
 `\setbeameroption{hide notes}` with `\setbeameroption{show notes}` to
@@ -34,10 +36,12 @@ include them in the compiled document.
 
 ## Scope
 
-The seminar covers sign-equivalent transformations, variational inequalities,
-production networks, nonlinear CES strategic complements, spectral thresholds,
-Bonacich centrality, key players, and strategic substitutes.
+The seminar introduces the transformation through the paper's Figure 1 and
+one concise equilibrium-set result. It then focuses on production networks,
+nonlinear peer effects, oligopoly, multiplex interactions, nonlinear CES
+strategic complements, centrality and key players, and network public goods
+with convex costs. Proof details are in the optional backup pages.
 
-The existing image assets and `ref.bib` are preserved from the earlier
+The older image assets and `ref.bib` are preserved from the earlier
 repository version but are not needed to compile the current `main.tex`.
-The source paper itself is not included in this upload.
+The source paper itself is not included in this repository.

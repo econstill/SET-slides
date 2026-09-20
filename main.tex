@@ -13,6 +13,7 @@
 \usepackage{appendixnumberbeamer}
 \usepackage{amsmath,amssymb,amsthm,mathrsfs,bm,booktabs,xspace}
 \usepackage{array}
+\usepackage{graphicx}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,calc,positioning,shapes,backgrounds,fit}
@@ -60,9 +61,9 @@
 \date{Paper version: February 17, 2026}
 \begin{document}
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
-\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{46}\fi
+\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{30}\fi
 \maketitle
-\talknote{1}{This seminar studies the February 17, 2026 version of SET by Yves Zenou and Junjie Zhou. The organizing question is how an equilibrium system can be rewritten without changing its economic solutions. We first establish the equivalence principle, then use it to understand nonlinear network games. The spectral discussion connects the paper to the familiar equation $(I-\delta G)x=b$. A detailed delivery takes approximately 80 minutes. The presenter guide gives a shorter route, and backup slides provide additional proofs for questions.}
+\talknote{1}{Open with the paper's question: can the same economic equilibrium be represented by a more useful system? Figure 1 appears immediately after the motivation. The main talk centers on applications; technical proofs are reserved for the appendix.}
 
 \begin{frame}{The representation of an equilibrium system}
 Many economic models reduce to nonlinear first-order conditions.
@@ -79,356 +80,76 @@ or a useful uniqueness condition.
 \talknote{2}{Introduce representation dependence with a simple observation: multiplying one player's payoff by a positive constant leaves all choices unchanged, but changes the Jacobian of the game. A uniqueness test based directly on that Jacobian can therefore be unnecessarily restrictive. SET formalizes a larger family of transformations. The interesting part is both mathematical and economic: preserve corner solutions, expose tractable structure, and obtain new results in models where direct linear algebra is unavailable. This is a methodology paper, but its new network applications are substantive results rather than illustrations alone.}
 \end{frame}
 
-\begin{frame}{Plan of the seminar}
+
+\begin{frame}{The paper's map: from equilibrium to a useful system}
+\begin{center}
+\includegraphics[width=0.87\textwidth]{assets/set-figure1-methodology.png}
+\end{center}
+\vspace{-0.25cm}
+\small An equilibrium is a best-response fixed point. The figure follows its VI representation through a sign-equivalent transformation to two methods for studying uniqueness.
+\slidesource{Zenou and Zhou, \emph{SET}, Figure 1, p. 17 (original figure)}
+\talknote{2}{Show the original Figure 1 early. Read it from left to right: a well-behaved game yields a variational inequality; a sign-equivalent transformation yields a new one with the same relevant equilibria; then a matrix or potential method can be used. Equilibrium is also a fixed point of best responses, but Figure 1 specifically depicts the variational-inequality route. The rest of the talk asks what this buys us in applications.}
+\end{frame}
+
+
+
+\begin{frame}{Applications drive the talk}
 \begin{enumerate}
- \item \textbf{Equivalence and geometry}\par
- Variational inequalities, rectangular domains, and admissible transformations.
- \item \textbf{Useful transformed systems}\par
- P matrices, potential functions, and production networks.
- \item \textbf{Nonlinear strategic complements}\par
- CES peers, spectral thresholds, centrality, and key players.
- \item \textbf{Strategic substitutes}\par
- Convex costs, participation, and network rankings.
+\item \textbf{Market systems:} production networks, nonlinear peers, and oligopoly pricing.
+\item \textbf{Nonlinear network complements:} when equilibrium exists, who acts most, and who is the key player?
+\item \textbf{Network public goods:} how convex costs change participation, uniqueness, and effort rankings.
 \end{enumerate}
-\talknote{1}{Give the audience the logical map. The first part explains why a transformation is legitimate. The second explains why it is useful. The CES model then combines uniqueness from SET with a separate spectral existence argument. The last application shows that similar transformations also work with strategic substitutes, but the economically relevant eigenvalue and the implications for activity rankings change. We will distinguish equilibrium equivalence, existence, uniqueness, and dynamic stability throughout.}
-\end{frame}
-
-
-% ===== theory =====
-% Fourteen main theory frames. Included by the seminar master file.
-
-\begin{frame}{Nash equilibrium as a variational inequality}
-Player $i$ chooses $x_i$ in a closed convex interval $K_i$.
-Payoff $u_i(\cdot,x_{-i})$ is differentiable and concave.
-\[
- K=\prod_{i=1}^n K_i,\qquad
- F_i(x)=-\frac{\partial u_i(x)}{\partial x_i}.
-\]
-\begin{block}{Lemma 1}
-\[
- x^*\in\mathrm{NE}
- \quad\Longleftrightarrow\quad
- \langle x-x^*,F(x^*)\rangle\geq0
- \quad\text{for every }x\in K.
-\]
-\end{block}
-The operator $F$ collects marginal incentives. Its derivative matrix is $J_F=DF$.
-
 \medskip
-The VI formulation includes both interior and boundary equilibria.
-\slidesource{SET, Definition 1 and Lemma 1, pp. 8--9}
-\talknote{2}{Begin with a player's one-dimensional maximization problem. Own-action concavity makes the first-order inequality sufficient as well as necessary. Summing the individual inequalities gives the displayed VI. Conversely, a deviation in just one player's action recovers that player's condition. Explain the minus sign in F: positive F means marginal payoff is negative, so the player wants to reduce the action. The paper sometimes calls F the game Jacobian. Here F denotes a vector-valued operator and $J_F$ denotes its actual derivative matrix. This distinction matters when we later transform F and study the new matrix.}
+Only one methodological fact is needed before the examples.
+\talknote{1}{Set expectations: the paper develops a general theorem, but this presentation spends most of its time on Sections 3 and 4. The first group demonstrates the scope of the transformation. The two new network models deliver the economic results, including centrality and intervention rankings.}
 \end{frame}
 
-\begin{frame}{Boundary optimality on a rectangular domain}
-For $K=\prod_i[\ell_i,u_i]$, each coordinate can vary independently.
+
+
+\begin{frame}{The one methodological fact we need}
+\begin{block}{Sign-equivalent transformation}
+If every component of $F$ and $\widetilde F$ has the same sign at every feasible profile, then on a product of individual intervals the two variational inequalities have \alert{exactly the same solution set}.
+\end{block}
 \begin{center}
 \renewcommand{\arraystretch}{1.15}
 \begin{tabular}{lll}
 \toprule
-Location of $x_i^*$ & VI condition & Marginal payoff\\
+Player's choice & Equilibrium condition & What matters\\
 \midrule
-Lower bound $\ell_i$ & $F_i(x^*)\geq0$ & $\partial_i u_i(x^*)\leq0$\\
-Interior & $F_i(x^*)=0$ & $\partial_i u_i(x^*)=0$\\
-Upper bound $u_i$ & $F_i(x^*)\leq0$ & $\partial_i u_i(x^*)\geq0$\\
+Lower bound & $F_i\geq0$ & Sign\\
+Interior & $F_i=0$ & Zero\\
+Upper bound & $F_i\leq0$ & Sign\\
 \bottomrule
 \end{tabular}
 \end{center}
-\begin{block}{Example: nonnegative actions}
-For $K=\mathbb R_+^n$: $x^*\geq0$, $F(x^*)\geq0$ and $x_i^*F_i(x^*)=0$ for every $i$.
-\end{block}
-\slidesource{SET, Theorem 1 and its proof, pp. 9--10 and 43}
-\talknote{2}{Spend time on the direction of each inequality. At the lower bound, only an upward deviation is feasible, so a nonpositive marginal payoff supports optimality. At the upper bound, only a downward deviation is feasible, so a nonnegative marginal payoff supports optimality. At an interior point both directions are feasible and the marginal payoff must vanish. The complementarity conditions on the nonnegative orthant combine these cases in familiar notation. The magnitudes of the nonzero marginal incentives never enter these coordinate conditions. This observation is the entire reason that preserving their signs can preserve equilibrium.}
+The product-domain condition matters when a choice is at a boundary.
+\slidesource{SET, Theorem 1, pp. 9--10; proof in the appendix}
+\talknote{2}{Explain the theorem in words, without proving it here. The transformed system may change magnitudes and derivatives, but not the direction of each individual incentive. On a rectangular strategy domain this preserves interior and corner equilibria. The theorem preserves an entire solution set, including multiplicity, and says nothing by itself about existence.}
 \end{frame}
 
-\begin{frame}{Sign equivalence}
-\begin{block}{Definition 2}
-Two operators $F$ and $\widetilde F$ are sign equivalent on $K$ if
-\[
- \operatorname{sgn}F_i(x)=\operatorname{sgn}\widetilde F_i(x)
- \qquad\text{for every }i\text{ and every }x\in K.
-\]
-\end{block}
+
+
+\begin{frame}{What a better representation can reveal}
 \begin{columns}[T,onlytextwidth]
-\column{0.47\textwidth}
-\textbf{The transformation preserves}
-\begin{itemize}
- \item Positive, zero and negative values.
- \item Each coordinate's incentive direction.
-\end{itemize}
-\column{0.47\textwidth}
-\textbf{The transformation may change}
-\begin{itemize}
- \item Magnitudes and derivatives.
- \item Monotonicity and integrability.
-\end{itemize}
+\column{0.48\textwidth}
+\begin{block}{$P$-property route}
+A transformed derivative matrix can establish \alert{at most one} equilibrium.
+\medskip
+\textbf{Used for:} production prices, peer effects, oligopoly pricing, CES complements.
+\end{block}
+\column{0.48\textwidth}
+\begin{block}{Potential route}
+A symmetric transformed system can become an optimization problem; curvature can give uniqueness.
+\medskip
+\textbf{Used for:} network games, public goods, multiplex interactions.
+\end{block}
 \end{columns}
 \medskip
-The equality holds on the \alert{whole domain}, including away from equilibrium.
-\slidesource{SET, Definition 2, p. 9}
-\talknote{1.5}{The object whose sign we preserve is a component of the operator, not an entry of its derivative matrix. In particular, we do not require the same strategic-complement or strategic-substitute classification of all derivative entries after transformation. The requirement also extends beyond a proposed solution. Checking that two systems vanish at a single candidate would not establish the theorem. Sign equivalence permits substantial changes to the analytic representation while preserving positive, negative and zero incentives coordinate by coordinate. This freedom allows a difficult original operator to have a transformed representation with useful curvature or matrix properties.}
+Existence needs its own argument in each application.
+\slidesource{SET, Figure 1 and Sections 3--4}
+\talknote{1.5}{This follows the two branches of Figure 1. The first branch is a matrix-based uniqueness method; the second searches for a potential. In applications we report the economic conclusion first and mention the transformation only as much as needed to understand why the conclusion is valid.}
 \end{frame}
 
-\begin{frame}{Theorem 1: equilibrium-set preservation}
-Suppose $F$ and $\widetilde F$ are sign equivalent on $K$.
-\begin{block}{Interior solutions on a general domain}
-\[
- \operatorname{Sol}(K,F)\cap\operatorname{int}K
- =\operatorname{Sol}(K,\widetilde F)\cap\operatorname{int}K.
-\]
-\end{block}
-\begin{block}{All solutions on a rectangular domain}
-If $K=\prod_i[\ell_i,u_i]$, allowing infinite endpoints, then
-\[
- \operatorname{Sol}(K,F)=\operatorname{Sol}(K,\widetilde F).
-\]
-\end{block}
-For interior solutions, even \alert{zero equivalence} suffices:
-$F_i(x)=0\Longleftrightarrow\widetilde F_i(x)=0$.
-\slidesource{SET, Theorem 1 and Remark 1, pp. 9--10}
-\talknote{2}{State the two conclusions distinctly. At an interior point the VI simply requires F to equal zero, so preserving zeros suffices without any rectangularity restriction. At the boundary, the allowed deviations depend on the geometry of the feasible set. Rectangularity gives the stronger conclusion that every solution, including corners, survives the transformation. The theorem equates sets, so it preserves multiplicity as well as uniqueness when its hypotheses hold. It does not create an equilibrium if both solution sets are empty. Infinite endpoints allow economically familiar domains such as the whole Euclidean space and the nonnegative orthant.}
-\end{frame}
-
-\begin{frame}{Why the coordinate argument works}
-\compactmath
-Fix a candidate $x^*\in K=\prod_i[\ell_i,u_i]$.
-\begin{block}{A one-coordinate deviation}
-\compactmath
-For any feasible $t\in[\ell_i,u_i]$, choose
-$x=x^*+(t-x_i^*)e_i$. The VI gives
-\[
- (t-x_i^*)F_i(x^*)\geq0.
-\]
-Its validity depends only on the sign of $F_i(x^*)$.
-\end{block}
-Sign equivalence therefore preserves every coordinate inequality.
-\[
- \sum_i(x_i-x_i^*)\widetilde F_i(x^*)\geq0
- \qquad\text{for every }x\in K.
-\]
-Reversing the argument proves equality of the solution sets.
-\slidesource{SET, proof of Theorem 1, p. 43}
-\talknote{2}{This proof is short enough to present completely. First isolate one coordinate by holding all others fixed. The product structure guarantees that the deviation remains feasible. The resulting inequality depends on which directions t minus $x_i$ can take and on the sign of $F_i$, but never on its size. Replacing $F_i$ with its sign-equivalent component therefore preserves the inequality for every feasible t. Finally, apply those inequalities at the coordinates of an arbitrary feasible vector and add them. Emphasize the single place rectangularity enters: it licenses the isolated coordinate deviations. A coupled constraint may prevent those deviations.}
-\end{frame}
-
-\begin{frame}{A square and a disk}
-\compactmath
-The operators $F_a(x)=(a(x_1-2),\,x_2-2)^\top$, $a>0$, are sign equivalent.
-Each is the gradient of
-\[
- \phi_a(x)=\tfrac a2(x_1-2)^2+\tfrac12(x_2-2)^2.
-\]
-\begin{columns}[T,onlytextwidth]
-\column{0.47\textwidth}
-\begin{block}{Square: $[-1,1]^2$}
-\compactmath
-The unique minimizer is always
-\[
- x^*=(1,1).
-\]
-The solution is independent of $a$.
-\end{block}
-\column{0.47\textwidth}
-\begin{block}{Disk: $x_1^2+x_2^2\leq1$}
-\compactmath
-\[
-\begin{gathered}
- x^*(1)=(1/\sqrt2,1/\sqrt2),
-\\
- \lim_{a\to\infty}x^*(a)=(1,0).
-\end{gathered}
-\]
-The solution varies with $a$.
-\end{block}
-\end{columns}
-\slidesource{SET, Example 1 and footnote 18, pp. 10--11}
-\talknote{2}{The quadratic potential makes this example transparent. Both ideal coordinates equal two, outside either feasible set. On the square the agent can move both coordinates to one without a tradeoff, so every positive weight a gives the same corner. On the disk the two coordinates compete for the radius budget. Increasing a raises the penalty for missing the target in the first coordinate and shifts the optimum toward that axis. Strict convexity gives a unique solution for each a. All these solutions lie on the boundary, so the example leaves the interior part of Theorem 1 intact.}
-\end{frame}
-
-\begin{frame}{Theorem 2: the domain restriction is substantive}
-\begin{block}{Universal preservation}
-On full-dimensional, nonempty closed convex domains, the paper's characterization is
-\[
- \text{every sign-equivalent pair has the same VI solutions}
- \quad\Longleftrightarrow\quad K\text{ is rectangular}.
-\]
-\end{block}
-\begin{itemize}
- \item Separate interval constraints fit the theorem directly.
- \item Coupled budgets and joint capacity constraints require additional analysis.
- \item A particular transformation may still work on a nonrectangular domain.
-\end{itemize}
-\medskip
-The necessity statement concerns \alert{all transformations}, not one chosen pair.
-\slidesource{SET, Definition 4 and Theorem 2, p. 11}
-\talknote{2}{Explain the quantifier in the theorem. Rectangularity is necessary for a domain to preserve solutions under every sign-equivalent transformation. It does not mean every transformation fails on every nonrectangular domain. A common positive scalar multiplying the whole operator, for example, preserves the VI on any domain. The problem comes from arbitrary componentwise transformations when the feasible directions are coupled. A game with separate scalar action intervals has a rectangular joint action set, whereas a shared resource constraint creates a different geometry. We state the nondegenerate full-dimensional version here, avoiding lower-dimensional domain conventions that require separate treatment.}
-\end{frame}
-
-\begin{frame}{SET1: positive componentwise rescaling}
-\begin{block}{Proposition 1}
-\[
- \widetilde F_i(x)=\alpha_i(x)F_i(x),\qquad
- \alpha_i(x)>0\quad\text{for every }x\in K.
-\]
-\end{block}
-\begin{itemize}
- \item The scale may differ across players and depend on the entire action profile.
- \item For $\widetilde u_i=\psi_i(u_i)$ with $\psi_i'>0$,
-       $\widetilde F_i=\psi_i'(u_i)F_i$.
-\end{itemize}
-\begin{block}{The derivative structure can change}
-\[
- \nabla\widetilde F_i
- =\alpha_i\nabla F_i+F_i\nabla\alpha_i.
-\]
-\end{block}
-Even a rescaling can remove or create a convenient matrix property.
-\slidesource{SET, Proposition 1 and Remarks 2--3, pp. 12--13}
-\talknote{2}{The strict positivity requirement is essential. A zero scale could manufacture a new zero, while a negative scale would reverse an incentive. Constant scales recover familiar weighted-gradient methods. Allowing profile-dependent scales is more flexible and also changes derivatives through the product rule. The extra term $F_i$ times the gradient of $\alpha_i$ is easy to overlook. Increasing transformations of a player's payoff provide a natural economic example and preserve pure-strategy preferences directly. If the transformed payoff loses own-action concavity, do not infer its Nash characterization solely from a concavity-based VI lemma. The original VI transformation remains valid through sign equivalence.}
-\end{frame}
-
-\begin{frame}{SET2: monotone transformations of a difference}
-\compactmath
-Write $F_i(x)=A_i(x)-B_i(x)$.
-\begin{block}{Increasing transformation $h$}
-\compactmath
-\[
- \widetilde F_i(x)=h(A_i(x))-h(B_i(x)).
-\]
-\end{block}
-\begin{block}{Decreasing transformation $h$}
-\compactmath
-The order reverses to preserve the sign:
-\[
- \widetilde F_i(x)=h(B_i(x))-h(A_i(x)).
-\]
-\end{block}
-For positive $A_i,B_i$, $h=\log$ turns a level comparison into a log comparison.
-
-Compositions of SET1 and SET2 preserve sign equivalence.
-\slidesource{SET, Proposition 1, p. 12 and Remark 4, p. 13}
-\talknote{2}{Use a simple scalar comparison to explain this operation. An increasing h preserves the ranking of A and B and therefore preserves the sign of their difference. A decreasing h reverses the ranking, so we must reverse the order of the transformed terms. This is especially important when an inverse marginal-benefit function is decreasing. The logarithm is useful when both terms are positive because it exposes ratios and elasticities. All transformed arguments must lie in the function's domain. Composing valid operations gives another valid transformation, which lets us combine rescaling, inversion and logarithms in the later applications.}
-\end{frame}
-
-\begin{frame}{Uniqueness tools after transformation}
-\small\compactmath
-\begin{block}{Sufficient conditions for at most one solution}
-\small
-\begin{itemize}
- \item $\widetilde F$ is strictly monotone, or
- \item $K$ is rectangular and $J_{\widetilde F}(x)$ is a P-matrix for every $x\in K$.
-\end{itemize}
-P-matrix: all principal minors are strictly positive.
-\end{block}
-\begin{block}{A convex potential}
-\small\compactmath
-If $\nabla\phi=\widetilde F$ and $\phi$ is convex, then
-\[
- \operatorname{Sol}(K,\widetilde F)=\operatorname*{arg\,min}_{x\in K}\phi(x).
-\]
-Strict convexity gives at most one minimizer.
-\end{block}
-\alert{Existence requires a separate argument}, such as compactness or coercivity.
-\slidesource{SET, Lemmas 2--3 and Remark 5, pp. 13--15}
-\talknote{2}{The transformed operator gives us access to familiar tools. Strict monotonicity rules out two different VI solutions by adding their defining inequalities. The P-matrix route can succeed when the symmetric part of a derivative matrix fails the monotonicity test. A symmetric derivative matrix permits integration on the convex domain, and positive semidefinite curvature connects the VI to convex minimization. Keep the logical distinction between at most one and exactly one. A strictly convex function on an unbounded domain need not attain its infimum. Strong monotonicity or suitable coercivity can supply existence under the usual continuity and closed-domain assumptions.}
-\end{frame}
-
-\begin{frame}{Payoff scaling leaves equilibrium unchanged}
-\compactmath
-Consider two players with $x_i\in\mathbb R$ and $\delta>0$:
-\[
- u_i=x_i-\tfrac12x_i^2+\delta x_ix_j,\qquad i\ne j.
-\]
-Scale player 2's payoff by $\kappa>0$. The two operators are
-\[
- F(x)=\begin{pmatrix}x_1-1-\delta x_2\\x_2-1-\delta x_1\end{pmatrix},
- \qquad
- \widetilde F(x)=\begin{pmatrix}F_1(x)\\\kappa F_2(x)\end{pmatrix}.
-\]
-\begin{block}{A scale-invariant benchmark}
-\compactmath
-For every $\kappa>0$ and $0<\delta<1$, SET recovers the unique equilibrium
-\[
- x_1^*=x_2^*=\frac{1}{1-\delta}.
-\]
-\end{block}
-\slidesource{SET, payoff-scaling example, pp. 15--16; $\kappa$ replaces the example's $\beta$}
-\talknote{2}{This example isolates the difference between an economic property and a sufficient analytic test. Multiplying player 2's entire payoff by a positive number cannot change best responses. The equilibrium equations remain $x_1$ equals one plus delta times $x_2$ and the symmetric counterpart. Their positive solution in the standard complementarity region delta below one is one over one minus delta for both players. The original derivative matrix is symmetric positive definite in this region. By dividing the second component of the scaled operator by kappa, SET immediately recovers that representation. No condition on the payoff measurement unit is economically warranted.}
-\end{frame}
-
-\begin{frame}{Why a direct monotonicity test can be restrictive}
-\compactmath
-The scaled derivative matrix and its symmetric part are
-\[
- J_{\widetilde F}=\begin{pmatrix}1&-\delta\\-\kappa\delta&\kappa\end{pmatrix},\qquad
- S=\begin{pmatrix}1&-\frac{(1+\kappa)\delta}{2}\\
- -\frac{(1+\kappa)\delta}{2}&\kappa\end{pmatrix}.
-\]
-Since $S_{11}>0$, positive definiteness requires
-\[
- \det S=\kappa-\frac{(1+\kappa)^2\delta^2}{4}>0
- \quad\Longleftrightarrow\quad
- \delta<\frac{2\sqrt\kappa}{1+\kappa}.
-\]
-\begin{block}{Example: $\kappa=4$}
-Direct monotonicity: $\delta<0.8$.\qquad SET: $0<\delta<1$.
-\end{block}
-The P-matrix test also recovers $\delta<1$ in this constant-scaling example.
-\slidesource{SET, eqs. (7)--(8), pp. 15--16; symmetric-part calculation}
-\talknote{2}{For a linear operator, the antisymmetric part contributes nothing to the quadratic form that defines monotonicity. Thus we check S, whose first diagonal element is positive and whose determinant yields the displayed bound. The arithmetic-geometric mean inequality makes the bound at most one, with equality only at kappa equals one. It approaches zero as kappa approaches zero or infinity, even though the equilibrium is unchanged. Be precise about the comparison: this demonstrates a limitation of the unweighted direct monotonicity test. The scaled matrix still has positive principal minors for delta below one, so the P-matrix test succeeds here as well.}
-\end{frame}
-
-\begin{frame}{Theorem 3: inversion and a network potential}
-\small\compactmath
-For continuous, strictly monotone $R_i$, suppose
-\[
- h_i(x_i)=R_i\!\Bigl(s_i(x_i)+\delta\sum\nolimits_jg_{ij}x_j\Bigr).
-\]
-Define $q_i=R_i^{-1}\circ h_i-s_i$ wherever the inverse exists.
-\[
- \widetilde f_i(x)=q_i(x_i)-\delta(Gx)_i=0.
-\]
-\begin{block}{Symmetric $G$}
-\small\compactmath
-\[
- \phi(x)=\sum_i\int_{x_i^0}^{x_i}q_i(t)\,dt
-          -\frac\delta2x^\top Gx,
- \qquad \nabla\phi=\widetilde f.
-\]
-Interior equilibria are stationary points of $\phi$.
-\end{block}
-Decreasing $R_i$: zeros are preserved, but boundary VIs require a sign correction.
-\slidesource{SET, Theorem 3 and discussion, pp. 23--26}
-\talknote{2.5}{The key step isolates all cross-player terms in a linear network expression. Once we invert $R_i$, the only own-action term is $q_i$, while the off-diagonal derivatives become minus delta times $g_{ij}$. Symmetry of the undirected network makes those cross derivatives symmetric, giving the displayed potential. This argument concerns zeros and hence interior solutions. If an $R_i$ is decreasing, applying its inverse reverses the sign of the original difference, although it preserves zeros. Therefore the displayed gradient cannot automatically replace the original operator at a boundary. Finally, a stationary point need not minimize the potential. Curvature supplies that additional conclusion.}
-\end{frame}
-
-\begin{frame}{Nonlinear best responses and spectral curvature}
-\small\compactmath
-Let $x_i=v_i(\delta\sum_jg_{ij}x_j)$ with $v_i'>0$. Wherever each inverse exists,
-\[
- \widetilde F_i(x)=v_i^{-1}(x_i)-\delta\sum_jg_{ij}x_j,
- \qquad
- \phi(x)=\sum_i\int^{x_i}v_i^{-1}(t)\,dt-\frac\delta2x^\top Gx.
-\]
-The transformed Hessian is symmetric:
-\[
- \nabla^2\phi(x)=D(x)-\delta G,\qquad
- D_{ii}(x)=\frac{1}{v_i'(v_i^{-1}(x_i))}.
-\]
-\begin{block}{A sufficient curvature condition}
-\[
- \inf_{i,x_i}D_{ii}(x_i)>\delta\lambda_{\max}(G)
- \quad\Longrightarrow\quad\phi\text{ is strongly convex}.
-\]
-This gives at most one equilibrium on the domain of a valid sign-equivalent VI.
-\end{block}
-\slidesource{SET, eqs. (25)--(30), Proposition 5 and Remarks 8--9, pp. 26--28}
-\talknote{2.5}{In the original representation the derivative of player i's response depends on i's exposure, so cross derivatives generally differ across players even on an undirected graph. Inversion removes that asymmetry. The lower bound on D dominates the largest eigenvalue of the interaction matrix: for any vector z, the Hessian quadratic form is at least the lower bound on D minus delta $\lambda_{\max}$, times the squared norm. This delivers strong convexity. Check the inverse's range and establish existence separately in the chosen domain. For a linear response $v_i$(z) equals $a_i$ plus z, D equals the identity and the familiar condition delta $\lambda_{\max}$ below one reappears.}
-\end{frame}
-
-
-% ===== production =====
-% Four main frames. Native Beamer content for the SET seminar.
 
 \begin{frame}{CES production networks}
 \compactmath
@@ -451,32 +172,24 @@ The Cobb--Douglas case $\sigma_i=1$ follows by a limit.
 \talknote{2}{The production network differs from a strategic network game, but the same transformation principle applies to its equilibrium equations. The coefficients describe which industries buy inputs from which suppliers. The model combines a labor share with a CES aggregate of intermediate inputs. I display the resulting unit-cost equation rather than the full input-demand derivation. Positive labor shares matter because part of each industry's cost comes from the exogenous wage. The displayed expression covers industries with intermediate inputs. A pure-labor industry's price equals the wage divided by its productivity.}
 \end{frame}
 
-\begin{frame}{Log SET and the row-sum bound}
-\small\compactmath
-\[
- p_i z_i-C_i(p)\ \sim_{\mathrm{sign}}\
- \log(p_i z_i)-\log C_i(p),
- \qquad x_i=\log(p_i/w).
-\]
-\[
- \widetilde F_i(x)=x_i+\log z_i
- -\frac{1-\alpha_i}{1-\sigma_i}
- \log\!\Bigl(\frac{\sum\nolimits_j a_{ij}e^{(1-\sigma_i)x_j}}{1-\alpha_i}\Bigr).
-\]
-\begin{block}{A uniform margin supplied by labor}
-\[
- D\widetilde F(x)=I-W(x),\qquad
- W_{ij}(x)=\frac{(1-\alpha_i)a_{ij}e^{(1-\sigma_i)x_j}}
- {\sum\nolimits_k a_{ik}e^{(1-\sigma_i)x_k}}.
-\]
-$W(x)\geq0$ and $\sum_j W_{ij}(x)=1-\alpha_i<1$ at every $x$.
-Thus $I-W(x)$ is a $P$-matrix.
+
+\begin{frame}{Production networks: labor anchors the price system}
+\begin{block}{A simple change of representation}
+From the nonlinear unit-cost equation $p_i z_i=C_i(p)$, take logarithms of both positive sides and set $x_i=\log(p_i/w)$.
 \end{block}
-$T(x)=x-\widetilde F(x)$ is a contraction with modulus $1-\min_i\alpha_i<1$.
-A unique equilibrium exists.
-\slidesource{SET, Proposition 2 and equation (14), p. 19}
-\talknote{2}{Taking logarithms of the two positive sides preserves the sign of their difference. Replacing prices by relative log prices is a separate, one-to-one change of coordinates. Differentiate the transformed equation and inspect a row of W. Its entries are nonnegative and sum to one minus the labor share, uniformly over all log prices. Every principal submatrix of I minus W inherits strict diagonal dominance, which gives the P-matrix argument. The same uniform bound makes the fixed-point map a contraction on all of real space, establishing existence as well as uniqueness.}
+\[
+D\widetilde F(x)=I-W(x),\qquad W(x)\geq0,\qquad
+\sum_j W_{ij}(x)=1-\alpha_i<1.
+\]
+\begin{itemize}
+\item A positive labor share $\alpha_i$ limits the feedback through intermediate inputs.
+\item The log-price map is a contraction: the equilibrium price vector \alert{exists and is unique}.
+\item Input linkages still transmit productivity shocks across industries.
+\end{itemize}
+\slidesource{SET, Proposition 2 and Section 3.1, pp. 18--19}
+\talknote{2}{The original equations are nonlinear in prices. The logarithmic transformation exposes a nonnegative pass-through matrix. Its row sum is the intermediate-input share, strictly below one because labor has positive weight. This gives a particularly transparent fixed-point intuition: each round of price feedback is smaller than the last. Explain that uniqueness and existence are both established here, unlike some later examples.}
 \end{frame}
+
 
 \begin{frame}{Cobb--Douglas and the Leontief inverse}
 \compactmath
@@ -502,31 +215,68 @@ As $\sigma_i\to1$, let $\varepsilon_i=\log z_i$ and $A=(a_{ij})$.
 \talknote{1.5}{The Cobb--Douglas limit anticipates the centrality discussion to follow. The Leontief inverse and the Bonacich inverse share the same algebraic structure. Their economic meanings differ. Here x denotes prices relative to wages in logarithms, and a productivity improvement enters with a negative sign. A positive productivity shock lowers the firm's own log price and can lower prices at downstream firms. Each additional power of A follows another round of input dependence. Labor shares keep the spectral radius below one, so the series converges without a separate free interaction parameter.}
 \end{frame}
 
-\begin{frame}{Other applications of SET}
-\small
-\renewcommand{\arraystretch}{1.17}
-\begin{tabular}{@{}P{0.24\textwidth}P{0.29\textwidth}P{0.41\textwidth}@{}}
-\toprule
-Model & Transformation & Conditional result\\
-\midrule
-Nonlinear peers & Log SET and log actions &
-Uniqueness conditional on existence (Proposition 3).\\
-Oligopoly pricing & Positive rescaling &
-At most one equilibrium under E1--E3.\\
-Public goods with income & Inverse Engel curve &
-Potential. Uniqueness under normality and spectral conditions.\\
-Multiplex networks & Transform marginal benefits &
-Potential. Strict curvature needs spectral restrictions.\\
-\bottomrule
-\end{tabular}
-\par\medskip
-All results require the corresponding model assumptions.
-\slidesource{SET, Propositions 3, 4 and 6, Sections 3.2--3.5, pp. 20--31}
-\talknote{1.5}{These examples show how broadly the method applies while keeping the conclusions separate. The peer-effects result proves uniqueness conditional on existence. In pricing, a positive rescaling preserves boundary conditions even when price caps or floors bind. The demand restrictions then deliver the P-property. The income-dependent public-good model uses an inverse Engel curve to recover symmetric cross derivatives on an undirected network. The multiplex application also yields a potential, with curvature depending on additional restrictions. None of these examples turns equilibrium existence or strict convexity into an automatic consequence of sign equivalence.}
+
+\begin{frame}{Existing application: nonlinear peer effects}
+\begin{block}{A social norm need not be the average peer}
+\[
+\widetilde x_{-i}(\beta)=\left(\sum_j\widetilde g_{ij}x_j^{\beta}\right)^{1/\beta},
+\qquad
+x_i=(1-\lambda_2)a_i+(\lambda_1+\lambda_2)\widetilde x_{-i}(\beta).
+\]
+\end{block}
+\begin{itemize}
+\item $\beta=1$ recovers linear-in-means; other values change whose behavior is most influential.
+\item Taking logs exposes a $P$-property: under the paper's parameter restrictions, \alert{any solution is unique}.
+\item The result is conditional on existence; the transformation alone does not supply it.
+\end{itemize}
+\slidesource{SET, Proposition 3, Section 3.2, pp. 20--21}
+\talknote{2}{Contrast this row-normalized social norm with the unnormalized CES aggregate in the new model later. The old linear-in-means specification is beta one. The result here is uniqueness conditional on existence under the stated parameter restrictions. Mention that social norms can emphasize high or low achievers, which makes the application economically relevant.}
 \end{frame}
 
 
-% ===== complements =====
+
+\begin{frame}{Existing application: oligopoly with price bounds}
+Firm $i$ chooses $p_i\in[a_i,b_i]$ and earns $(p_i-c_i)Q_i(p)$.
+\begin{block}{A transformed pricing condition}
+\[
+F_i=-\frac{\partial\pi_i}{\partial p_i}
+\quad\sim_{\rm sign}\quad
+\widetilde F_i=p_i-c_i+\frac{Q_i}{\partial Q_i/\partial p_i}.
+\]
+The positive rescaling preserves the signs at both interior prices and binding price floors or caps.
+\end{block}
+\begin{itemize}
+\item Under the paper's demand conditions E1--E3, the transformed system has the $P$-property.
+\item Therefore the Bertrand game has \alert{at most one} pure-strategy equilibrium.
+\end{itemize}
+\slidesource{SET, Proposition 4, Section 3.3, pp. 21--23}
+\talknote{2}{This is a useful boundary example: price caps and floors may bind, so preserving only interior first-order zeros would be insufficient. Demand slopes are negative, making the rescaling positive. The demand restrictions are log concavity in own price, log supermodularity across prices, and translation invariance with the outside option. The conclusion is at most one equilibrium; standard methods address existence separately.}
+\end{frame}
+
+
+
+\begin{frame}{Existing applications: network games and multiplexity}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\begin{block}{Network public goods with income}
+An inverse Engel curve turns heterogeneous marginal conditions into a symmetric system on an undirected graph.
+\medskip
+A potential and a spectral condition can then give uniqueness.
+\end{block}
+\column{0.48\textwidth}
+\begin{block}{Several network layers}
+An agent chooses effort across multiple kinds of ties. A transformed system can have a potential even with cross-layer costs.
+\medskip
+Extra curvature conditions are needed for uniqueness.
+\end{block}
+\end{columns}
+\medskip
+The same method can reveal different mathematical structures across models.
+\slidesource{SET, Theorem 3 and Proposition 6, Sections 3.4--3.5, pp. 23--31}
+\talknote{2}{Use this slide to close the survey of existing models. In the income-based public-good example, inversion of a private-good Engel curve removes asymmetric cross derivatives. In the multiplex model, each person allocates activity over several networks; the transformed potential handles within-layer ties and cross-layer private costs. These examples motivate the two new applications that follow.}
+\end{frame}
+
+
 \begin{frame}{CES peer effects on an unnormalized network}
 \small\compactmath
 \[
@@ -569,45 +319,25 @@ Changing $\beta$ also changes the scale of this unnormalized aggregate.
 \talknote{1.5}{Use two neighbors with different action levels to explain beta. The derivative ratio isolates relative influence because the common aggregate term cancels. This gives a clean economic interpretation without claiming that beta simply increases total spillovers. The aggregate is unnormalized: even if every neighbor chooses the same action x, a degree-d player receives peer input d to the power one over beta times x. Thus changing beta affects both relative sensitivity and total input. Keep delta fixed when discussing beta, and check whether the resulting parameters remain below the existence threshold.}
 \end{frame}
 
-\begin{frame}{A log transformation of the equilibrium conditions}
-Every equilibrium satisfies $x_i\geq a_i>0$.
-Let $F_i(x)=x_i-a_i-\delta S_i(x)$.
-\begin{block}{SET2, followed by a change of variables}
+
+\begin{frame}{CES complements: uniqueness without a closed form}
+\small
+Every equilibrium has $x_i>0$. Write $z_i=\log x_i$ and compare the positive quantities in the best-response equation:
 \[
- \sgn F_i(x)=\sgn\!\left[\log x_i-\log(a_i+\delta S_i(x))\right].
+H_i(z)=z_i-\log\!\left(a_i+\delta S_i(e^z)\right).
 \]
-Set $z_i=\log x_i$ and write
+\begin{block}{What the transformation reveals}
 \[
- H_i(z)=z_i-\log\!\left[a_i+\delta S_i(e^z)\right].
+DH(z)=I-W(z),\qquad W(z)\geq0,\qquad
+\sum_jW_{ij}(z)=\frac{\delta S_i}{a_i+\delta S_i}<1.
 \]
+The positive baseline $a_i$ leaves some own-action weight in every row. Hence there is \alert{at most one} finite positive equilibrium.
 \end{block}
-The logarithmic difference preserves signs. The coordinate change maps
-$\R_{++}^n$ bijectively to $\R^n$.
-\slidesource{SET, Theorem 4 and the method of Proposition 3, pp. 20--21, 33}
-\talknote{1.5}{Separate the two operations carefully. First, compare two positive quantities through an increasing logarithm. That is the sign-equivalent transformation. Second, use logarithmic coordinates, which is a variable change and not itself the definition of SET. All equilibria lie in the positive orthant, so the new coordinates lose no equilibrium. The benefit of this representation appears in its derivative: logarithms turn the nonlinear interactions into weights whose row sums have a particularly simple expression.}
+Whether a finite equilibrium exists depends on the network threshold on the next slide.
+\slidesource{SET, Theorem 4, Section 4.1, pp. 32--34}
+\talknote{2}{This is the one mathematical step worth retaining from the proof. The log transformation converts nonlinear peer effects into a matrix of shares. The shares sum to less than one at each finite point because part of effort comes from the positive baseline. This yields uniqueness, but the slack is not uniform on an unbounded domain, so existence needs the separate spectral result.}
 \end{frame}
 
-\begin{frame}{The transformed Jacobian and uniqueness}
-\small\compactmath
-Let $S_i=S_i(e^z)$ and define
-\[
- W_{ij}(z)=\frac{\delta S_i}{a_i+\delta S_i}\cdot
-           \frac{g_{ij}e^{\beta z_j}}{\sum_k g_{ik}e^{\beta z_k}}.
-\]
-\begin{block}{A substochastic interaction matrix}
-\[
- DH(z)=I-W(z),\qquad W(z)\geq0,\qquad
- \sum_jW_{ij}(z)=\frac{\delta S_i}{a_i+\delta S_i}<1.
-\]
-\end{block}
-\begin{itemize}
- \item $I-W(z)$ is a nonsingular M matrix and hence a P matrix.
- \item There is \alert{at most one} positive equilibrium for every $\delta>0$.
- \item The row-sum bound is pointwise. It does not establish existence on $\R^n$.
-\end{itemize}
-\slidesource{SET, Theorem 4 uniqueness argument, p. 33; expanded derivative calculation}
-\talknote{2}{The second factor is the share of neighbor j in the CES sum and adds to one. The first factor is the fraction of the best response due to peers, strictly below one because the baseline is positive. This yields a nonnegative matrix with row sums below one at each finite point. Explain that every principal submatrix also has spectral radius below one, giving positive principal minors for I minus W. Crucially, the row-sum slack can disappear along unbounded sequences. Uniqueness therefore holds even in parameter regions where a finite equilibrium does not exist.}
-\end{frame}
 
 \begin{frame}{The spectral existence threshold}
 \begin{block}{Theorem 4}
@@ -628,61 +358,20 @@ On a $d$-regular network with $a_i=a$,
 \talknote{1.5}{State the theorem before proving it. The regular-network example makes the threshold transparent: peer input is d to the power one over beta times the common action. A positive finite fixed point needs the feedback coefficient below one. In an irregular graph, the Perron eigenvalue replaces the common degree. The theorem statement in the draft uses a strict inequality in its nonexistence part, but its proof also excludes equality. We therefore state the sharpened closed-threshold version, with the source of that detail visible in the citation.}
 \end{frame}
 
-\begin{frame}{Why the threshold is necessary}
-\small\compactmath
-At a positive equilibrium, powers are taken componentwise:
-\[
- (x-a)^\beta=\delta^\beta Gx^\beta<x^\beta.
-\]
-Let $e\gg0$ satisfy $Ge=\lambda_{\max}(G)e$. Since $G$ is symmetric,
-\[
- \delta^\beta\lambda_{\max}(G)e^\top x^\beta<e^\top x^\beta.
-\]
-\begin{block}{A strict restriction}
-\[
- \delta^\beta\lambda_{\max}(G)<1
- \quad\Longleftrightarrow\quad\delta<\bar\delta.
-\]
-\end{block}
-The positive baseline makes the inequality strict, excluding the critical point.
-\slidesource{SET, Theorem 4, pp. 48--49; simplified Perron-vector proof}
-\talknote{2}{Walk through every inequality. At equilibrium, x minus a equals the peer term. Raising positive components to beta preserves strict order because beta is positive. Since a is positive, x minus a is strictly below x. The positive left Perron vector aggregates the componentwise inequality without losing strictness. Symmetry lets us use the same vector as a left eigenvector. Divide by the positive scalar e transpose x to the beta. This proof explains why mere invertibility of a transformed expression is insufficient: the economics requires a finite positive fixed point.}
-\end{frame}
-
-\begin{frame}{Existence through a Perron upper bound}
-\small\compactmath
-For $\delta<\bar\delta$, choose $z_i=M e_i^{1/\beta}$. Then
-\[
- T_i(z)=a_i+\delta\lambda_{\max}(G)^{1/\beta}z_i\leq z_i
-\]
-whenever
-\[
- M\geq\max_i\frac{a_i}{(1-\delta\lambda_{\max}(G)^{1/\beta})e_i^{1/\beta}}.
-\]
-\begin{block}{Monotone iteration}
-\[
- x^{(0)}=a,\qquad x^{(k+1)}=T(x^{(k)}),\qquad
- a\leq x^{(k)}\leq x^{(k+1)}\leq z.
-\]
-\end{block}
-The limit exists and solves $x=T(x)$ by continuity. SET supplies uniqueness.
-\slidesource{SET, proof of Theorem 4, p. 48; equivalent iteration from the lower bound}
-\talknote{2}{The unbounded strategy space prevents an immediate appeal to a compact-domain fixed-point theorem. The Perron vector constructs the relevant compact order interval endogenously. Verify that T maps a upward and maps z downward. Monotonicity then traps every iterate between a and z. Componentwise monotone convergence and continuity give a fixed point. The paper iterates downward from the upper bound; iterating upward from a gives the same conclusion and, by uniqueness, the same limit. Existence and uniqueness use different arguments, which is one of the main methodological lessons.}
-\end{frame}
-
 \begin{frame}{Comparative statics below the threshold}
-\begin{block}{Monotone equilibrium responses}
-If $a'\geq a$ or $\delta'\geq\delta$, and both parameter values admit equilibrium,
-the corresponding equilibrium action vector weakly increases.
+\begin{block}{How shocks change behavior}
+Within the region where a finite equilibrium exists,
+\[
+ a'\geq a\quad\Longrightarrow\quad x^*(a',\delta,\beta)\geq x^*(a,\delta,\beta),
+\]
+\[
+ \delta'\geq\delta\quad\Longrightarrow\quad x^*(a,\delta',\beta)\geq x^*(a,\delta,\beta).
+\]
 \end{block}
 \begin{itemize}
- \item The best-response map increases in neighbors' actions, $a$, and $\delta$.
- \item The old equilibrium is a lower solution for the new best-response map.
- \item A new Perron upper bound makes the increasing iteration converge.
+ \item A higher individual baseline or stronger peer interaction raises equilibrium effort across the network.
+ \item Equilibrium payoff is $u_i(x^*)=\tfrac12(x_i^*)^2$: changes in effort also change welfare.
 \end{itemize}
-\[
- u_i(x^*)=\frac12(x_i^*)^2.
-\]
 \slidesource{SET, Theorem 4(i) and the equilibrium-payoff observation, pp. 33--34}
 \talknote{1.5}{The comparative statics follow without explicitly differentiating a nonlinear inverse. Starting at the old equilibrium, larger baselines or stronger spillovers move the first best response upward. Subsequent iterations remain ordered and converge to the new equilibrium, provided the new parameters remain in the existence region. The payoff identity follows by substituting the best-response condition into utility. It preserves the familiar linear-quadratic relationship between action and equilibrium payoff, even though the action profile itself now reflects nonlinear aggregation. Avoid interpreting the theorem as a general monotonicity result in beta.}
 \end{frame}
@@ -707,43 +396,6 @@ When $\beta=1$,
 \talknote{1.5}{This slide answers the original matrix question directly. The vector on the right is an exogenous input, while x is the endogenous response after all rounds of peer feedback. An eigenvector solves a homogeneous proportionality equation, whereas Bonacich centrality solves an inhomogeneous fixed point. These are different objects for a generic delta. The relationship emerges because the inverse amplifies each eigenvector direction by a different factor. We will first give the walk interpretation, then diagonalize the inverse to identify those factors.}
 \end{frame}
 
-\begin{frame}{Walks, invertibility, and amplification}
-If $\delta\rho(G)<1$,
-\[
- (I-\delta G)^{-1}=\sum_{k=0}^{\infty}\delta^kG^k,
- \qquad x^*=a+\delta Ga+\delta^2G^2a+\cdots.
-\]
-\begin{itemize}
- \item $(G^k)_{ij}$ counts length-$k$ walks in an unweighted graph.
- \item Walks may revisit nodes and edges. Their weights are $\delta^k$.
- \item The spectrum determines whether this infinite feedback sum converges.
-\end{itemize}
-\begin{block}{Two distinct conditions}
-Invertibility requires $1-\delta\lambda_k\neq0$ for every $k$.
-The convergent nonnegative multiplier requires $\delta\rho(G)<1$.
-\end{block}
-\slidesource{SET, p. 34; Neumann-series interpretation of the linear benchmark}
-\talknote{1.5}{Explain the first few terms as baseline, direct-neighbor feedback, and feedback through two steps. Walks, rather than simple paths, are essential because feedback can return to the same agent. Invertibility alone excludes isolated poles, while convergence restricts an entire parameter interval. Above the positive threshold the inverse may exist algebraically but cannot deliver the positive equilibrium required by the game. This distinction is often hidden when the equilibrium is written only as an inverse matrix. A two-node example in the backup slides makes it explicit.}
-\end{frame}
-
-\begin{frame}{The inverse acts separately on each eigenvector}
-Let $Gv_k=\lambda_kv_k$ with an orthonormal eigenbasis. Write
-\[
- a=\sum_{k=1}^n(v_k^\top a)v_k.
-\]
-\begin{block}{Spectral decomposition}
-\[
- x^*=\sum_{k=1}^n
- \underbrace{\frac{1}{1-\delta\lambda_k}}_{\text{amplification factor}}
- (v_k^\top a)v_k.
-\]
-\end{block}
-A baseline $a=cv_k$ stays in that eigenvector direction.
-Generic baselines combine several directions.
-\slidesource{Standard spectral decomposition, connecting SET equation (47), p. 34}
-\talknote{2}{Apply I minus delta G to a single eigenvector: the result is one minus delta lambda times that vector. Inverting therefore scales the same direction by the reciprocal. Since a symmetric adjacency matrix has an orthonormal eigenbasis, any baseline can be decomposed into these directions and the equilibrium follows term by term. This gives the exact relationship to Ax equals lambda x. At ordinary parameter values several directions matter. As delta approaches the positive spectral threshold, only the principal direction has an unbounded amplification factor.}
-\end{frame}
-
 \begin{frame}{Eigenvector centrality at the critical limit}
 \small\compactmath
 For the positive unit Perron vector $e$,
@@ -763,31 +415,6 @@ For the positive unit Perron vector $e$,
 \end{itemize}
 \slidesource{SET, Theorem 4(ii), pp. 33--34, equations (46)--(47); connected network}
 \talknote{2}{In the linear model, positivity of a ensures a positive projection onto e, so the diverging principal component cannot disappear. In the nonlinear model, large equilibrium actions make the fixed baseline negligible relative to the peer term. Raising actions to beta yields an asymptotic eigenvector equation. Connectedness makes the positive Perron direction unique up to scale. Explain that the limit is a statement about relative actions, not a finite equilibrium at the threshold. A normalized subsequence proof is available in the backup slides if the audience asks why the ratios actually converge.}
-\end{frame}
-
-\begin{frame}{A three-node path: an exact nonlinear example}
-\small\compactmath
-\begin{center}
-\begin{tikzpicture}[n/.style={circle,draw=mDarkTeal,fill=mDarkTeal!8,minimum size=.6cm}]
-\node[n] (a) at (0,0) {1};
-\node[n,fill=mLightBrown!20] (b) at (1.5,0) {2};
-\node[n] (c) at (3,0) {3};
-\draw[thick] (a)--(b)--(c);
-\end{tikzpicture}
-\end{center}
-Set $a_i=1$. Symmetry gives endpoint action $L$ and center action $C$:
-\[
- L=1+\delta C,\qquad C=1+\delta 2^{1/\beta}L.
-\]
-\begin{block}{Closed-form solution}
-\[
- L=\frac{1+\delta}{1-\delta^2 2^{1/\beta}},\qquad
- C=\frac{1+\delta 2^{1/\beta}}{1-\delta^2 2^{1/\beta}}.
-\]
-\end{block}
-$\lambda_{\max}=\sqrt2$, $e\propto(1,\sqrt2,1)$, and $\bar\delta=2^{-1/(2\beta)}$.
-\slidesource{An analytical example constructed for this seminar from SET's CES model}
-\talknote{2}{The three-node path is useful because the nonlinear problem collapses to two linear equations once symmetry is imposed. Each endpoint has only one neighbor, so its CES aggregate equals the center action. The center has two identical neighbors, giving the factor two to the power one over beta. Solve the two equations directly and inspect the common denominator. It vanishes precisely at the general spectral threshold. The numerator ratio has a finite limit, even though both actions diverge. This is a constructed teaching example rather than a reported table from the paper.}
 \end{frame}
 
 \begin{frame}{Relative actions along the path}
@@ -884,9 +511,6 @@ $\beta=0.722$ within its reported parameter range.
 \talknote{1.5}{Explain the three structural types before interpreting the table. Node one links two complete groups, whereas type-two nodes have more direct links and exert more effort. Yet the bridge becomes more important when feedback is strong. The nonlinear result adds another determinant: changing peer aggregation can change the key-player type even with delta fixed. The numerical switch near point seven two two is a reported calculation over the paper's admissible interval, not a general closed-form threshold. This connects equilibrium characterization to policy while retaining the distinction between individual centrality and intervention impact.}
 \end{frame}
 
-
-% ===== substitutes =====
-% Strategic substitutes: eight main frames, approximately twelve minutes.
 \begin{frame}{Network public goods with nonlinear costs}
 \small\compactmath
 On an undirected network, player $i$ chooses $x_i\geq0$ and receives
@@ -911,93 +535,47 @@ The benchmark of Bramoull\'e and Kranton (2007) has $c(x)=x$ and $\delta=1$.
 \end{frame}
 
 \begin{frame}{Best responses, corners, and existence}
-\small\compactmath
-Write $t_i=\delta\sum_jg_{ij}x_j$ and
+\small
+Let $t_i=\delta\sum_jg_{ij}x_j$ be the public good supplied by neighbors.
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\begin{block}{If $x_i>0$}
+The agent balances marginal benefit and cost:
 \[
- \theta(t)=\arg\max_{z\geq0}\{b(z+t)-c(z)\}.
-\]
-\begin{block}{Equilibrium conditions, including zero effort}
-\[
- 0\leq x_i\ \perp\ 
- F_i(x)=c'(x_i)-b'(x_i+t_i)\geq0.
+ b'(x_i+t_i)=c'(x_i).
 \]
 \end{block}
-Where the best response is positive,
-\[
- \theta'(t)=\frac{b''(\theta(t)+t)}{c''(\theta(t))-b''(\theta(t)+t)}\in[-1,0).
-\]
-Every best response lies in $[0,k^*]$. A continuous best-response map on
-$[0,k^*]^n$ therefore has a fixed point.
+\column{0.48\textwidth}
+\begin{block}{If $x_i=0$}
+Neighbors may already provide enough that contributing the first unit is not worthwhile.
+\end{block}
+\end{columns}
+\medskip
+More provision by neighbors weakly reduces one's best response. Every best response is at most the autarky effort $k^*$, so a finite equilibrium exists.
 \slidesource{SET, pp. 38 and 50--51, equation (49) and proof of Theorem 5}
 \talknote{1.5}{The complementarity notation combines nonnegative effort, a nonnegative negative marginal payoff, and a zero product. A corner is optimal when peers already provide enough public good that the first unit of own effort has no positive net return. The derivative calculation shows strategic substitution directly and also shows how cost curvature attenuates the response. For existence, no spectral bound is needed here. Since peers supply nonnegative effort, an agent never wants more than the autarky amount. Strict own concavity gives a unique continuous best response, and the compact invariant box yields a fixed point. This separates the existence argument from the uniqueness argument that follows.}
 \end{frame}
 
-\begin{frame}{A decreasing inverse produces a symmetric system}
-\small\compactmath
-Let $q_i=x_i+\delta\sum_jg_{ij}x_j$ and, on the relevant inverse domain, define
+
+\begin{frame}{Substitutes: curvature can restore uniqueness}
+\small
+The original marginal conditions are asymmetric because each agent receives different total provision. A sign-equivalent inverse transformation gives
 \[
- h(x_i)=(b')^{-1}(c'(x_i)).
+\widetilde F_i(x)=x_i+\delta\sum_jg_{ij}x_j-h(x_i),
+\qquad h=(b')^{-1}\!\circ c'.
 \]
-Since $b'$ is strictly decreasing,
+\begin{block}{Economic result}
+On an undirected graph this system has a potential. The sufficient condition
 \[
- \operatorname{sgn}\!\left(c'(x_i)-b'(q_i)\right)
- =\operatorname{sgn}\!\left(q_i-h(x_i)\right).
+1+\delta\lambda_{\min}(G)>0
 \]
-\begin{block}{The transformed operator}
-\[
- \widetilde F_i(x)=x_i+\delta\sum\nolimits_jg_{ij}x_j-h(x_i),
- \qquad
- \frac{\partial\widetilde F_i}{\partial x_j}=\delta g_{ij}\quad(j\neq i).
-\]
+ensures a unique equilibrium. Convex private costs add curvature and can support uniqueness beyond this simple bound.
 \end{block}
-Rectangularity preserves complementarity. Symmetry of $G$ gives integrability.
-\slidesource{SET, p. 39, SET2 application preceding equation (50)}
-\talknote{1.5}{Walk through the sign calculation slowly. Applying a decreasing inverse reverses the order, so the transformed residual is total provision minus the target h. The order matters for corners, even when both sign choices would have the same interior zeros. The original cross derivatives depend on each player's total provision and need not match. The transformed cross derivatives are simply delta times the adjacency entries. The inverse must exist for the marginal-cost values under consideration. If an endpoint produces an infinite inverse or lies outside its range, it needs a justified extension or restriction. The original complementarity formulation and the preceding existence proof do not depend on that inverse.}
+The sign equivalence also retains equilibria with zero effort.
+\slidesource{SET, Theorem 5, Section 4.2, pp. 38--40}
+\talknote{2}{For strategic substitutes the smallest eigenvalue matters; compare the largest eigenvalue in the complements model. We need the order reversal when inverting the decreasing marginal benefit, so corner conditions retain the correct sign. The displayed spectral restriction is sufficient, not necessary, and cost curvature can make the result stronger. The next two slides show concrete behavioral differences from the linear-cost benchmark.}
 \end{frame}
 
-\begin{frame}{A potential for the transformed equilibrium conditions}
-\small\compactmath
-Using the convex-minimization sign convention, define
-\[
- \Phi(x)=\frac12x^\top(I+\delta G)x
-       -\sum_i\int^{x_i}h(t)\,dt.
-\]
-\[
- \nabla\Phi(x)=\widetilde F(x),\qquad
- 0\leq x\ \perp\ \nabla\Phi(x)\geq0.
-\]
-\begin{block}{When the potential is convex}
-Equilibria solve $\min_{x\geq0}\Phi(x)$.
-
-Strict convexity gives at most one solution. Existence follows separately.
-\end{block}
-The integral and any boundary extension must be well defined on the domain used.
-\slidesource{SET, p. 39, equation (50), with $\Phi=-\phi^{\mathrm{BKC}}$}
-\talknote{1.5}{This is a potential for the transformed game, rather than a claim that the original marginal-payoff field was integrable. We use the negative of equation 50 so that its gradient equals the negative marginal-payoff operator and the optimization problem is minimization. This keeps the signs of the complementarity conditions consistent. A stationary point need not be a global minimizer without convexity, so make that qualification explicit. Additive constants in the antiderivatives have no effect. If the inverse diverges at zero, one must handle the antiderivative and the boundary carefully instead of writing a finite integral from zero automatically. The paper contains sign slips in the surrounding derivative statements.}
-\end{frame}
-
-\begin{frame}{The smallest eigenvalue controls a uniqueness condition}
-\small\compactmath
-The Hessian of the transformed potential is
-\[
- \nabla^2\Phi(x)=I+\delta G+D(x),\qquad
- D_{ii}(x)=-\frac{c''(x_i)}{b''(h(x_i))}\geq0.
-\]
-\begin{block}{Theorem 5: a sufficient spectral condition}
-Under Assumption 2 and the relevant transformed-domain conditions,
-\[
- 1+\delta\lambda_{\min}(G)>0
- \quad\Longrightarrow\quad
- \text{a unique Nash equilibrium}.
-\]
-\end{block}
-\begin{itemize}
- \item Cost curvature adds $D\geq0$, so this sufficient bound can be conservative.
- \item For linear costs, $D=0$ and the bound is exact for strict convexity.
-\end{itemize}
-\slidesource{SET, Theorem 5 and Remark 12, pp. 39--40, proof on pp. 50--51}
-\talknote{1.5}{Compare this result with the complementarity model, where the largest eigenvalue gave the amplification threshold. For strategic substitutes the smallest eigenvalue matters because the relevant matrix has a plus sign. The Hessian separates network geometry from the stabilizing curvature of private costs. Discarding the diagonal term gives the clean sufficient condition in Theorem 5. If curvature is uniformly large enough, uniqueness can survive even when this conservative bound fails. With linear costs the diagonal contribution vanishes, although failure of positive definiteness still must not be described as a universal theorem of equilibrium multiplicity. Existence comes from the bounded best-response argument, not from strict convexity alone.}
-\end{frame}
 
 \begin{frame}{Zero marginal cost at zero implies full participation}
 \small\compactmath
@@ -1074,8 +652,6 @@ Degree alone does not imply this ranking on arbitrary networks.
 \talknote{1.5}{The ranking follows from comparable neighborhoods, not from degree counts by themselves. For open-neighborhood inclusion, positive efforts give the larger neighborhood a strictly greater peer contribution and the best-response function is decreasing. For closed-neighborhood inclusion, compare total provision and then invert the strictly increasing marginal-cost function. A star gives the most transparent illustration. Every leaf has the same peer contribution, while the hub benefits from all leaves and contributes less. Nested split graphs extend this logic because their neighborhood structure supports the required comparisons. These statements hold at every equilibrium and do not presume uniqueness. The appendix of the draft contains reversed inequality typos in the last step of the closed-neighborhood and corollary proofs.}
 \end{frame}
 
-
-% ===== closing =====
 \begin{frame}{What SET preserves, and what must still be checked}
 \small
 \begin{center}
@@ -1111,10 +687,6 @@ Suitable transformations can reveal structure absent from the original Jacobian.
 \end{frame}
 
 \appendix
-
-
-% ===== theory-backup =====
-% Two optional technical backup frames.
 
 \begin{frame}{Backup: a formal coordinate proof of Theorem 1}
 \small\compactmath
@@ -1173,8 +745,6 @@ with eigenvalues $1-\delta$ and $1+\delta$.
 \talknote{2}{This comparison prevents an overly broad interpretation of the example. The original scaled matrix satisfies the P-matrix condition throughout delta below one, because its two diagonal entries and determinant are positive. Its symmetric part can fail positive definiteness inside that same region, producing the more restrictive unweighted monotonicity bound. The explicit eigenvalue expression comes from the two-by-two symmetric-matrix formula. Positive diagonal rescaling removes the payoff units and restores a symmetric derivative with eigenvalues one minus delta and one plus delta. The example therefore compares available certificates of uniqueness, not different equilibrium sets or a necessary condition for all parameter values.}
 \end{frame}
 
-
-% ===== complements-backup =====
 \begin{frame}{Backup: the nonlinear Perron limit}
 \small\compactmath
 Let $y(\delta)=x(\delta)^\beta$ and normalize $q(\delta)=y(\delta)/\lVert y(\delta)\rVert_1$.
@@ -1222,9 +792,6 @@ $\delta>1$ & Unique negative solution & None on $\R_+^2$\\
 \talknote{2}{This example isolates a common confusion. The inverse is well-defined for positive delta above one, except at the singular point, but its solution is negative. The game's best response is one plus delta times the neighbor's nonnegative action, so an admissible equilibrium must have both components strictly positive. No corner can rescue the system because each player has a strictly positive baseline. The spectral bound therefore reflects economic feasibility and finite feedback, not merely avoidance of singular matrices. For signed baselines or unconstrained algebraic systems the interpretation would differ.}
 \end{frame}
 
-
-% ===== substitutes-backup =====
-% Strategic-substitute proof backups.
 \begin{frame}{Backup: complete-network uniqueness without the strict spectral bound}
 \small\compactmath
 Assume homogeneous $b,c$, strictly convex $c$, $c'(0)=0$, and $\delta=1$.
@@ -1269,8 +836,6 @@ The proof applies to every equilibrium, without a uniqueness assumption.
 \talknote{2}{This direct proof is often easier to present than the general neighborhood-ordering argument. Each leaf has exactly one neighbor, the hub, so all leaves face the same one-dimensional optimization problem. Strict own concavity gives a unique best response even if the overall game has multiple equilibria. Positivity follows from zero marginal cost at zero. The hub therefore receives strictly more total provision than a leaf when the star has at least three nodes. Since marginal benefit decreases with provision, the hub's equilibrium marginal cost is lower. A strictly increasing marginal-cost function turns that inequality into lower hub effort. The result concerns individual effort, not the hub's total benefit or its welfare contribution.}
 \end{frame}
 
-
-% ===== references =====
 \begin{frame}{References}
 \small
 \begin{itemize}
@@ -1289,4 +854,5 @@ The seminar follows the supplied SET draft. Slide citations refer to its printed
 The path-network curves and two-node calculation are seminar examples.
 \talknote{0}{All substantive statements about SET refer to the local February 17, 2026 draft. The presentation uses a convex-minimization sign convention consistently in the potential-function applications. Some displayed signs and labels in the draft require this clarification, as noted on the relevant slides. The two-node and three-node examples are analytical teaching additions, not empirical results or numerical tables reported by the authors.}
 \end{frame}
+
 \end{document}
