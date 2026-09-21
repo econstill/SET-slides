@@ -1,6 +1,6 @@
 # SET: application-focused seminar guide
 
-This guide follows the 37-page PDF: 30 main slides, six optional backup slides, and references. The paper is Yves Zenou and Junjie Zhou, *SET* (February 17, 2026 version). Slide 3 uses the paper's original Figure 1. Speaker notes are also embedded in `main.tex` as `\talknote` commands.
+This guide follows the 37-page PDF: 30 main slides, six optional backup slides, and references. The paper is Yves Zenou and Junjie Zhou, *SET* (February 17, 2026 version). Slide 3 uses the paper's original Figure 1. These speaking cues are kept only in this separate guide, not in `main.tex` or the slide PDF.
 
 ## Speaking route
 

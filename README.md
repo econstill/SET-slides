@@ -9,7 +9,8 @@ Beamer template.
 - [Slides (PDF)](SET-English-Seminar.pdf): 37 pages — 30 main pages including
   the title, six optional backup pages, and one reference page.
 - [Editable source](main.tex): Beamer source with the paper's Figure 1 on
-  slide 3, inline diagrams and plots, and hidden English speaker notes.
+  slide 3 and inline diagrams and plots, without embedded speaker notes
+  or per-slide source footers.
 - [Figure 1 crop](assets/set-figure1-methodology.png): the original
   methodology diagram from page 17 of the supplied paper.
 - [Presenter guide](SET-English-Presenter-Guide.md): application-focused
@@ -30,9 +31,8 @@ successful build. Keep the `assets/` directory next to `main.tex`. No BibTeX
 run or external bibliography file is required. On Overleaf, select `main.tex`
 as the main document and **XeLaTeX** as the compiler.
 
-Speaker notes are stored in `\talknote{minutes}{text}` commands. Replace
-`\setbeameroption{hide notes}` with `\setbeameroption{show notes}` to
-include them in the compiled document.
+The separate presenter guide contains speaking cues and timing suggestions.
+They are not embedded in `main.tex` or the slide PDF.
 
 ## Scope
 

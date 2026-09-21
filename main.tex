@@ -1,7 +1,6 @@
 % ===== front =====
 % Self-contained Beamer source. Compile twice with XeLaTeX.
 % Template: the user-provided Hyper0721.tex.
-% To display speaker notes, replace 'hide notes' with 'show notes'.
 \documentclass[11pt,aspectratio=169]{beamer}
 \useinnertheme{metropolis}
 \useoutertheme[progressbar=frametitle]{metropolis}
@@ -48,12 +47,9 @@
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\argmax}{arg\,max}
 \DeclareMathOperator{\argmin}{arg\,min}
-\newcommand{\slidesource}[1]{\par\vfill{\raggedleft\scriptsize\color{citePurple}#1\par}}
 \newcommand{\compactmath}{%
  \setlength{\abovedisplayskip}{4pt}\setlength{\belowdisplayskip}{4pt}%
  \setlength{\abovedisplayshortskip}{2pt}\setlength{\belowdisplayshortskip}{4pt}}
-\newcommand{\talknote}[2]{\note{\textbf{Suggested pace: #1 minutes.}\par #2}}
-\setbeameroption{hide notes}
 \title{\textbf{SET}}
 \author{Yves Zenou \and Junjie Zhou}
 \institute{Sijie Wang presented at NET Seminar}
@@ -62,7 +58,6 @@
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
 \ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{30}\fi
 \maketitle
-\talknote{1}{Open with the paper's question: can the same economic equilibrium be represented by a more useful system? Figure 1 appears immediately after the motivation. The main talk centers on applications; technical proofs are reserved for the appendix.}
 
 \begin{frame}{The representation of an equilibrium system}
 Many economic models reduce to nonlinear first-order conditions.
@@ -74,8 +69,6 @@ The original problem may obscure monotonicity, a potential function, or a useful
  \item Which representation makes the relevant structure easiest to verify?
  \item What can we learn about nonlinear network amplification?
 \end{itemize}
-\slidesource{SET, Introduction, pp. 2--7}
-\talknote{2}{Introduce representation dependence with a simple observation: multiplying one player's payoff by a positive constant leaves all choices unchanged, but changes the Jacobian of the game. A uniqueness test based directly on that Jacobian can therefore be unnecessarily restrictive. SET formalizes a larger family of transformations. The interesting part is both mathematical and economic: preserve corner solutions, expose tractable structure, and obtain new results in models where direct linear algebra is unavailable. This is a methodology paper, but its new network applications are substantive results rather than illustrations alone.}
 \end{frame}
 
 
@@ -85,8 +78,6 @@ The original problem may obscure monotonicity, a potential function, or a useful
 \end{center}
 \vspace{-0.25cm}
 \small An equilibrium is a best-response fixed point. The figure follows its VI representation through a sign-equivalent transformation to two methods for studying uniqueness.
-\slidesource{Zenou and Zhou, \emph{SET}, Figure 1, p. 17 (original figure)}
-\talknote{2}{Show the original Figure 1 early. Read it from left to right: a well-behaved game yields a variational inequality; a sign-equivalent transformation yields a new one with the same relevant equilibria; then a matrix or potential method can be used. Equilibrium is also a fixed point of best responses, but Figure 1 specifically depicts the variational-inequality route. The rest of the talk asks what this buys us in applications.}
 \end{frame}
 
 
@@ -99,7 +90,6 @@ The original problem may obscure monotonicity, a potential function, or a useful
 \end{enumerate}
 \medskip
 Only one methodological fact is needed before the examples.
-\talknote{1}{Set expectations: the paper develops a general theorem, but this presentation spends most of its time on Sections 3 and 4. The first group demonstrates the scope of the transformation. The two new network models deliver the economic results, including centrality and intervention rankings.}
 \end{frame}
 
 
@@ -121,8 +111,6 @@ Upper bound & $F_i\leq0$ & Sign\\
 \end{tabular}
 \end{center}
 The product-domain condition matters when a choice is at a boundary.
-\slidesource{SET, Theorem 1, pp. 9--10; proof in the appendix}
-\talknote{2}{Explain the theorem in words, without proving it here. The transformed system may change magnitudes and derivatives, but not the direction of each individual incentive. On a rectangular strategy domain this preserves interior and corner equilibria. The theorem preserves an entire solution set, including multiplicity, and says nothing by itself about existence.}
 \end{frame}
 
 
@@ -144,8 +132,6 @@ A symmetric transformed system can become an optimization problem; curvature can
 \end{columns}
 \medskip
 Existence needs its own argument in each application.
-\slidesource{SET, Figure 1 and Sections 3--4}
-\talknote{1.5}{This follows the two branches of Figure 1. The first branch is a matrix-based uniqueness method; the second searches for a potential. In applications we report the economic conclusion first and mention the transformation only as much as needed to understand why the conclusion is valid.}
 \end{frame}
 
 
@@ -166,8 +152,6 @@ For $0<\alpha_i<1$ and $\sigma_i>1$, cost minimization gives
 The Cobb--Douglas case $\sigma_i=1$ follows by a limit.
 \end{block}
 \alert{Question:} Does this nonlinear price system have exactly one solution?
-\slidesource{SET, Section 3.1, equations (9)--(13), pp. 18--19}
-\talknote{2}{The production network differs from a strategic network game, but the same transformation principle applies to its equilibrium equations. The coefficients describe which industries buy inputs from which suppliers. The model combines a labor share with a CES aggregate of intermediate inputs. I display the resulting unit-cost equation rather than the full input-demand derivation. Positive labor shares matter because part of each industry's cost comes from the exogenous wage. The displayed expression covers industries with intermediate inputs. A pure-labor industry's price equals the wage divided by its productivity.}
 \end{frame}
 
 
@@ -184,8 +168,6 @@ D\widetilde F(x)=I-W(x),\qquad W(x)\geq0,\qquad
 \item The log-price map is a contraction: the equilibrium price vector \alert{exists and is unique}.
 \item Input linkages still transmit productivity shocks across industries.
 \end{itemize}
-\slidesource{SET, Proposition 2 and Section 3.1, pp. 18--19}
-\talknote{2}{The original equations are nonlinear in prices. The logarithmic transformation exposes a nonnegative pass-through matrix. Its row sum is the intermediate-input share, strictly below one because labor has positive weight. This gives a particularly transparent fixed-point intuition: each round of price feedback is smaller than the last. Explain that uniqueness and existence are both established here, unlike some later examples.}
 \end{frame}
 
 
@@ -209,8 +191,6 @@ As $\sigma_i\to1$, let $\varepsilon_i=\log z_i$ and $A=(a_{ij})$.
   \item The same resolvent $(I-\delta G)^{-1}$ appears in Bonacich centrality.
   Here the forcing term is $-\varepsilon$ and $A$ contains input weights.
 \end{itemize}
-\slidesource{SET, Section 3.1, p. 19}
-\talknote{1.5}{The Cobb--Douglas limit anticipates the centrality discussion to follow. The Leontief inverse and the Bonacich inverse share the same algebraic structure. Their economic meanings differ. Here x denotes prices relative to wages in logarithms, and a productivity improvement enters with a negative sign. A positive productivity shock lowers the firm's own log price and can lower prices at downstream firms. Each additional power of A follows another round of input dependence. Labor shares keep the spectral radius below one, so the series converges without a separate free interaction parameter.}
 \end{frame}
 
 
@@ -227,8 +207,6 @@ x_i=(1-\lambda_2)a_i+(\lambda_1+\lambda_2)\widetilde x_{-i}(\beta).
 \item Taking logs exposes a $P$-property: under the paper's parameter restrictions, \alert{any solution is unique}.
 \item The result is conditional on existence; the transformation alone does not supply it.
 \end{itemize}
-\slidesource{SET, Proposition 3, Section 3.2, pp. 20--21}
-\talknote{2}{Contrast this row-normalized social norm with the unnormalized CES aggregate in the new model later. The old linear-in-means specification is beta one. The result here is uniqueness conditional on existence under the stated parameter restrictions. Mention that social norms can emphasize high or low achievers, which makes the application economically relevant.}
 \end{frame}
 
 
@@ -247,8 +225,6 @@ The positive rescaling preserves the signs at both interior prices and binding p
 \item Under the paper's demand conditions E1--E3, the transformed system has the $P$-property.
 \item Therefore the Bertrand game has \alert{at most one} pure-strategy equilibrium.
 \end{itemize}
-\slidesource{SET, Proposition 4, Section 3.3, pp. 21--23}
-\talknote{2}{This is a useful boundary example: price caps and floors may bind, so preserving only interior first-order zeros would be insufficient. Demand slopes are negative, making the rescaling positive. The demand restrictions are log concavity in own price, log supermodularity across prices, and translation invariance with the outside option. The conclusion is at most one equilibrium; standard methods address existence separately.}
 \end{frame}
 
 
@@ -270,8 +246,6 @@ Extra curvature conditions are needed for uniqueness.
 \end{columns}
 \medskip
 The same method can reveal different mathematical structures across models.
-\slidesource{SET, Theorem 3 and Proposition 6, Sections 3.4--3.5, pp. 23--31}
-\talknote{2}{Use this slide to close the survey of existing models. In the income-based public-good example, inversion of a private-good Engel curve removes asymmetric cross derivatives. In the multiplex model, each person allocates activity over several networks; the transformed potential handles within-layer ties and cross-layer private costs. These examples motivate the two new applications that follow.}
 \end{frame}
 
 
@@ -292,8 +266,6 @@ The same method can reveal different mathematical structures across models.
  \item $G$ is an undirected adjacency matrix, without self-loops.
  \item We use a \alert{connected, nonempty} network for the Perron-limit results.
 \end{itemize}
-\slidesource{SET, Section 4.1, pp. 32--33, equations (42)--(44)}
-\talknote{1.5}{The quadratic private cost makes own-action optimization straightforward even though peer aggregation is nonlinear. The best response is always positive because the baseline a is positive. The adjacency matrix is not row normalized, so an additional neighbor raises the aggregate peer input. This differs importantly from an averaging model. We impose connectedness explicitly because the limiting ratios later use a strictly positive Perron vector. In disconnected networks, the component with the strongest amplification need not describe the asymptotic behavior of every other component.}
 \end{frame}
 
 \begin{frame}{What the CES parameter changes}
@@ -313,8 +285,6 @@ $\beta>1$ favors high-action peers at the margin.
 $0<\beta<1$ places relatively more marginal weight on low-action peers.
 \end{block}
 Changing $\beta$ also changes the scale of this unnormalized aggregate.
-\slidesource{SET, pp. 32--34; the derivative ratio is an immediate calculation}
-\talknote{1.5}{Use two neighbors with different action levels to explain beta. The derivative ratio isolates relative influence because the common aggregate term cancels. This gives a clean economic interpretation without claiming that beta simply increases total spillovers. The aggregate is unnormalized: even if every neighbor chooses the same action x, a degree-d player receives peer input d to the power one over beta times x. Thus changing beta affects both relative sensitivity and total input. Keep delta fixed when discussing beta, and check whether the resulting parameters remain below the existence threshold.}
 \end{frame}
 
 
@@ -332,8 +302,6 @@ DH(z)=I-W(z),\qquad W(z)\geq0,\qquad
 The positive baseline $a_i$ leaves some own-action weight in every row. Hence there is \alert{at most one} finite positive equilibrium.
 \end{block}
 Whether a finite equilibrium exists depends on the network threshold on the next slide.
-\slidesource{SET, Theorem 4, Section 4.1, pp. 32--34}
-\talknote{2}{This is the one mathematical step worth retaining from the proof. The log transformation converts nonlinear peer effects into a matrix of shares. The shares sum to less than one at each finite point because part of effort comes from the positive baseline. This yields uniqueness, but the slack is not uniform on an unbounded domain, so existence needs the separate spectral result.}
 \end{frame}
 
 
@@ -352,8 +320,6 @@ On a $d$-regular network with $a_i=a$,
  x_i^*=\frac{a}{1-\delta d^{1/\beta}},\qquad
  \bar\delta=d^{-1/\beta}.
 \]
-\slidesource{SET, Theorem 4 and Example 2, pp. 33--34; equality case in proof, pp. 48--49}
-\talknote{1.5}{State the theorem before proving it. The regular-network example makes the threshold transparent: peer input is d to the power one over beta times the common action. A positive finite fixed point needs the feedback coefficient below one. In an irregular graph, the Perron eigenvalue replaces the common degree. The theorem statement in the draft uses a strict inequality in its nonexistence part, but its proof also excludes equality. We therefore state the sharpened closed-threshold version, with the source of that detail visible in the citation.}
 \end{frame}
 
 \begin{frame}{Comparative statics below the threshold}
@@ -370,8 +336,6 @@ Within the region where a finite equilibrium exists,
  \item A higher individual baseline or stronger peer interaction raises equilibrium effort across the network.
  \item Equilibrium payoff is $u_i(x^*)=\tfrac12(x_i^*)^2$: changes in effort also change welfare.
 \end{itemize}
-\slidesource{SET, Theorem 4(i) and the equilibrium-payoff observation, pp. 33--34}
-\talknote{1.5}{The comparative statics follow without explicitly differentiating a nonlinear inverse. Starting at the old equilibrium, larger baselines or stronger spillovers move the first best response upward. Subsequent iterations remain ordered and converge to the new equilibrium, provided the new parameters remain in the existence region. The payoff identity follows by substituting the best-response condition into utility. It preserves the familiar linear-quadratic relationship between action and equilibrium payoff, even though the action profile itself now reflects nonlinear aggregation. Avoid interpreting the theorem as a general monotonicity result in beta.}
 \end{frame}
 
 \begin{frame}{Bonacich centrality as the linear special case}
@@ -390,8 +354,6 @@ When $\beta=1$,
  \item Heterogeneous $a$: baseline-weighted centrality.
  \item In the notation $(I-\delta G)x=b$, the vector $b$ is this same baseline.
 \end{itemize}
-\slidesource{SET, discussion after Theorem 4, p. 34; Ballester et al. (2006)}
-\talknote{1.5}{This slide answers the original matrix question directly. The vector on the right is an exogenous input, while x is the endogenous response after all rounds of peer feedback. An eigenvector solves a homogeneous proportionality equation, whereas Bonacich centrality solves an inhomogeneous fixed point. These are different objects for a generic delta. The relationship emerges because the inverse amplifies each eigenvector direction by a different factor. We will first give the walk interpretation, then diagonalize the inverse to identify those factors.}
 \end{frame}
 
 \begin{frame}{Eigenvector centrality at the critical limit}
@@ -411,8 +373,6 @@ For the positive unit Perron vector $e$,
  \item General $\beta>0$: the vector $(x^*)^\beta$ approaches the Perron direction.
  \item Baseline heterogeneity affects levels, but disappears from these limiting ratios.
 \end{itemize}
-\slidesource{SET, Theorem 4(ii), pp. 33--34, equations (46)--(47); connected network}
-\talknote{2}{In the linear model, positivity of a ensures a positive projection onto e, so the diverging principal component cannot disappear. In the nonlinear model, large equilibrium actions make the fixed baseline negligible relative to the peer term. Raising actions to beta yields an asymptotic eigenvector equation. Connectedness makes the positive Perron direction unique up to scale. Explain that the limit is a statement about relative actions, not a finite equilibrium at the threshold. A normalized subsequence proof is available in the backup slides if the audience asks why the ratios actually converge.}
 \end{frame}
 
 \begin{frame}{Relative actions along the path}
@@ -449,8 +409,6 @@ The action levels diverge.
 \end{block}
 At the same fraction of the threshold, smaller $\beta$ produces a larger center advantage here.
 \end{columns}
-\slidesource{Analytical curves for the seminar example; no finite equilibrium at $t=1$}
-\talknote{1.5}{The horizontal axis is normalized by the beta-specific threshold. This is not a comparison at a common absolute delta. All curves begin with equal actions when spillovers vanish, then separate as network amplification matters more. The limits are two, square root of two, and the fourth root of two. Emphasize the difference between divergence of levels and convergence of a ratio. This graph also shows why eigenvector centrality is a limiting description: away from the threshold, the baseline still matters, and the ratio differs from its limiting value.}
 \end{frame}
 
 \begin{frame}{The key-player intervention}
@@ -466,8 +424,6 @@ Let $G^{-i}$ denote the network after removing player $i$.
  \item Highest equilibrium action need not identify the largest total effect.
  \item For general $\beta$, recompute equilibrium on each remaining network.
 \end{itemize}
-\slidesource{SET, key-player analysis, pp. 35--37; Ballester et al. (2006)}
-\talknote{1.5}{Define the counterfactual before showing the network. The total loss contains the removed player's direct contribution and the endogenous response of all remaining agents. In the linear model an intercentrality expression can summarize the intervention, but that formula does not directly carry over to the nonlinear CES model. The paper instead removes each player and resolves the equilibrium. Removing a node weakens the network, so parameters that support equilibrium in the original graph also support the componentwise problems after removal, including isolated agents who simply choose their baseline.}
 \end{frame}
 
 \begin{frame}{A bridge can matter more than the most active player}
@@ -505,8 +461,6 @@ Nodes 2, 6, 7, and 11 have the highest degree and the highest action.
 At $\delta=0.1$, the paper finds a switch from node 1 to the node-2 type near
 $\beta=0.722$ within its reported parameter range.
 \end{block}
-\slidesource{SET, Figure 2 and key-player results, pp. 35--37; network redrawn from Figure 2}
-\talknote{1.5}{Explain the three structural types before interpreting the table. Node one links two complete groups, whereas type-two nodes have more direct links and exert more effort. Yet the bridge becomes more important when feedback is strong. The nonlinear result adds another determinant: changing peer aggregation can change the key-player type even with delta fixed. The numerical switch near point seven two two is a reported calculation over the paper's admissible interval, not a general closed-form threshold. This connects equilibrium characterization to policy while retaining the distinction between individual centrality and intervention impact.}
 \end{frame}
 
 \begin{frame}{Network public goods with nonlinear costs}
@@ -528,8 +482,6 @@ On an undirected network, player $i$ chooses $x_i\geq0$ and receives
 The positive autarky effort $k^*$ uniquely solves $b'(k^*)=c'(k^*)$.
 
 The benchmark of Bramoull\'e and Kranton (2007) has $c(x)=x$ and $\delta=1$.
-\slidesource{SET, Section 4.2, p. 38, equation (48) and Assumption 2}
-\talknote{1.5}{This application changes the economic mechanism. Peers now supply a public good that substitutes for one's own effort. The parameter delta allows imperfect substitution, while a convex cost makes marginal effort increasingly expensive. Explain the marginal crossing conditions rather than calling them Inada conditions without qualification. They guarantee a unique positive autarky choice and will also bound every best response. The derivative restriction on costs applies on the positive domain. At zero, the later participation result explicitly allows c prime at zero to equal zero, as in the paper's Assumption 3. Throughout this application the network is undirected and agents share the same benefit and cost functions unless stated otherwise.}
 \end{frame}
 
 \begin{frame}{Best responses, corners, and existence}
@@ -550,8 +502,6 @@ Neighbors may already provide enough that contributing the first unit is not wor
 \end{columns}
 \medskip
 More provision by neighbors weakly reduces one's best response. Every best response is at most the autarky effort $k^*$, so a finite equilibrium exists.
-\slidesource{SET, pp. 38 and 50--51, equation (49) and proof of Theorem 5}
-\talknote{1.5}{The complementarity notation combines nonnegative effort, a nonnegative negative marginal payoff, and a zero product. A corner is optimal when peers already provide enough public good that the first unit of own effort has no positive net return. The derivative calculation shows strategic substitution directly and also shows how cost curvature attenuates the response. For existence, no spectral bound is needed here. Since peers supply nonnegative effort, an agent never wants more than the autarky amount. Strict own concavity gives a unique continuous best response, and the compact invariant box yields a fixed point. This separates the existence argument from the uniqueness argument that follows.}
 \end{frame}
 
 
@@ -570,8 +520,6 @@ On an undirected graph this system has a potential. The sufficient condition
 ensures a unique equilibrium. Convex private costs add curvature and can support uniqueness beyond this simple bound.
 \end{block}
 The sign equivalence also retains equilibria with zero effort.
-\slidesource{SET, Theorem 5, Section 4.2, pp. 38--40}
-\talknote{2}{For strategic substitutes the smallest eigenvalue matters; compare the largest eigenvalue in the complements model. We need the order reversal when inverting the decreasing marginal benefit, so corner conditions retain the correct sign. The displayed spectral restriction is sufficient, not necessary, and cost curvature can make the result stronger. The next two slides show concrete behavioral differences from the linear-cost benchmark.}
 \end{frame}
 
 
@@ -592,8 +540,6 @@ All equilibrium conditions therefore hold with equality:
  b'\!\Bigl(x_i^*+\sum\nolimits_jg_{ij}x_j^*\Bigr)=c'(x_i^*).
 \]
 Full participation does not require equilibrium uniqueness.
-\slidesource{SET, Assumption 3 and Proposition 7(i), p. 40, proof on p. 51}
-\talknote{1.5}{The economic reason for full participation is local. When own effort is zero, its marginal cost is zero but its marginal benefit remains strictly positive at any finite provision level. An agent can therefore improve by contributing a small positive amount. This rules out every zero-effort component of an equilibrium, regardless of whether the equilibrium is unique. Strict convexity and the zero derivative at the origin describe the maintained environment for the following ranking results. The full-participation argument itself also works for other nonnegative substitution intensities, but the slide follows the paper's delta-equals-one proposition so that the subsequent complete-network and neighborhood results use a common setup.}
 \end{frame}
 
 \begin{frame}{Complete networks: convex costs remove the continuum}
@@ -625,8 +571,6 @@ The continuum includes both equal sharing and a single specialist.
 \end{columns}
 Here $\lambda_{\min}(G)=-1$. Uniqueness with strictly convex costs holds even
 though $1+\delta\lambda_{\min}(G)=0$.
-\slidesource{SET, Proposition 7(iii), p. 40, proof on p. 51}
-\talknote{1.5}{This example shows both the economic role of cost curvature and the limits of a sufficient spectral test. In a complete graph everyone enjoys the same total provision. With strictly convex costs, equal marginal benefits require equal marginal costs and hence equal own efforts. The scalar marginal crossing then pins down a unique equilibrium. Under linear costs, marginal cost is the same for everybody regardless of effort, so only total provision matters. Any nonnegative allocation of the autarky total is an equilibrium, including full specialization. Do not interpret failure of the strict spectral inequality as nonexistence or multiplicity here. The direct equilibrium argument proves uniqueness in the convex-cost case.}
 \end{frame}
 
 \begin{frame}{Network structure determines effort rankings}
@@ -646,8 +590,6 @@ At every equilibrium,
  \item \textbf{Nested split graph.} If $d_i<d_j$, then $x_i^*>x_j^*$.
 \end{itemize}
 Degree alone does not imply this ranking on arbitrary networks.
-\slidesource{SET, Proposition 7(ii, iv) and Corollary 2, pp. 40--41, proofs pp. 51--52}
-\talknote{1.5}{The ranking follows from comparable neighborhoods, not from degree counts by themselves. For open-neighborhood inclusion, positive efforts give the larger neighborhood a strictly greater peer contribution and the best-response function is decreasing. For closed-neighborhood inclusion, compare total provision and then invert the strictly increasing marginal-cost function. A star gives the most transparent illustration. Every leaf has the same peer contribution, while the hub benefits from all leaves and contributes less. Nested split graphs extend this logic because their neighborhood structure supports the required comparisons. These statements hold at every equilibrium and do not presume uniqueness. The appendix of the draft contains reversed inequality typos in the last step of the closed-neighborhood and corollary proofs.}
 \end{frame}
 
 \begin{frame}{What SET establishes in these applications}
@@ -664,8 +606,6 @@ Uniqueness & A suitable P property, strict monotonicity, or strict convexity.\\
 \bottomrule
 \end{tabular}
 \end{center}
-\slidesource{Synthesis of SET, Sections 2--4, pp. 8--41}
-\talknote{1.5}{Return to the distinctions made at the start. SET certifies equality of solution sets under specified conditions. It does not prove existence without additional structure. Symmetry gives an integrable field; curvature determines whether that field defines a convex optimization problem. The paper's bounded best-response iteration in the CES existence proof is a specific convergent construction; the paper does not formally analyze the stability of a general adjustment process.}
 \end{frame}
 
 \begin{frame}{Main conclusions}
@@ -680,7 +620,6 @@ Suitable transformations can reveal structure absent from the original Jacobian.
 \end{itemize}
 \medskip
 \centering Which transformation exposes the useful structure in a given model?
-\talknote{1.5}{End with the central methodological question rather than a list of applications. The paper provides an equivalence principle and a set of constructive operations, but finding a helpful representation still requires economic and mathematical insight. Highlight the two spectral roles: the largest eigenvalue limits positive feedback, while the smallest eigenvalue matters for curvature under substitution. Invite discussion about coupled constraints, directed networks, heterogeneous nonlinearities, or how one might search systematically for transformations. Backup slides give details for the proofs and the matrix-invertibility distinction.}
 \end{frame}
 
 \appendix
@@ -707,8 +646,6 @@ Consequently, for every $x\in K$,
 \]
 Thus $\operatorname{Sol}(K,F)\subseteq\operatorname{Sol}(K,\widetilde F)$.
 Interchanging the two operators gives the reverse inclusion.
-\slidesource{SET, proof of Theorem 1, p. 43}
-\talknote{2}{This backup supplies every step behind the earlier proof intuition. Take a solution of the first VI and vary one coordinate at a time. If its operator component is zero, sign equivalence makes the transformed component zero too. If the component is positive, every feasible displacement in that coordinate must be nonnegative. If it is negative, every feasible displacement must be nonpositive. In all cases the transformed coordinate product remains nonnegative. Sum over coordinates to obtain the transformed VI. Since sign equivalence is symmetric, the same argument applies in reverse. No continuity or derivative calculation enters this particular implication.}
 \end{frame}
 
 \begin{frame}{Backup: matrix tests in the payoff-scaling example}
@@ -738,8 +675,6 @@ Let $\Delta=(1-\kappa)^2+(1+\kappa)^2\delta^2$. The smallest eigenvalue is
 \]
 Rescaling by $\operatorname{diag}(1,1/\kappa)$ restores the symmetric derivative
 with eigenvalues $1-\delta$ and $1+\delta$.
-\slidesource{SET, pp. 15--16; explicit principal-minor and eigenvalue calculations}
-\talknote{2}{This comparison prevents an overly broad interpretation of the example. The original scaled matrix satisfies the P-matrix condition throughout delta below one, because its two diagonal entries and determinant are positive. Its symmetric part can fail positive definiteness inside that same region, producing the more restrictive unweighted monotonicity bound. The explicit eigenvalue expression comes from the two-by-two symmetric-matrix formula. Positive diagonal rescaling removes the payoff units and restores a symmetric derivative with eigenvalues one minus delta and one plus delta. The example therefore compares available certificates of uniqueness, not different equilibrium sets or a necessary condition for all parameter values.}
 \end{frame}
 
 \begin{frame}{Backup: the nonlinear Perron limit}
@@ -759,8 +694,6 @@ Therefore $a_i/x_i\to0$, and along any convergent subsequence,
 The only nonnegative unit-$\ell_1$ Perron vector is $e/\lVert e\rVert_1$.
 Every subsequential limit is the same, so the full sequence converges.
 \end{block}
-\slidesource{An expanded proof of SET, Theorem 4(ii), pp. 48--49}
-\talknote{3}{Monotonicity in delta implies that every component has a finite or infinite limit. A finite vector limit would solve the forbidden critical equilibrium system. Thus at least one component diverges. Along an edge the CES aggregate is at least the neighbor's action, so connectedness and delta bounded away from zero propagate divergence to all components. Normalize the beta powers to obtain a compact simplex. On any convergent subsequence, the baseline becomes negligible in the normalized equation. Perron irreducibility gives a unique nonnegative normalized eigenvector. This supplies the compactness and uniqueness steps implicit in the draft's ratio argument.}
 \end{frame}
 
 \begin{frame}{Backup: algebraic solutions and positive equilibria}
@@ -785,8 +718,6 @@ $\delta>1$ & Unique negative solution & None on $\R_+^2$\\
 \bottomrule
 \end{tabular}
 \end{center}
-\slidesource{Illustrative calculation for the linear special case of SET}
-\talknote{2}{This example isolates a common confusion. The inverse is well-defined for positive delta above one, except at the singular point, but its solution is negative. The game's best response is one plus delta times the neighbor's nonnegative action, so an admissible equilibrium must have both components strictly positive. No corner can rescue the system because each player has a strictly positive baseline. The spectral bound therefore reflects economic feasibility and finite feedback, not merely avoidance of singular matrices. For signed baselines or unconstrained algebraic systems the interpretation would differ.}
 \end{frame}
 
 \begin{frame}{Backup: complete-network uniqueness without the strict spectral bound}
@@ -806,8 +737,6 @@ On the complete network, write $S=\sum_jx_j$.
 For $n\geq2$, the complete graph has $\lambda_{\min}(G)=-1$.
 At $\delta=1$ the strict spectral inequality fails, but the argument above proves uniqueness.
 \end{block}
-\slidesource{SET, Proposition 7(iii), p. 40, proof on p. 51}
-\talknote{2}{This proof avoids any issue about whether the inverse of marginal benefit is finite at zero. It works directly with the original first-order conditions and the full-participation result. Everyone has the same total public good in a complete network, so every agent faces the same marginal benefit. Strictly increasing marginal costs then imply symmetry. Finally, the common-effort equation has exactly one solution by monotonicity and the assumed marginal crossing. This is also a useful response to the question of whether Theorem 5 is necessary. The complete graph at delta equal to one lies exactly on the boundary of that sufficient spectral test, while nonlinear costs still pin down a unique equilibrium.}
 \end{frame}
 
 \begin{frame}{Backup: why the hub contributes less in a star}
@@ -829,8 +758,6 @@ and $c'(0)=0$. Write $x_H$ for the hub's effort.
  Strictly increasing $c'$ then gives $\boxed{x_H<x_L}$.
 \end{enumerate}
 The proof applies to every equilibrium, without a uniqueness assumption.
-\slidesource{SET, Proposition 7(iv), p. 40, proof on p. 51}
-\talknote{2}{This direct proof is often easier to present than the general neighborhood-ordering argument. Each leaf has exactly one neighbor, the hub, so all leaves face the same one-dimensional optimization problem. Strict own concavity gives a unique best response even if the overall game has multiple equilibria. Positivity follows from zero marginal cost at zero. The hub therefore receives strictly more total provision than a leaf when the star has at least three nodes. Since marginal benefit decreases with provision, the hub's equilibrium marginal cost is lower. A strictly increasing marginal-cost function turns that inequality into lower hub effort. The result concerns individual effort, not the hub's total benefit or its welfare contribution.}
 \end{frame}
 
 \begin{frame}{References}
@@ -847,9 +774,8 @@ The proof applies to every equilibrium, without a uniqueness assumption.
  \emph{Journal of Economic Theory}, 135(1), 478--494.
 \end{itemize}
 \medskip
-The seminar follows the supplied SET draft. Slide citations refer to its printed page numbers.
+The seminar follows the supplied SET draft.
 The path-network curves and two-node calculation are seminar examples.
-\talknote{0}{All substantive statements about SET refer to the local February 17, 2026 draft. The presentation uses a convex-minimization sign convention consistently in the potential-function applications. Some displayed signs and labels in the draft require this clarification, as noted on the relevant slides. The two-node and three-node examples are analytical teaching additions, not empirical results or numerical tables reported by the authors.}
 \end{frame}
 
 \end{document}
