@@ -56,7 +56,7 @@
 \date{Paper version: February 17, 2026}
 \begin{document}
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
-\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{32}\fi
+\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{35}\fi
 \maketitle
 
 \begin{frame}{The representation of an equilibrium system}
@@ -81,7 +81,7 @@ The original problem may obscure monotonicity, a potential function, or a useful
 \end{frame}
 
 
-\begin{frame}{Example: a two-player game}
+\begin{frame}{Example 1: a two-player game}
 \compactmath
 Two players choose $x_i\geq0$, so $K=\mathbb R_+^2$.
 \begin{block}{Payoffs}
@@ -103,7 +103,7 @@ The factor $4$ changes player 2's payoff units, but leaves the best response unc
 \end{frame}
 
 
-\begin{frame}{Example: the VI and its transformation}
+\begin{frame}{Example 1: the VI and its transformation}
 \compactmath
 For a candidate $x^*\in K$, use the negative marginal payoffs:
 \[
@@ -128,7 +128,7 @@ Positive scaling preserves every component's sign on $K$. Since $K$ is rectangul
 \end{frame}
 
 
-\begin{frame}{Example: the two uniqueness routes}
+\begin{frame}{Example 1: the two uniqueness routes}
 \compactmath
 The transformed system has a symmetric derivative:
 \[
@@ -159,6 +159,94 @@ The VI minimizes the strictly convex $\Phi$ over $K$.
  \boxed{x_1^*=x_2^*=2}.
 \]
 This feasible zero proves existence. The equilibrium is \alert{unique}.
+\end{frame}
+
+
+\begin{frame}{Example 2: different nonlinear best responses}
+\compactmath
+Two players choose $x_i\geq0$, with $K=\mathbb R_+^2$.
+\begin{block}{Payoffs}
+\[
+\begin{aligned}
+ u_1(x)&=x_1(1+x_2)-x_1^2-\tfrac13x_1^3,\\
+ u_2(x)&=x_2\ln(2+x_1)-\tfrac12x_2^2.
+\end{aligned}
+\]
+\end{block}
+Each payoff is strictly concave in the player's own action.
+\begin{block}{Best responses}
+\[
+ B_1(x_2)=\sqrt{2+x_2}-1,\qquad
+ B_2(x_1)=\ln(2+x_1).
+\]
+\end{block}
+Every equilibrium is interior because both best responses are positive on $K$.
+\end{frame}
+
+
+\begin{frame}{Example 2: a nonlinear sign-equivalent transformation}
+\compactmath
+The negative marginal payoffs define $F_i=-\partial_i u_i$.
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Original VI}
+\[
+ F(x)=\begin{pmatrix}
+ x_1^2+2x_1-1-x_2\\
+ x_2-\ln(2+x_1)
+ \end{pmatrix}.
+\]
+\[
+ \partial_2F_1=-1,\quad
+ \partial_1F_2=-\frac1{2+x_1}.
+\]
+\column{0.48\textwidth}
+\textbf{After SET}
+\[
+ \widetilde F(x)=\begin{pmatrix}
+ x_1^2+2x_1-1-x_2\\
+ e^{x_2}-2-x_1
+ \end{pmatrix}.
+\]
+\[
+ \partial_2\widetilde F_1=\partial_1\widetilde F_2=-1.
+\]
+\end{columns}
+\medskip
+The exponential is strictly increasing:
+\[
+ x_2\gtreqless\ln(2+x_1)
+ \quad\Longleftrightarrow\quad
+ e^{x_2}\gtreqless2+x_1.
+\]
+All component signs agree on the rectangular domain $K$. Thus
+\[
+ \mathrm{NE}=\operatorname{Sol}(K,F)=\operatorname{Sol}(K,\widetilde F).
+\]
+\end{frame}
+
+
+\begin{frame}{Example 2: a convex equilibrium problem}
+\compactmath
+The transformed operator is a gradient, $\widetilde F=\nabla\Phi$, where
+\[
+ \Phi(x)=\tfrac13x_1^3+x_1^2-x_1-x_1x_2+e^{x_2}-2x_2.
+\]
+For every $x\in K$,
+\[
+ \nabla^2\Phi(x)=
+ \begin{pmatrix}2+2x_1&-1\\-1&e^{x_2}\end{pmatrix}
+ \succeq
+ \begin{pmatrix}2&-1\\-1&1\end{pmatrix}
+ \succ0.
+\]
+\begin{block}{Unique equilibrium}
+Strong convexity and coercivity give a unique minimizer on $K$:
+\[
+ x^*=\argmin_{x\in K}\Phi(x)\approx(0.7337,\,1.0056).
+\]
+\end{block}
+SET exposes a convex optimization representation of the same equilibrium problem.
 \end{frame}
 
 
@@ -856,7 +944,7 @@ The proof applies to every equilibrium, without a uniqueness assumption.
 \end{itemize}
 \medskip
 The seminar follows the supplied SET draft.
-The two-player walkthrough, path-network curves, and two-node calculation are seminar examples.
+The two-player walkthroughs, path-network curves, and two-node calculation are seminar examples.
 \end{frame}
 
 \end{document}
