@@ -6,10 +6,11 @@ Beamer template.
 
 ## Files
 
-- [Slides (PDF)](SET-English-Seminar.pdf): 37 pages — 30 main pages including
+- [Slides (PDF)](SET-English-Seminar.pdf): 40 pages — 33 main pages including
   the title, six optional backup pages, and one reference page.
 - [Editable source](main.tex): Beamer source with the paper's Figure 1 on
-  slide 3 and inline diagrams and plots, without embedded speaker notes
+  slide 3, a worked two-player example on slides 4–6, and inline diagrams
+  and plots, without embedded speaker notes
   or per-slide source footers.
 - [Figure 1 crop](assets/set-figure1-methodology.png): the original
   methodology diagram from page 17 of the supplied paper.
@@ -36,7 +37,8 @@ They are not embedded in `main.tex` or the slide PDF.
 
 ## Scope
 
-The seminar introduces the transformation through the paper's Figure 1 and
+The seminar introduces the transformation through the paper's Figure 1,
+a worked two-player example that follows both branches of the map, and
 one concise equilibrium-set result. It then focuses on production networks,
 nonlinear peer effects, oligopoly, multiplex interactions, nonlinear CES
 strategic complements, centrality and key players, and network public goods

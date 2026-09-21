@@ -56,7 +56,7 @@
 \date{Paper version: February 17, 2026}
 \begin{document}
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
-\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{30}\fi
+\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{32}\fi
 \maketitle
 
 \begin{frame}{The representation of an equilibrium system}
@@ -78,6 +78,87 @@ The original problem may obscure monotonicity, a potential function, or a useful
 \end{center}
 \vspace{-0.25cm}
 \small An equilibrium is a best-response fixed point. The figure follows its VI representation through a sign-equivalent transformation to two methods for studying uniqueness.
+\end{frame}
+
+
+\begin{frame}{Example: a two-player game}
+\compactmath
+Two players choose $x_i\geq0$, so $K=\mathbb R_+^2$.
+\begin{block}{Payoffs}
+\[
+\begin{aligned}
+ u_1(x)&=x_1\Bigl(1+\tfrac12x_2\Bigr)-\tfrac12x_1^2,\\
+ u_2(x)&=4\Bigl[x_2\Bigl(1+\tfrac12x_1\Bigr)-\tfrac12x_2^2\Bigr].
+\end{aligned}
+\]
+\end{block}
+Each payoff is strictly concave in the player's own action.
+\begin{block}{Best responses}
+\[
+ B_1(x_2)=1+\tfrac12x_2,\qquad
+ B_2(x_1)=1+\tfrac12x_1.
+\]
+\end{block}
+The factor $4$ changes player 2's payoff units, but leaves the best response unchanged.
+\end{frame}
+
+
+\begin{frame}{Example: the VI and its transformation}
+\compactmath
+For a candidate $x^*\in K$, use the negative marginal payoffs:
+\[
+\begin{gathered}
+ F_i=-\partial_i u_i,\qquad
+ F(x)=\begin{pmatrix}x_1-1-\tfrac12x_2\\4(x_2-1-\tfrac12x_1)\end{pmatrix}.\\[6pt]
+ x^*\in\mathrm{NE}
+ \quad\Longleftrightarrow\quad
+ \langle y-x^*,F(x^*)\rangle\geq0\quad\text{for every }y\in K.
+\end{gathered}
+\]
+\begin{block}{SET: divide the second component by $4$}
+\[
+ \widetilde F(x)=\operatorname{diag}(1,\tfrac14)F(x)
+ =\begin{pmatrix}x_1-1-\tfrac12x_2\\x_2-1-\tfrac12x_1\end{pmatrix}.
+\]
+\end{block}
+Positive scaling preserves every component's sign on $K$. Since $K$ is rectangular,
+\[
+ \operatorname{Sol}(K,F)=\operatorname{Sol}(K,\widetilde F).
+\]
+\end{frame}
+
+
+\begin{frame}{Example: the two uniqueness routes}
+\compactmath
+The transformed system has a symmetric derivative:
+\[
+ H=D\widetilde F=\begin{pmatrix}1&-\tfrac12\\-\tfrac12&1\end{pmatrix},
+ \qquad\lambda(H)\in\{\tfrac12,\tfrac32\}.
+\]
+\begin{columns}[T,onlytextwidth]
+\column{0.40\textwidth}
+\textbf{$P$-property method}\par
+The principal minors of $H$ are $1,1,\tfrac34>0$.
+\medskip\par
+The $P$-matrix condition gives at most one VI solution.
+\column{0.56\textwidth}
+\textbf{Potential method}
+\[
+\begin{aligned}
+ \Phi(x)={}&\tfrac12(x_1^2+x_2^2)\\
+           &-\tfrac12x_1x_2-x_1-x_2.
+\end{aligned}
+\]
+$\nabla\Phi=\widetilde F$ and $\nabla^2\Phi=H\succ0$.
+The VI minimizes the strictly convex $\Phi$ over $K$.
+\end{columns}
+\medskip
+\[
+ \widetilde F(x^*)=0
+ \quad\Longrightarrow\quad
+ \boxed{x_1^*=x_2^*=2}.
+\]
+This feasible zero proves existence. The equilibrium is \alert{unique}.
 \end{frame}
 
 
@@ -775,7 +856,7 @@ The proof applies to every equilibrium, without a uniqueness assumption.
 \end{itemize}
 \medskip
 The seminar follows the supplied SET draft.
-The path-network curves and two-node calculation are seminar examples.
+The two-player walkthrough, path-network curves, and two-node calculation are seminar examples.
 \end{frame}
 
 \end{document}
