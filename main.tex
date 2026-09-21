@@ -56,7 +56,7 @@
 \date{Paper version: February 17, 2026}
 \begin{document}
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
-\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{35}\fi
+\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{37}\fi
 \maketitle
 
 \begin{frame}{The representation of an equilibrium system}
@@ -304,39 +304,99 @@ Existence needs its own argument in each application.
 \end{frame}
 
 
-\begin{frame}{CES production networks}
+\begin{frame}{Production networks: firms and technology}
 \compactmath
+Each industry produces one good using labor and inputs bought from other industries.
+\begin{block}{Normalized production technology}
+\[
+ y_i=z_i\left(\frac{l_i}{\alpha_i}\right)^{\!\alpha_i}
+ \left(\frac{M_i}{1-\alpha_i}\right)^{\!1-\alpha_i},\qquad
+ M_i=\left(\sum\nolimits_j\omega_{ij}^{1/\sigma_i}
+ q_{ij}^{\,1-1/\sigma_i}\right)^{\!\sigma_i/(\sigma_i-1)}.
+\]
+\[
+ \omega_{ij}=\frac{a_{ij}}{1-\alpha_i},\quad
+ \sum\nolimits_j\omega_{ij}=1,\quad 0<\alpha_i<1,\quad \sigma_i>1.
+\]
+\end{block}
 \begin{itemize}
-  \item $a_{ij}\geq0$ measures input dependence, with $\sum_j a_{ij}=1-\alpha_i$.
-  \item Labor share $\alpha_i>0$, productivity $z_i>0$, wage $w>0$.
-  \item Input substitution elasticity $\sigma_i\geq1$.
+ \item $l_i$ is labor, $q_{ij}$ is the quantity of good $j$ used by industry $i$,
+ and $z_i>0$ is productivity.
+ \item $a_{ij}\geq0$ records input links. A supplier's price affects its customers' costs.
+ \item Labor has share $\alpha_i$. The elasticity $\sigma_i$ governs substitution
+ among intermediate inputs. The $\sigma_i=1$ case follows by a limit.
 \end{itemize}
-\begin{block}{Equilibrium prices}
-For $0<\alpha_i<1$ and $\sigma_i>1$, cost minimization gives
+\end{frame}
+
+
+\begin{frame}{Cost minimization in two steps}
+\compactmath
+For a given output $y_i$, minimize input cost at positive prices $(w,p)$.
+
+\textbf{1. Intermediate inputs.} The cheapest bundle has unit price
+\[
+ Q_i(p)=\Bigl(\sum\nolimits_j\omega_{ij}p_j^{\,1-\sigma_i}\Bigr)^{\!1/(1-\sigma_i)}.
+\]
+\textbf{2. Labor and intermediates.} With total cost $E_i=wl_i+Q_iM_i$,
+optimal spending satisfies
+\[
+ wl_i=\alpha_i E_i,\qquad Q_iM_i=(1-\alpha_i)E_i.
+\]
+Substitute these demands into the production function:
+\[
+ y_i=z_i\left(\frac{E_i}{w}\right)^{\!\alpha_i}
+ \left(\frac{E_i}{Q_i}\right)^{\!1-\alpha_i}
+ \quad\Longrightarrow\quad
+ \boxed{c_i(p,w)=\frac{E_i}{y_i}
+ =\frac{w^{\alpha_i}Q_i^{\,1-\alpha_i}}{z_i}}.
+\]
+The cost per unit $c_i$ does not depend on output because returns to scale are constant.
+\end{frame}
+
+
+\begin{frame}{Competitive prices and unit costs}
+\compactmath
+Price-taking firms with constant returns earn zero profit when output is positive:
+\[
+ \pi_i=(p_i-c_i)y_i=0\qquad\Longrightarrow\qquad p_i=c_i(p,w).
+\]
+\begin{block}{The production-price system}
 \[
  p_i z_i=C_i(p),\qquad
  C_i(p)=w^{\alpha_i}
  \Bigl(\frac{\sum\nolimits_j a_{ij}p_j^{\,1-\sigma_i}}{1-\alpha_i}\Bigr)^{\!\tfrac{1-\alpha_i}{1-\sigma_i}}.
 \]
-The Cobb--Douglas case $\sigma_i=1$ follows by a limit.
 \end{block}
-\alert{Question:} Does this nonlinear price system have exactly one solution?
+\begin{itemize}
+ \item Suppliers' prices enter customers' costs, so prices are jointly determined.
+ \item When every $z_i=1$, the benchmark is $p_i=w$ for every industry.
+\end{itemize}
+\alert{Question:} For a given wage $w$, is the positive price vector unique?
 \end{frame}
 
 
 \begin{frame}{Production networks: labor anchors the price system}
-\begin{block}{A simple change of representation}
-From the nonlinear unit-cost equation $p_i z_i=C_i(p)$, take logarithms of both positive sides and set $x_i=\log(p_i/w)$.
-\end{block}
+\compactmath
+Taking logs and setting $x_i=\log(p_i/w)$ gives $\widetilde F_i(x)=x_i-T_i(x)$, with
 \[
-D\widetilde F(x)=I-W(x),\qquad W(x)\geq0,\qquad
-\sum_j W_{ij}(x)=1-\alpha_i<1.
+ T_i(x)=-\log z_i+\frac{1-\alpha_i}{1-\sigma_i}
+ \log\Bigl(\sum\nolimits_j\omega_{ij}e^{(1-\sigma_i)x_j}\Bigr).
 \]
-\begin{itemize}
-\item A positive labor share $\alpha_i$ limits the feedback through intermediate inputs.
-\item The log-price map is a contraction: the equilibrium price vector \alert{exists and is unique}.
-\item Input linkages still transmit productivity shocks across industries.
-\end{itemize}
+Price pass-through equals each supplier's share in total cost:
+\[
+ W_{ij}(x)=\frac{\partial T_i}{\partial x_j}
+ =(1-\alpha_i)\frac{\omega_{ij}e^{(1-\sigma_i)x_j}}
+ {\sum_k\omega_{ik}e^{(1-\sigma_i)x_k}}\geq0.
+\]
+\[
+D\widetilde F(x)=I-W(x),\qquad
+\sum\nolimits_j W_{ij}(x)=1-\alpha_i<1.
+\]
+Labor absorbs the remaining share $\alpha_i$, limiting feedback through suppliers.
+\begin{block}{Existence and uniqueness of prices}
+$\|DT(x)\|_\infty\leq\max_i(1-\alpha_i)<1$: the log-price map is a contraction.
+For a given wage, a positive price vector \alert{exists and is unique}.
+\end{block}
 \end{frame}
 
 

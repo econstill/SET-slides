@@ -6,11 +6,11 @@ Beamer template.
 
 ## Files
 
-- [Slides (PDF)](SET-English-Seminar.pdf): 43 pages — 36 main pages including
+- [Slides (PDF)](SET-English-Seminar.pdf): 45 pages — 38 main pages including
   the title, six optional backup pages, and one reference page.
 - [Editable source](main.tex): Beamer source with the paper's Figure 1 on
-  slide 3, two worked two-player examples on slides 4–6 and 7–9, and inline
-  diagrams and plots, without embedded speaker notes
+  slide 3, two worked two-player examples on slides 4–6 and 7–9, a production-network
+  model derivation and application on slides 13–17, and inline diagrams and plots, without embedded speaker notes
   or per-slide source footers.
 - [Figure 1 crop](assets/set-figure1-methodology.png): the original
   methodology diagram from page 17 of the supplied paper.
@@ -40,7 +40,9 @@ They are not embedded in `main.tex` or the slide PDF.
 The seminar introduces the transformation through the paper's Figure 1,
 Example 1 on positive payoff scaling that follows both branches of the map,
 Example 2 on a nonlinear transformation that exposes a convex minimization
-potential, and one concise equilibrium-set result. It then focuses on production networks,
+potential, and one concise equilibrium-set result. The production-network application
+introduces firms' normalized technology, derives unit costs by cost minimization,
+and links competitive prices to the transformed price system. The seminar then covers
 nonlinear peer effects, oligopoly, multiplex interactions, nonlinear CES
 strategic complements, centrality and key players, and network public goods
 with convex costs. Proof details are in the optional backup pages.
