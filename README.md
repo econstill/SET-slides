@@ -9,14 +9,14 @@ Beamer template.
 - [Slides (PDF)](SET-English-Seminar.pdf): 50 pages — 41 main pages including
   the title, eight optional backup pages, and one reference page.
 - [Editable source](main.tex): Beamer source with the paper's Figure 1 on
-  slide 3, two worked two-player examples on slides 4–6 and 7–9, a production-network
-  application with a running two-industry example on slides 13–20, and inline diagrams and plots, without embedded speaker notes
+  slide 3, two worked two-player examples on slides 4–6 and 7–9, a detailed oligopoly
+  application with a two-firm logit example on slides 13–21, and inline diagrams and plots, without embedded speaker notes
   or per-slide source footers.
 - [Figure 1 crop](assets/set-figure1-methodology.png): the original
   methodology diagram from page 17 of the supplied paper.
 - [Presenter guide](SET-English-Presenter-Guide.md): application-focused
   speaking route, suggested timing, and a detailed speaking script for each
-  production-network slide.
+  oligopoly slide.
 
 ## Compile
 
@@ -41,18 +41,20 @@ They are not embedded in `main.tex` or the slide PDF.
 The seminar introduces the transformation through the paper's Figure 1,
 Example 1 on positive payoff scaling that follows both branches of the map,
 Example 2 on a nonlinear transformation that exposes a convex minimization
-potential, and one concise equilibrium-set result. The production-network application
-explains unit cost and zero profit through two industries that buy each other's output.
-An exact productivity-shock calculation separates the direct effect from network feedback.
-The sequence then introduces CES intermediate prices, the sign-preserving log
-transformation, cost shares and contraction, and the Leontief–Bonacich connection.
-It studies the positive price subsystem conditional on a fixed wage. The seminar then covers
-nonlinear peer effects, oligopoly, multiplex interactions, nonlinear CES
+potential, and one concise equilibrium-set result. The oligopoly application starts
+with consumer choice and firms' pricing incentives, derives the markup condition,
+and uses a positive rescaling to obtain a sign-equivalent markup-gap system.
+It explains how the demand assumptions yield the P-property and why preserving
+signs, rather than only zeros, covers binding price floors and caps. A two-firm
+logit example compares the equilibrium in the common price boxes `[0,4]`, `[0,1]`,
+and `[1.5,4]`. The seminar then covers nonlinear peer effects, multiplex interactions, nonlinear CES
 strategic complements, centrality and key players, and network public goods
 with convex costs. The main speaking route takes approximately 82–85 minutes,
-including 14–16 minutes for production networks, leaving time for questions within
-a 90-minute seminar. Pages 42–43 give the full production-cost derivation and matrix
-test. Pages 44–49 contain other optional proof details, and page 50 has references.
+including about 18 minutes for oligopoly, leaving time for questions within
+a 90-minute seminar. Pages 42–43 give the full oligopoly derivative proof, verification
+of the logit demand assumptions, and a counterexample to applying the P-matrix
+test directly to untransformed marginal profits. Pages 44–49 contain other optional
+proof details, and page 50 has references.
 
 The older image assets and `ref.bib` are preserved from the earlier
 repository version but are not needed to compile the current `main.tex`.

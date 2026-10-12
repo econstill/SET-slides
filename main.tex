@@ -253,7 +253,7 @@ SET exposes a convex optimization representation of the same equilibrium problem
 
 \begin{frame}{Applications of general interest}
 \begin{enumerate}
-\item \textbf{Market systems:} production networks, nonlinear peers, and oligopoly pricing.
+\item \textbf{Pricing and social interactions:} oligopoly with price bounds and nonlinear peer effects.
 \item \textbf{Nonlinear network complements:} when equilibrium exists, who acts most, and who is the key player?
 \item \textbf{Network public goods:} how convex costs change participation, uniqueness, and effort rankings.
 \end{enumerate}
@@ -290,7 +290,7 @@ The product-domain condition matters when a choice is at a boundary.
 \begin{block}{$P$-property route}
 A transformed derivative matrix can establish \alert{at most one} equilibrium.
 \medskip
-\textbf{Used for:} production prices, peer effects, oligopoly pricing, CES complements.
+\textbf{Used for:} oligopoly pricing, peer effects, CES complements.
 \end{block}
 \column{0.48\textwidth}
 \begin{block}{Potential route}
@@ -304,172 +304,189 @@ Existence needs its own argument in each application.
 \end{frame}
 
 
-\begin{frame}{Production networks: the price question}
-An industry's output is another industry's input.
+\begin{frame}{Oligopoly: what price should each firm charge?}
+There are $n\geq2$ firms, each selling one differentiated product.
 \begin{itemize}
- \item Industry $i$ hires labor at wage $w$ and buys goods from its suppliers.
- \item Its productivity is $z_i>0$. Its output sells at price $p_i>0$.
- \item Firms take prices as given and have constant returns to scale.
+ \item Firm $i$ has constant unit cost $c_i$ and chooses $p_i\in[a_i,b_i]$, with $a_i\geq c_i$.
+ \item Demand $Q_i(p)>0$ depends on its own price and its rivals' prices.
+ \item Consumers can also choose an outside option, whose price $p_0$ is fixed.
 \end{itemize}
-\medskip
-A cheaper supplier lowers its customers' costs. Their lower prices can then
-feed back into the original supplier's costs.
-\begin{block}{The equilibrium question}
-For a given wage, which prices are consistent with every active industry's
-cost of production? Can there be more than one such price vector?
-\end{block}
-We study this \alert{price subsystem}, holding the wage fixed.
-\end{frame}
-
-
-\begin{frame}{A firm's cost of production}
-\compactmath
-The technology is Cobb--Douglas between labor and an intermediate-input bundle.
-Let $Q_i(p)$ be the price of one unit of that bundle.
-\begin{block}{Cost of producing one unit}
-After choosing the cheapest input quantities, the firm has unit cost
+\begin{block}{The firm's problem}
 \[
- \boxed{c_i(p,w)=\frac{w^{\alpha_i}Q_i(p)^{\,1-\alpha_i}}{z_i}}.
+ \max_{p_i\in[a_i,b_i]}\;\pi_i(p)=(p_i-c_i)Q_i(p).
 \]
 \end{block}
-\begin{itemize}
- \item $\alpha_i\in(0,1)$ is labor's cost share. Intermediates account for $1-\alpha_i$.
- \item Higher wages or supplier prices raise unit cost.
- \item Doubling $z_i$ halves unit cost, holding input prices fixed.
-\end{itemize}
-Constant returns make unit cost independent of the amount produced.
+Can firms' pricing decisions be mutually consistent in more than one way,
+including when a price floor or cap binds?
 \end{frame}
 
 
-\begin{frame}{Two industries: a simple price system}
+\begin{frame}{Where demand comes from}
 \compactmath
-Measure prices in units of the fixed wage, so $w=1$.
-Each industry spends half its cost on labor and half on the other industry's good.
+Each consumer chooses the option with the highest utility:
 \[
- Q_1=p_2,\qquad Q_2=p_1,\qquad \alpha_1=\alpha_2=\tfrac12.
+ U_i=v_i-p_i+\varepsilon_i,\qquad i=0,1,\ldots,n.
 \]
-Competition and constant returns require \alert{price = unit cost}
-for an industry producing a positive amount:
+Here $v_i$ measures product appeal; $\varepsilon_i$ captures individual tastes.
+Option $0$ means not buying from any firm. Normalize the mass of consumers to one.
+\begin{block}{A familiar example: multinomial logit}
+With independent standard extreme-value taste shocks,
 \[
- \boxed{p_1=\frac{\sqrt{p_2}}{z_1},\qquad
-        p_2=\frac{\sqrt{p_1}}{z_2}}.
+ Q_i(p)=\frac{e^{v_i-p_i}}
+ {e^{v_0-p_0}+\sum_{j=1}^n e^{v_j-p_j}}.
 \]
-\begin{itemize}
- \item A price below unit cost cannot sustain positive production.
- \item A price above unit cost would generate unbounded profit at given prices.
-\end{itemize}
-At $z_1=z_2=1$, the prices $p_1=p_2=1$ satisfy both equations.
+\end{block}
+A higher own price loses customers to rivals or the outside option.
+The paper's argument covers more than this logit example.
 \end{frame}
 
 
-\begin{frame}{Two industries: a productivity shock}
+\begin{frame}{An optimal price balances two effects}
 \compactmath
-Industry 1's productivity doubles: $z_1=2$, $z_2=1$.
-Take exact logs, with $x_i=\log p_i$:
+Differentiate profit, holding rivals' prices fixed:
 \[
- x_1=-\log2+\tfrac12x_2,\qquad x_2=\tfrac12x_1.
+ \frac{\partial\pi_i}{\partial p_i}
+ =\underbrace{Q_i}_{\text{more revenue per customer}}
+ +\underbrace{(p_i-c_i)\frac{\partial Q_i}{\partial p_i}}_{\text{lost customers}},
+ \qquad \frac{\partial Q_i}{\partial p_i}<0.
 \]
-Since $x_1=-\log2+\tfrac14x_1$,
+\begin{block}{At an interior optimum}
 \[
- x_1=-\tfrac43\log2,\qquad x_2=-\tfrac23\log2.
+ \underbrace{p_i-c_i}_{\text{actual markup}}
+ =\underbrace{\frac{Q_i}{-\partial Q_i/\partial p_i}}_{\text{demand-implied markup }\mu_i(p)}.
 \]
+\end{block}
+$\mu_i$ is the inverse own-price \alert{semi-elasticity}, $1/[-\partial_{p_i}\log Q_i]$.
+Less price-sensitive demand supports a larger markup; rivals' prices affect this sensitivity.
+\end{frame}
+
+
+\begin{frame}{SET: rewrite pricing as a markup gap}
+\compactmath
+The original VI uses negative marginal profit, $F_i=-\partial\pi_i/\partial p_i$.
+Divide by the positive number $-\partial Q_i/\partial p_i$:
+\begin{block}{A sign-equivalent pricing condition}
+\[
+ \boxed{\widetilde F_i(p)=\frac{F_i(p)}{-\partial Q_i/\partial p_i}
+       =\underbrace{p_i-c_i}_{\text{actual markup}}-\underbrace{\mu_i(p)}_{\text{desired markup}}.}
+\]
+\end{block}
+\begin{itemize}
+ \item $\widetilde F_i<0$: the firm wants to \alert{raise} its price.
+ \item $\widetilde F_i>0$: the firm wants to \alert{cut} its price.
+ \item $\widetilde F_i=0$: the two pricing effects balance.
+\end{itemize}
+This is a new representation of the marginal condition, not a new profit function.
+\end{frame}
+
+
+\begin{frame}{Price floors and caps: signs, not just zeros}
+\compactmath
 \begin{center}
-\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{lcc}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
 \toprule
- & Before the shock & After the shock\\
+Chosen price & Marginal profit & Markup gap\\
 \midrule
-Industry 1's price & $1$ & $2^{-4/3}\approx0.397$\\
-Industry 2's price & $1$ & $2^{-2/3}\approx0.630$\\
+Floor: $p_i=a_i$ & $\partial\pi_i/\partial p_i\leq0$ & $\widetilde F_i\geq0$\\
+Interior & $\partial\pi_i/\partial p_i=0$ & $\widetilde F_i=0$\\
+Cap: $p_i=b_i$ & $\partial\pi_i/\partial p_i\geq0$ & $\widetilde F_i\leq0$\\
 \bottomrule
 \end{tabular}
 \end{center}
-If $p_2$ stayed at $1$, then $p_1$ would be $0.5$.
-Input feedback lowers it further to \alert{$0.397$}.
+Under E1 (own-price log-concavity), these conditions characterize best responses.
+Positive rescaling preserves all three cases. On $K=\prod_i[a_i,b_i]$,
+\[
+ \mathrm{NE}=\Sol(K,F)=\Sol(K,\widetilde F).
+\]
+The \alert{entire equilibrium set} is preserved.
+Looking only for zeros would miss equilibria with binding bounds.
 \end{frame}
 
 
-\begin{frame}{Many suppliers: the CES input price index}
+\begin{frame}{The demand restrictions behind uniqueness}
 \compactmath
-With several suppliers, the cheapest intermediate bundle has unit price
-\[
- Q_i(p)=\left(\sum_j\omega_{ij}p_j^{\,1-\sigma_i}\right)^{1/(1-\sigma_i)},
- \qquad \omega_{ij}\geq0,\quad\sum_j\omega_{ij}=1.
-\]
-\begin{itemize}
- \item $\omega_{ij}$ is supplier $j$'s technology weight.
- \item $\sigma_i>1$ is the elasticity of substitution among suppliers.
-\end{itemize}
-\begin{block}{The same zero-profit condition}
-\[
- p_i=\frac{Q_i(p)^{\,1-\alpha_i}}{z_i}\qquad(w=1).
-\]
-\end{block}
-With several suppliers, these coupled equations are generally nonlinear.
+Write $\ell_i=\log Q_i$. Demand is positive, smooth, and decreasing in own price.
+\begin{enumerate}
+ \item \textbf{E1: own-price log-concavity}
+ \[
+ \frac{\partial^2\ell_i}{\partial p_i^2}\leq0.
+ \]
+ \item \textbf{E2: cross-price log-supermodularity}
+ \[
+ \frac{\partial^2\ell_i}{\partial p_i\partial p_j}\geq0
+ \quad(j\ne i,\ \text{including the outside option }j=0).
+ \]
+ \item \textbf{E3: common-price-shift invariance}
+ \[
+ Q_i(p_1+t,\ldots,p_n+t,p_0+t)=Q_i(p_1,\ldots,p_n,p_0).
+ \]
+\end{enumerate}
+The logit example satisfies all three. The outside price is fixed during the game;
+E3 describes demand when \emph{all} option prices shift together.
 \end{frame}
 
 
-\begin{frame}{SET: the same prices in a better representation}
+\begin{frame}{Why the transformed pricing system is unique}
 \compactmath
-Write $x_i=\log p_i$, $\varepsilon_i=\log z_i$, and $p=e^x$.
+Let $J=D\widetilde F$ be the derivative matrix with respect to firms' prices.
+The demand restrictions imply
 \[
- p_i z_i=Q_i(p)^{\,1-\alpha_i}
- \quad\Longleftrightarrow\quad
- x_i=\underbrace{-\varepsilon_i+(1-\alpha_i)\log Q_i(e^x)}_{T_i(x)}.
+ J_{ii}\geq1,\qquad J_{ij}\leq0\ (j\ne i),\qquad
+ J_{ii}-\sum_{j\ne i}|J_{ij}|\geq1.
 \]
-\begin{block}{Why this transformation preserves equilibrium}
-The logarithm is strictly increasing. For every positive price vector,
-\[
- \sgn\!\left[p_i z_i-Q_i(p)^{\,1-\alpha_i}\right]
- =\sgn\!\left[x_i-T_i(x)\right].
-\]
+An own-price change affects the markup gap more than all rival-price effects combined.
+\begin{block}{The $P$-property route}
+Positive diagonal and strict row diagonal dominance give the $P$-structure.
+The transformed VI, and hence the pricing game, has \alert{at most one equilibrium}.
 \end{block}
-The change of variables $p=e^x$ is one-to-one between $\R^n$ and positive prices.
-Thus $x=T(x)$ describes \alert{exactly the same positive price equilibria}.
-\medskip\par
-The next step is to examine how much one industry's log price affects another's.
+For finite price intervals, continuity and own-price quasi-concavity also give
+existence: the equilibrium is then \alert{unique}.
 \end{frame}
 
 
-\begin{frame}{Labor limits the feedback in prices}
+\begin{frame}{A two-firm logit example: solve for prices}
 \compactmath
-Shares in total cost measure log-price pass-through:
+Take two identical firms: $c_1=c_2=v_1=v_2=0$ and $v_0-p_0=0$.
 \[
- W_{ij}(x)=\frac{\partial T_i(x)}{\partial x_j}\geq0,\qquad
- \sum_j W_{ij}(x)=1-\alpha_i<1.
+ Q_i(p)=\frac{e^{-p_i}}{1+e^{-p_1}+e^{-p_2}},\qquad
+ -\frac{\partial Q_i}{\partial p_i}=Q_i(1-Q_i).
 \]
-Labor's price stays fixed. A common $1\%$ rise in suppliers' prices raises unit cost
-by less than $1\%$ to first order.
-\begin{block}{A unique positive price vector}
-Let $q=\max_i(1-\alpha_i)<1$. Then
+\begin{block}{The markup gap becomes especially simple}
 \[
- \|T(x)-T(y)\|_\infty\leq q\|x-y\|_\infty.
+ \mu_i=\frac1{1-Q_i},\qquad
+ \widetilde F_i=p_i-\frac1{1-Q_i}.
 \]
-The contraction theorem gives existence and uniqueness on $\R^n$.
 \end{block}
-The paper's $P$-matrix proof uses the same cost shares.
+With $p_i\in[0,4]$, look for a symmetric interior price $p$:
+\[
+ p=\frac{1+2e^{-p}}{1+e^{-p}}
+ \quad\Longrightarrow\quad
+ \boxed{p_1^*=p_2^*\approx1.227,\quad Q_1^*=Q_2^*\approx0.185.}
+\]
+The uniqueness result also rules out asymmetric equilibria.
 \end{frame}
 
 
-\begin{frame}{Cobb--Douglas: tracing the network multiplier}
-\compactmath
-As $\sigma_i\to1$, supplier cost shares become constant:
-\[
- a_{ij}=(1-\alpha_i)\omega_{ij},\qquad A=(a_{ij}),\qquad
- x=-\varepsilon+Ax.
-\]
-\begin{block}{Direct and indirect productivity effects}
-\[
- x^*=-(I-A)^{-1}\varepsilon,
- \qquad (I-A)^{-1}=I+A+A^2+\cdots.
-\]
+\begin{frame}{The same market with price floors or caps}
+Keep demand and costs unchanged; change only the feasible price intervals.
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{lcc}
+\toprule
+Interval for both firms & Equilibrium prices & Markup gap\\
+\midrule
+$[0,4]$: no binding bound & $(1.227,1.227)$ & $0$\\
+$[0,1]$: cap at $1$ & $(1,1)$ & $-0.269$\\
+$[1.5,4]$: floor at $1.5$ & $(1.5,1.5)$ & $+0.318$\\
+\bottomrule
+\end{tabular}
+\end{center}
+At the cap firms want higher prices; at the floor they want lower prices.
+\begin{block}{What SET buys us}
+Bounds change prices, but sign preservation lets the
+\alert{same uniqueness argument} cover all three cases.
 \end{block}
-\begin{itemize}
- \item $I$: a productivity gain lowers the producer's own price.
- \item $A,A^2,\ldots$: cheaper inputs transmit the gain through successive supply links.
-\end{itemize}
-In our example, each link has weight $\tfrac12$, so a full feedback loop has weight $\tfrac14$.
-The same inverse appears in Bonacich centrality, with $A=\delta G$ and a different forcing vector.
 \end{frame}
 
 
@@ -485,24 +502,6 @@ x_i=(1-\lambda_2)a_i+(\lambda_1+\lambda_2)\widetilde x_{-i}(\beta).
 \item $\beta=1$ recovers linear-in-means; other values change whose behavior is most influential.
 \item Taking logs exposes a $P$-property: under the paper's parameter restrictions, \alert{any solution is unique}.
 \item The result is conditional on existence; the transformation alone does not supply it.
-\end{itemize}
-\end{frame}
-
-
-
-\begin{frame}{Existing application: oligopoly with price bounds}
-Firm $i$ chooses $p_i\in[a_i,b_i]$ and earns $(p_i-c_i)Q_i(p)$.
-\begin{block}{A transformed pricing condition}
-\[
-F_i=-\frac{\partial\pi_i}{\partial p_i}
-\quad\sim_{\rm sign}\quad
-\widetilde F_i=p_i-c_i+\frac{Q_i}{\partial Q_i/\partial p_i}.
-\]
-The positive rescaling preserves the signs at both interior prices and binding price floors or caps.
-\end{block}
-\begin{itemize}
-\item Under the paper's demand conditions E1--E3, the transformed system has the $P$-property.
-\item Therefore the Bertrand game has \alert{at most one} pure-strategy equilibrium.
 \end{itemize}
 \end{frame}
 
@@ -903,52 +902,54 @@ Suitable transformations can reveal structure absent from the original Jacobian.
 
 \appendix
 
-\begin{frame}{Backup: deriving the production unit cost}
+\begin{frame}{Backup: the oligopoly $P$-matrix calculation}
 \small\compactmath
-The normalized quantity technology corresponding to the main slides is
+Let $\ell_{i,j}=\partial\log Q_i/\partial p_j$ and
+$\ell_{i,jk}=\partial^2\log Q_i/(\partial p_j\partial p_k)$. Then
 \[
- m_i=\left(\sum_j\omega_{ij}^{1/\sigma_i}q_{ij}^{\,1-1/\sigma_i}\right)^{\sigma_i/(\sigma_i-1)},
- \qquad
- y_i=z_i\left(\frac{l_i}{\alpha_i}\right)^{\!\alpha_i}
-          \left(\frac{m_i}{1-\alpha_i}\right)^{\!1-\alpha_i}.
+ \widetilde F_i=p_i-c_i+\frac1{\ell_{i,i}},\qquad
+ J_{ij}=\mathbf1_{\{i=j\}}-\frac{\ell_{i,ij}}{(\ell_{i,i})^2}.
 \]
-Here $q_{ij}$ is the quantity of input $j$, $l_i$ is labor, and $m_i$ is the bundle.
-The minimum cost of $m_i$ is $Q_i(p)m_i$.
-\medskip\par
-For a target output, let $E_i=wl_i+Q_i m_i$. Cost minimization gives
+E1 gives $J_{ii}\geq1$; E2 gives $J_{ij}\leq0$ for $j\ne i$.
+Differentiate E3's common-shift identity, then differentiate with respect to $p_i$:
 \[
- wl_i=\alpha_i E_i,\qquad Q_i m_i=(1-\alpha_i)E_i.
+ \sum_{j=0}^n\ell_{i,j}=0
+ \quad\Longrightarrow\quad
+ \sum_{j=0}^n\ell_{i,ij}=0.
 \]
-Substituting the optimal input quantities into the technology yields
+Since E2 also gives $\ell_{i,i0}\geq0$,
 \[
- y_i=z_i\left(\frac{E_i}{w}\right)^{\!\alpha_i}
-           \left(\frac{E_i}{Q_i}\right)^{\!1-\alpha_i}
-     =\frac{z_i E_i}{w^{\alpha_i}Q_i^{\,1-\alpha_i}}.
+ J_{ii}-\sum_{j\ne i}|J_{ij}|
+ =\sum_{j=1}^nJ_{ij}
+ =1+\frac{\ell_{i,i0}}{(\ell_{i,i})^2}\geq1.
 \]
-Therefore $c_i=E_i/y_i=w^{\alpha_i}Q_i^{\,1-\alpha_i}/z_i$.
+Every principal submatrix has positive diagonal and strict row diagonal dominance,
+so every principal determinant is positive. Thus $J$ is a $P$-matrix.
+The uniform dominance also gives the $P$-property of $\widetilde F$ on the price box.
 \end{frame}
 
-\begin{frame}{Backup: the production-network matrix test}
+\begin{frame}{Backup: logit checks and the role of SET}
 \small\compactmath
-For $\sigma_i>1$, the log-price map and its derivative are
+For unit-slope logit, let $Q_0$ denote the outside-option share. Then
 \[
- T_i(x)=-\varepsilon_i+\frac{1-\alpha_i}{1-\sigma_i}
- \log\left(\sum_j\omega_{ij}e^{(1-\sigma_i)x_j}\right),
+ \ell_{i,i}=-(1-Q_i),\qquad
+ \ell_{i,ii}=-Q_i(1-Q_i)\leq0,\qquad
+ \ell_{i,ij}=Q_iQ_j\geq0\quad(j\ne i,\ j=0\text{ allowed}).
 \]
+Adding $t$ to every option's price multiplies every logit weight by $e^{-t}$,
+so shares are unchanged. Thus E1--E3 hold.
+\begin{block}{The original derivative need not be a $P$-matrix}
+In the two-firm example, take $p_1=p_2=4$ and write $s=Q_1=Q_2$.
+For $F_i=-\partial\pi_i/\partial p_i$,
 \[
- W_{ij}(x)=\frac{\partial T_i}{\partial x_j}
- =(1-\alpha_i)\frac{\omega_{ij}e^{(1-\sigma_i)x_j}}
-                         {\sum_k\omega_{ik}e^{(1-\sigma_i)x_k}}.
+ \frac{\partial F_i}{\partial p_i}
+ =s(1-s)\bigl[2-p_i(1-2s)\bigr]<0.
 \]
-The fraction is supplier $j$'s share within intermediate expenditure.
-Multiplying by $1-\alpha_i$ gives its share in total cost.
-\[
- W\geq0,\qquad \sum_jW_{ij}=1-\alpha_i,
- \qquad D(x-T(x))=I-W(x).
-\]
-The diagonal dominance margin of $I-W$ in row $i$ equals $\alpha_i>0$.
-Every principal submatrix has positive determinant, so $I-W$ is a $P$-matrix.
-The uniform margin $\min_i\alpha_i>0$ also yields the contraction used in the main slides.
+A negative $1\times1$ principal minor rules out a global $P$-matrix test for $DF$.
+The transformed derivative passes the test throughout the same price box.
+\end{block}
+E1 makes profit log-concave for $p_i>c_i$, not necessarily concave:
+$\log\pi_i=\log(p_i-c_i)+\log Q_i$.
 \end{frame}
 
 \begin{frame}{Backup: a formal coordinate proof of Theorem 1}
@@ -1102,7 +1103,7 @@ The proof applies to every equilibrium, without a uniqueness assumption.
 \end{itemize}
 \medskip
 The seminar follows the supplied SET draft.
-The two-player walkthroughs, two-industry production example, path-network curves,
+The two-player walkthroughs, two-firm logit calculations, path-network curves,
 and two-node calculation are seminar examples.
 \end{frame}
 
