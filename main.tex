@@ -56,7 +56,7 @@
 \date{Paper version: February 17, 2026}
 \begin{document}
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
-\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{50}\fi
+\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{49}\fi
 \maketitle
 
 \begin{frame}{Equilibrium uniqueness and representation}
@@ -88,22 +88,23 @@ to reveal useful mathematical structure in equilibrium problems.
 \begin{frame}{Example: different nonlinear best responses}
 \compactmath
 Two players choose $x_i\geq0$, with $K=\mathbb R_+^2$.
+Write $a(x_1)=e^{2-x_1}>0$.
 \begin{block}{Payoffs}
 \[
 \begin{aligned}
- u_1(x)&=x_1(1+x_2)-x_1^2-\tfrac13x_1^3,\\
- u_2(x)&=1-e^{-x_2}-\frac{x_2}{2+x_1}.
+ u_1(x)&=x_1(1+x_2^2)-\tfrac12x_1^2,\\
+ u_2(x)&=3a(x_1)^2x_2-a(x_1)x_2^2-\tfrac13x_2^3.
 \end{aligned}
 \]
 \end{block}
-Both payoffs are strictly concave in the player's own action.
+Own-action curvature is $\partial_{11}u_1=-1$ and
+$\partial_{22}u_2=-2(a+x_2)<0$.
 \begin{block}{Best responses}
 \[
- B_1(x_2)=\sqrt{2+x_2}-1,\qquad
- B_2(x_1)=\ln(2+x_1).
+ B_1(x_2)=1+x_2^2,\qquad B_2(x_1)=e^{2-x_1}.
 \]
 \end{block}
-Every equilibrium is interior because both best responses are positive on $K$.
+Player 1 responds positively; player 2 responds negatively. Both responses are positive.
 \end{frame}
 
 
@@ -112,8 +113,8 @@ Every equilibrium is interior because both best responses are positive on $K$.
 The negative marginal payoffs define $F_i=-\partial_i u_i$.
 \[
  F(x)=\begin{pmatrix}
- x_1^2+2x_1-1-x_2\\
- \dfrac1{2+x_1}-e^{-x_2}
+ x_1-1-x_2^2\\
+ x_2^2+2a x_2-3a^2
  \end{pmatrix}.
 \]
 \[
@@ -136,41 +137,63 @@ A matrix $J$ is a $P$-matrix if every principal minor is positive:
 The original Jacobian is
 \[
  DF(x)=\begin{pmatrix}
- 2+2x_1&-1\\[3pt]
- -\dfrac1{(2+x_1)^2}&e^{-x_2}
+ 1&-2x_2\\
+ 2a(3a-x_2)&2(a+x_2)
  \end{pmatrix}.
 \]
 Its diagonal entries are positive, but its determinant need not be:
 \[
- \det DF(x)=(2+2x_1)e^{-x_2}-\frac1{(2+x_1)^2}.
+ \det DF(x)=2(a+x_2)+4a x_2(3a-x_2).
 \]
-At the interior feasible point $\widehat x=(1,4)$,
+At the interior feasible point $\widehat x=(2+\ln2,3)$, we have $a=1/2$ and
 \[
- \boxed{\det DF(\widehat x)=4e^{-4}-\frac19\approx-0.03785<0.}
+ DF(\widehat x)=\begin{pmatrix}1&-6\\-3/2&7\end{pmatrix},
+ \qquad \boxed{\det DF(\widehat x)=-2<0.}
 \]
 The original Jacobian fails the global $P$-matrix test.
 This failure alone says nothing about the number of equilibria.
 \end{frame}
 
 
+\begin{frame}{Example: best responses are not a contraction}
+\compactmath
+The joint best-response map and its Jacobian are
+\[
+ B(x)=\begin{pmatrix}1+x_2^2\\e^{2-x_1}\end{pmatrix},\qquad
+ DB(x)=\begin{pmatrix}0&2x_2\\-e^{2-x_1}&0\end{pmatrix}.
+\]
+At the interior equilibrium $x^*=(2,1)$,
+\[
+ DB(x^*)=\begin{pmatrix}0&2\\-1&0\end{pmatrix},\qquad
+ \lambda=\pm i\sqrt2,\qquad \rho(DB(x^*))=\sqrt2>1.
+\]
+Any contraction with modulus $q<1$ would require, in its induced norm,
+\[
+ \rho(DB(x^*))\leq\lVert DB(x^*)\rVert\leq q<1,
+\]
+a contradiction. Thus $B$ is not a contraction in any fixed norm, even locally.
+\end{frame}
+
+
 \begin{frame}{Example: a nonlinear sign-equivalent transformation}
 \compactmath
-Write $F_2=A-B$, with $A=\dfrac1{2+x_1}>0$ and $B=e^{-x_2}>0$.
-Use the strictly increasing function $h(t)=-1/t$ on $(0,\infty)$:
+Complete the square in the second component:
+\[
+ F_2=x_2^2+2a x_2-3a^2=(x_2+a)^2-(2a)^2.
+\]
+Use the strictly increasing function $h(t)=\sqrt t$ on $(0,\infty)$:
 \[
  \widetilde F_2(x)
- =h\!\left(\frac1{2+x_1}\right)-h(e^{-x_2})
- =e^{x_2}-2-x_1.
+ =\sqrt{(x_2+a)^2}-\sqrt{(2a)^2}=x_2-a.
 \]
 Keeping $\widetilde F_1=F_1$ gives
 \[
  \widetilde F(x)=\begin{pmatrix}
- x_1^2+2x_1-1-x_2\\e^{x_2}-2-x_1
+ x_1-1-x_2^2\\x_2-e^{2-x_1}
  \end{pmatrix},\qquad
  \sgn\widetilde F_i(x)=\sgn F_i(x)\quad\text{on }K.
 \]
-Strict increase preserves the ordering of the two positive terms.
-Since $K$ is rectangular,
+Both square-root inputs are strictly positive on $K$. Rectangularity gives
 \[
  \mathrm{NE}=\Sol(K,F)=\Sol(K,\widetilde F).
 \]
@@ -182,43 +205,40 @@ Since $K$ is rectangular,
 The transformed Jacobian is
 \[
  D\widetilde F(x)=\begin{pmatrix}
- 2+2x_1&-1\\-1&e^{x_2}
+ 1&-2x_2\\e^{2-x_1}&1
  \end{pmatrix}.
 \]
 For every $x\in K=\mathbb R_+^2$, its three principal minors satisfy
 \[
- 2+2x_1\geq2>0,\qquad e^{x_2}\geq1>0,
+ (D\widetilde F)_{11}=(D\widetilde F)_{22}=1>0,
 \]
 \[
- \det D\widetilde F(x)=(2+2x_1)e^{x_2}-1\geq1>0.
+ \det D\widetilde F(x)=1+2x_2e^{2-x_1}\geq1>0.
 \]
 Thus $D\widetilde F$ is a $P$-matrix throughout the same feasible domain.
 The transformed VI has \alert{at most one} solution, so the game has at most one equilibrium.
 \medskip\par
-Existence still needs an argument. Here symmetry also gives a potential.
+This is the $P$-matrix route in the paper's map; no potential is needed.
 \end{frame}
 
 
-\begin{frame}{Example: a convex equilibrium problem}
+\begin{frame}{Example: existence and the unique equilibrium}
 \compactmath
-The transformed operator is a gradient, $\widetilde F=\nabla\Phi$, where
+Existence is explicit: at $x^*=(2,1)$,
 \[
- \Phi(x)=\tfrac13x_1^3+x_1^2-x_1-x_1x_2+e^{x_2}-2x_2.
+ \widetilde F(2,1)=\begin{pmatrix}2-1-1^2\\1-e^{2-2}\end{pmatrix}
+ =\begin{pmatrix}0\\0\end{pmatrix}.
 \]
-For every $x\in K$,
+Every best response is strictly positive, so no equilibrium lies on the boundary.
 \[
- \nabla^2\Phi(x)=
- \begin{pmatrix}2+2x_1&-1\\-1&e^{x_2}\end{pmatrix}
- \succeq
- \begin{pmatrix}2&-1\\-1&1\end{pmatrix}
- \succ0.
+ \boxed{\mathrm{NE}=\Sol(K,F)=\Sol(K,\widetilde F)=\{(2,1)\}.}
 \]
-\begin{block}{Unique equilibrium}
-Strong convexity and coercivity give a unique minimizer on $K$.
-\end{block}
-\[
- \mathrm{NE}=\Sol(K,\widetilde F)=\argmin_{x\in K}\Phi(x).
-\]
+\medskip
+\begin{itemize}
+ \item Original $DF$: the global $P$-matrix test fails.
+ \item Best responses: no contraction in any fixed norm.
+ \item After SET: a global $P$-matrix certificate gives uniqueness.
+\end{itemize}
 \end{frame}
 
 
@@ -311,7 +331,7 @@ Finite compositions of the following componentwise operations preserve signs.
 For strictly decreasing $h_i$, reverse the order: $h_i(B_i)-h_i(A_i)$.
 \end{proposition}
 The rescaling factor may depend on the full profile, as in oligopoly pricing.
-Our worked example uses $h(t)=-1/t$ on positive arguments.
+Our worked example uses $h(t)=\sqrt t$ on strictly positive arguments.
 Logs and inverses require valid domains.
 \end{frame}
 
@@ -388,7 +408,7 @@ Existence needs its own argument in each application.
 \begin{frame}{Selected Applications}
 \begin{enumerate}
 \item \textbf{Oligopoly pricing:} derive the markup condition and trace how the demand assumptions deliver uniqueness.
-\item \textbf{Network complements:} prove conditional uniqueness and distinguish it from the spectral existence threshold.
+\item \textbf{Network complements:} examine the transformed derivative and distinguish uniqueness from the spectral existence threshold.
 \item \textbf{Network public goods:} construct the potential and explain how convex costs change equilibrium behavior.
 \end{enumerate}
 \medskip
@@ -771,12 +791,13 @@ Because the logarithm is strictly increasing,
 \]
 Thus $R(x)=0$ and $H(\log x)=0$ describe the same equilibria.
 \end{block}
-The next step uses the homogeneity of $S_i$ to study the derivative of $H$.
+The next step uses the homogeneity of the CES aggregate to study the derivative of $H$.
 \end{frame}
 
-\begin{frame}{CES uniqueness: the derivative and the proof}
+\begin{frame}{CES uniqueness: the transformed derivative}
 \small\compactmath
-Write $L_i(z)=\log T_i(e^z)$, $W=DL$, and $DH=I-W$. Direct differentiation gives
+Write $S_i(x)=\bigl(\sum_jg_{ij}x_j^\beta\bigr)^{1/\beta}$,
+$L_i(z)=\log T_i(e^z)$, and $W=DL$. Then $DH=I-W$, with
 \[
  W_{ij}(z)=
  \frac{\delta S_i(e^z)}{a_i+\delta S_i(e^z)}

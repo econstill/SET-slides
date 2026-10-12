@@ -1,6 +1,6 @@
 # SET: close-reading discussion guide
 
-This English guide follows the 54-page PDF: 51 main pages (including the
+This English guide follows the 53-page PDF: 50 main pages (including the
 cover) plus three optional technical backup pages.
 All page numbers below are physical PDF pages, not Beamer footer numbers.
 The source is Yves Zenou and Junjie Zhou, *SET*, February 17, 2026 version.
@@ -20,13 +20,13 @@ and move on.
 
 | PDF pages | Reading block | Flexible allocation |
 |---|---|---:|
-| 1–9 | Motivation, map, and the worked example | 15–18 min |
-| 10–17 | Methodology on pages 10–16, then Selected Applications on page 17 | 15–20 min |
-| 18–32 | Oligopoly model, demand assumptions, proof, existence, and logit checks | 30–35 min |
+| 1–10 | Motivation, map, and the worked example | 20 min |
+| 11–18 | Methodology on pages 11–17, then Selected Applications on page 18 | 15–20 min |
+| 19–32 | Oligopoly model, demand restrictions, proof, existence, and logit checks | 30–35 min |
 | 33–34 | Connections to other existing applications | 2 min |
-| 35–39 | CES complements: conditional-uniqueness proof and threshold statement | 10–12 min |
-| 40–49 | Public goods, inverse domain, potential, and economic results | 20–25 min |
-| 50–51 | Synthesis and final questions | 5–8 min |
+| 35–38 | CES complements: logarithmic system, derivative, and threshold statement | 8–10 min |
+| 39–48 | Public goods, inverse domain, potential, and economic results | 20–25 min |
+| 49–50 | Synthesis and final questions | 5–8 min |
 
 These allocations include questions taken within each block. They are a
 planning aid, not a ceiling on the oligopoly discussion or a requirement to
@@ -44,11 +44,13 @@ five for synthesis and questions. Within oligopoly, prioritize the markup
 gap, boundary signs, strict log-profit concavity, the roles of E1–E3, and
 the demonstration on page 32 of why SET helps the matrix test.
 On page 27 explain the maximum-coordinate idea; a line-by-line integral
-proof can be reserved for the longer route. Select page 39 or pages 45–47
-for network conclusions, then use page 51 for synthesis. Do not present
-pages 35–49 as if all of their proofs have been covered in this shorter
-session. The CES existence and limiting-ratio proofs are outside the
-current slides, even on the full route.
+proof can be reserved for the longer route. Select page 38 or pages 44–46
+for network conclusions, then use page 50 for synthesis. Do not present
+pages 35–48 as if all of their proofs have been covered in this shorter
+session. The CES conditional-uniqueness proof can be explained from the
+separate notes below; its proof block is not in the current slides. The
+existence and limiting-ratio proofs are left to the paper even on the full
+route.
 
 For either route, ask four questions before leaving a model: What is the
 equilibrium problem? What is preserved? Which assumptions make the new
@@ -63,15 +65,15 @@ two-node algebraic calculation are seminar teaching examples.
 
 | Deck pages | Primary reading | What to locate in the paper |
 |---|---|---|
-| 2–3, 10–16 | Section 2, pp. 7–16; Figure 1, p. 17; appendix, p. 42 | Definition 1; Lemma 1; Lemma 4(i), equation (51); Definition 2; Theorem 1(ii); Proposition 1/SET 1–2; Lemmas 2–3 |
-| 4–9 | Section 2.2, p. 12; potential discussion, p. 14 | The worked example applies an increasing transformation to two positive terms. Compare the failed original matrix certificate with the transformed positive minors and convex potential. |
-| 18–32 | Section 3.3, pp. 21–23, equations (20)–(21); appendix, p. 46 | Assumptions E1–E3, Proposition 4, price restrictions, positive rescaling, and the row-dominance proof |
+| 2–3, 11–17 | Section 2, pp. 7–16; Figure 1, p. 17; appendix, p. 42 | Definition 1; Lemma 1; Lemma 4(i), equation (51); Definition 2; Theorem 1(ii); Proposition 1/SET 1–2; Lemmas 2–3 |
+| 4–10 | Section 2.2, p. 12; P-property discussion, p. 14 | The added game applies the square root to two positive terms. Compare the failed original matrix test and the noncontractive best responses with the transformed positive principal minors. No potential is used. |
+| 19–32 | Section 3.3, pp. 21–23, equations (20)–(21); appendix, p. 46 | Assumptions E1–E3, Proposition 4, price restrictions, positive rescaling, and the row-dominance proof |
 | 33 | Section 3.2, pp. 19–21 | Proposition 3: row-normalized CES social norms and uniqueness conditional on existence |
 | 34 | Sections 3.4–3.5, pp. 23–31 | Inverse functions, symmetric transformed systems, and potential methods |
-| 35–39, 53 | Section 4.1, pp. 32–34; appendix, pp. 47–49 | Theorem 4: the deck proves conditional uniqueness and states the spectral threshold and limiting ratios. Read the existence, non-existence, and Perron-limit proofs in the appendix. Page 53 is an added algebraic-feasibility check. |
-| 40–49, 54 | Section 4.2, pp. 38–41; appendix, pp. 50–52 | Assumptions 2–3, Theorem 5, Proposition 7, and neighborhood rankings |
+| 35–38, 52 | Section 4.1, pp. 32–34; appendix, pp. 47–49 | Theorem 4: the deck displays the derivative underlying conditional uniqueness and states the spectral threshold and limiting ratios. The notes below explain the uniqueness argument. Read the existence, non-existence, and Perron-limit proofs in the appendix. Page 52 is an added algebraic-feasibility check. |
+| 39–48, 53 | Section 4.2, pp. 38–41; appendix, pp. 50–52 | Assumptions 2–3, Theorem 5, Proposition 7, and neighborhood rankings |
 
-The inverse-domain box on page 43 makes explicit a range check needed when
+The inverse-domain box on page 42 makes explicit a range check needed when
 using the inverse marginal benefit in Section 4.2. On that valid domain,
 with a common valid integration reference, the deck's minimization potential
 is $\Psi=-\phi^{BKC}_{\mathrm{paper}}+C$. Thus it has the opposite sign to
@@ -82,32 +84,32 @@ deck's gradient and Hessian use the minimization convention consistently.
 
 Native lemma, theorem, proposition, corollary, definition, and assumption
 environments preserve the paper's original result types and numbering.
-Page 11 is the exception: its short boundary-condition lemma heading uses
+Page 12 is the exception: its short boundary-condition lemma heading uses
 automatic deck numbering. The map gives its original label, paper Lemma 4(i).
 Repeated parts retain the same number; they are not renumbered in order of
 appearance in this deck. Seminar examples and pedagogical proof steps do
-not acquire invented original-paper labels. Pages 4–9 contain the worked
+not acquire invented original-paper labels. Pages 4–10 contain the worked
 example, an added seminar game with no original-paper example number.
 
 | Deck page | Original label | Scope to retain |
 |---:|---|---|
-| 10 | Definition 1; Lemma 1 | Well-behaved games: closed convex strategy sets, $C^2$ payoffs, and own-action concavity. The negative payoff gradients give the NE–VI representation. |
-| 11 | Lemma 4(i), equation (51) | On a rectangle, the VI is equivalent to a nonnegative component at a lower bound, zero in the interior, and a nonpositive component at an upper bound, for every coordinate. |
-| 12 | Definition 2; Theorem 1(ii) | Full-domain sign equivalence and preservation of the entire VI solution set on a rectangle. |
-| 13 | Proposition 1 | Sign-preserving operations and their compositions; inverse/log domains must be valid. |
-| 16 | Lemma 2(ii); Lemma 3 | Rectangular-domain P-property uniqueness, and the convex-potential route; existence is separate. |
-| 23 | Assumptions E1–E3 | Preserve the letter-number identifiers, including the outside option in E2 and E3. |
+| 11 | Definition 1; Lemma 1 | Well-behaved games: closed convex strategy sets, $C^2$ payoffs, and own-action concavity. The negative payoff gradients give the NE–VI representation. |
+| 12 | Lemma 4(i), equation (51) | On a rectangle, the VI is equivalent to a nonnegative component at a lower bound, zero in the interior, and a nonpositive component at an upper bound, for every coordinate. |
+| 13 | Definition 2; Theorem 1(ii) | Full-domain sign equivalence and preservation of the entire VI solution set on a rectangle. |
+| 14 | Proposition 1 | Sign-preserving operations and their compositions; square-root, log, and inverse domains must be valid. |
+| 17 | Lemma 2(ii); Lemma 3 | Rectangular-domain P-property uniqueness, and the convex-potential route; existence is separate. |
+| 20 | Assumptions E1–E3 | Preserve the letter-number identifiers, including the outside option in E2 and E3. |
 | 28 | Proposition 4 | At most one pricing equilibrium. Finite-box Brouwer existence is a separate argument, not the proposition's literal conclusion. |
 | 33 | Proposition 3 | For positive baselines, under $0<\lambda_1+\lambda_2<1$ and $0<\lambda_1<1$, any positive solution of the specified peer-effect system is unique, conditional on existence. |
-| 39 | Theorem 4 | Statement of the threshold, comparative statics, and limiting ratios. Part (iii) literally states non-existence for $\delta>\bar\delta$; appendix Claim 2 also excludes equality. The existence and limit proofs are outside the current slides. |
-| 40 | Assumption 2 | Benefit/cost curvature, marginal crossing, and the autarky solution. |
-| 45 | Theorem 5 | The sufficient spectral condition for potential curvature and a unique public-good equilibrium. |
-| 46 | Assumption 3; Proposition 7(i) | Zero initial marginal cost and full participation under the stated model assumptions. |
-| 47 | Proposition 7(iii) | Complete-network uniqueness and equal efforts under the maintained strictly convex-cost assumptions. |
-| 48 | Proposition 7(ii); Corollary 2 | Neighborhood-inclusion rankings, and the degree ranking specifically for nested-split graphs. |
-| 49 | Proposition 7(iv) | Equal leaf efforts and strictly lower hub effort in a star with at least three nodes. |
-| 52 | Proof of Theorem 1(ii) | Coordinate proof of full solution-set preservation on a rectangle. |
-| 54 | Proof of Proposition 7(iii) | Complete-network uniqueness even when the simple strict spectral inequality is at equality. |
+| 38 | Theorem 4 | Statement of the threshold, comparative statics, and limiting ratios. Part (iii) literally states non-existence for $\delta>\bar\delta$; appendix Claim 2 also excludes equality. The existence and limit proofs are outside the current slides. |
+| 39 | Assumption 2 | Benefit/cost curvature, marginal crossing, and the autarky solution. |
+| 44 | Theorem 5 | The sufficient spectral condition for potential curvature and a unique public-good equilibrium. |
+| 45 | Assumption 3; Proposition 7(i) | Zero initial marginal cost and full participation under the stated model assumptions. |
+| 46 | Proposition 7(iii) | Complete-network uniqueness and equal efforts under the maintained strictly convex-cost assumptions. |
+| 47 | Proposition 7(ii); Corollary 2 | Neighborhood-inclusion rankings, and the degree ranking specifically for nested-split graphs. |
+| 48 | Proposition 7(iv) | Equal leaf efforts and strictly lower hub effort in a star with at least three nodes. |
+| 51 | Proof of Theorem 1(ii) | Coordinate proof of full solution-set preservation on a rectangle. |
+| 53 | Proof of Proposition 7(iii) | Complete-network uniqueness even when the simple strict spectral inequality is at equality. |
 
 ## Page-by-page cues
 
@@ -116,30 +118,30 @@ example, an added seminar game with no original-paper example number.
 | 1 | Introduce the paper and the reading-group format. The aim is to understand the method and its assumptions, not only to list conclusions. |
 | 2 | The difficulty may lie in the representation of equilibrium conditions. The question is whether one can change that representation without changing equilibrium. |
 | 3 | Read the original Figure 1 from left to right: game, VI, SET VI, then a matrix or potential route. Equilibrium is also a best-response fixed point; that is not the particular route drawn here. |
-| 4 | Introduce the worked example. Differentiate each payoff, use strict own-action concavity, and derive $B_1(x_2)=\sqrt{2+x_2}-1$ and $B_2(x_1)=\ln(2+x_1)$. Both are positive, so every equilibrium is interior. Player 2's saturating benefit is $1-e^{-x_2}$ and its unit cost is $1/(2+x_1)$. |
+| 4 | Introduce $a(x_1)=e^{2-x_1}$ and differentiate each payoff, holding the rival's action fixed. Strict own-action concavity gives $B_1(x_2)=1+x_2^2$ and $B_2(x_1)=a(x_1)$. One response is increasing, the other decreasing; both are positive, so every equilibrium is interior. |
 | 5 | Form $F_i=-\partial_i u_i$ and use own-action concavity to obtain the original VI. State the two-dimensional P-matrix test: both diagonal entries and the determinant must be positive throughout the domain. |
-| 6 | Differentiate the original operator. At the feasible interior point $(1,4)$, its determinant is $4e^{-4}-1/9\approx-0.03785<0$. This defeats the global sufficient matrix certificate, without implying multiple equilibria. |
-| 7 | Apply SET 2 with $h(t)=-1/t$ to the two positive terms $1/(2+x_1)$ and $e^{-x_2}$. Since $h$ is strictly increasing, $\widetilde F_2=e^{x_2}-2-x_1$ has the same sign everywhere. Rectangularity preserves the entire VI solution set. |
-| 8 | Check the transformed minors: $2+2x_1\geq2$, $e^{x_2}\geq1$, and determinant at least one. The transformed Jacobian is a P-matrix on the whole feasible set. This gives at most one equilibrium. Its symmetry suggests the potential on the next page. |
-| 9 | Differentiate the displayed potential and verify its uniform positive-definite Hessian bound. Strong convexity and coercivity give a unique minimizer on $K$, supplying existence as well as uniqueness. SET preserves the game while exposing both certificates. |
-| 10 | State Definition 1's three conditions, then define the negative payoff gradients and state Lemma 1. The slide gives the definition and NE–VI equivalence without the coordinate-by-coordinate derivation. |
-| 11 | The boundary-condition lemma (paper Lemma 4(i)) displays $F_i\geq0$ at a lower bound, $F_i=0$ in the interior, and $F_i\leq0$ at an upper bound, for every $i$. Vary one coordinate while holding the others fixed; rectangularity makes each such deviation feasible. With $F_i=-\partial_i u_i$, these are the familiar constrained first-order conditions. |
-| 12 | Definition 2 specifies sign equivalence; Theorem 1(ii) preserves the full VI solution set on a rectangle. Explain how independent coordinate deviations preserve boundary solutions as well as interior ones. |
-| 13 | Proposition 1 supplies sign-preserving constructions. Explain positive profile-dependent rescaling and an increasing transformation of both sides. Logs need positive arguments; inverses need valid ranges. |
-| 14 | Compute both linear objectives on the triangle. The first is minimized along the top edge, the second only at (1,0). Same signs do not preserve arbitrary coupled-constraint VIs. |
-| 15 | Work through the contradiction from two VI solutions. A global P-condition ensures that at least one coordinate product is positive; coordinate optimality makes every such product nonpositive. |
-| 16 | Read Lemma 2(ii) and Lemma 3 as separate routes. Define a P-matrix by positive principal minors, distinguishing the Jacobian certificate from page 15's global inequality. Symmetry gives integrability; convexity and existence require their own arguments. |
-| 17 | Introduce Selected Applications. Oligopoly traces demand assumptions into uniqueness, CES complements prove conditional uniqueness and state the separate threshold, and public goods use a potential to study convex costs. Keep the promised proof scope distinct across these blocks. |
-| 18 | Explain differentiated products, costs, price intervals, rival prices, and the fixed outside option. The question concerns mutually optimal prices, including constrained prices. |
-| 19 | Derive demand conceptually from consumer choice. Logit is a running example with unit price coefficient and shock scale, not the full scope of the result. |
-| 20 | Differentiate profit into retained-customer revenue and lost-customer effects. Define the desired markup before discussing uniqueness. It is an inverse semi-elasticity, not an inverse elasticity. |
-| 21 | Divide by the positive absolute own-price demand slope. The resulting markup gap has the same sign as negative marginal profit, hence the opposite sign to a profitable price increase. |
-| 22 | At a cap, positive marginal profit can be optimal; at a floor, negative marginal profit can be optimal. Sign preservation retains these outcomes. First-order sufficiency is justified on page 24. |
-| 23 | State Assumptions E1–E3 precisely, retaining their original identifiers. Include option 0 in E2 and in the hypothetical common shift in E3, while holding its price fixed during strategic play. |
+| 6 | Differentiate the original operator. At the feasible interior point $(2+\ln2,3)$, $a=1/2$ and $DF=\left(\begin{smallmatrix}1&-6\\-3/2&7\end{smallmatrix}\right)$ has determinant $-2$. This defeats the global sufficient matrix certificate, without implying multiple equilibria. |
+| 7 | Check that $(2,1)$ is a best-response fixed point. There $DB=\left(\begin{smallmatrix}0&2\\-1&0\end{smallmatrix}\right)$ has eigenvalues $\pm i\sqrt2$ and spectral radius $\sqrt2>1$. Every induced matrix norm dominates the spectral radius, ruling out contraction in any fixed vector norm, even on a neighborhood of that point. |
+| 8 | Complete the square: $F_2=(x_2+a)^2-(2a)^2$. Apply SET 2 with the increasing square root to obtain $\widetilde F_2=x_2-a$. Both arguments and $x_2+a$ are positive, so the square root introduces no absolute-value ambiguity. Rectangularity preserves the entire VI solution set. |
+| 9 | Check the transformed principal minors: $1$, $1$, and $1+2ax_2\geq1$. This gives at most one equilibrium on the same feasible domain. The derivative is not symmetric; this example uses the matrix route, not a potential. |
+| 10 | Evaluate $\widetilde F(2,1)=0$ to prove existence explicitly. Combine this with uniqueness and positive best responses. Recap the failed raw matrix test, noncontractive best responses, and successful SET matrix test. Do not invoke Brouwer on the unbounded orthant. |
+| 11 | State Definition 1's three conditions, then define the negative payoff gradients and state Lemma 1. The slide gives the definition and NE–VI equivalence without the coordinate-by-coordinate derivation. |
+| 12 | The boundary-condition lemma (paper Lemma 4(i)) displays $F_i\geq0$ at a lower bound, $F_i=0$ in the interior, and $F_i\leq0$ at an upper bound, for every $i$. Vary one coordinate while holding the others fixed; rectangularity makes each such deviation feasible. With $F_i=-\partial_i u_i$, these are the familiar constrained first-order conditions. |
+| 13 | Definition 2 specifies sign equivalence; Theorem 1(ii) preserves the full VI solution set on a rectangle. Explain how independent coordinate deviations preserve boundary solutions as well as interior ones. |
+| 14 | Proposition 1 supplies sign-preserving constructions. Explain positive profile-dependent rescaling and an increasing transformation of both sides. Square-root, log, and inverse domains must be valid. |
+| 15 | Compute both linear objectives on the triangle. The first is minimized along the top edge, the second only at (1,0). Same signs do not preserve arbitrary coupled-constraint VIs. |
+| 16 | Work through the contradiction from two VI solutions. A global P-condition ensures that at least one coordinate product is positive; coordinate optimality makes every such product nonpositive. |
+| 17 | Read Lemma 2(ii) and Lemma 3 as separate routes. Define a P-matrix by positive principal minors, distinguishing the Jacobian certificate from page 16's global inequality. Symmetry gives integrability; convexity and existence require their own arguments. |
+| 18 | Introduce Selected Applications. Oligopoly traces demand assumptions into uniqueness, CES complements display the conditional-uniqueness derivative and state the separate threshold, and public goods use a potential to study convex costs. Keep the promised proof scope distinct across these blocks. |
+| 19 | Explain differentiated products, costs, price intervals, rival prices, and the fixed outside option. The question concerns mutually optimal prices, including constrained prices. |
+| 20 | State the demand restrictions E1–E3 before deriving markup conditions. Include option 0 in E2 and in the hypothetical common shift in E3, while holding its price fixed during strategic play. These restrictions, not a logit-only consumer model, drive the general result. |
+| 21 | Differentiate profit into retained-customer revenue and lost-customer effects. Define the desired markup before discussing uniqueness. It is an inverse semi-elasticity, not an inverse elasticity. |
+| 22 | Divide by the positive absolute own-price demand slope. The resulting markup gap has the same sign as negative marginal profit, hence the opposite sign to a profitable price increase. |
+| 23 | At a cap, positive marginal profit can be optimal; at a floor, negative marginal profit can be optimal. Sign preservation retains these outcomes. First-order sufficiency under the already-stated E1 is justified on page 24. |
 | 24 | Differentiate log-profit twice. E1 plus the strictly concave log-markup term gives strict log-profit concavity for prices above cost. Treat the cost-price endpoint directly using positive marginal profit. |
 | 25 | Differentiate the desired markup. E1 controls its own-price slope; E2 controls its rival- and outside-price slopes. Translate these into the diagonal and cross entries of the markup-gap Jacobian. |
 | 26 | Differentiate common-price-shift invariance for the desired markup. Sum only the strategic columns of the Jacobian, leaving the outside-option term. This gives the strict row-dominance margin. |
-| 27 | Pick the largest absolute coordinate of the difference between two price vectors. Integrate the Jacobian along their segment; row dominance makes the selected coordinate product strictly positive. Connect this to page 15. |
+| 27 | Pick the largest absolute coordinate of the difference between two price vectors. Integrate the Jacobian along their segment; row dominance makes the selected coordinate product strictly positive. Connect this to page 16. |
 | 28 | Proposition 4 gives at most one pricing equilibrium. Keep finite-box existence separate: unique continuous best responses and Brouwer supply a fixed point, yielding exactly one only after combining both arguments. |
 | 29 | Verify logit E1 and E2 directly and E3 by cancelling a common exponential factor. The general proof used these properties, not the logit formula itself. |
 | 30 | Solve the symmetric scalar equation. The feasible zero-gap solution proves existence; the global result rules out asymmetric equilibria too. |
@@ -147,76 +149,78 @@ example, an added seminar game with no original-paper example number.
 | 32 | The original pricing derivative has a negative diagonal entry at (4,4), so it fails the global P-matrix test on the box. The transformed derivative passes throughout that same box. This concretely shows what SET changes; failure of the original sufficient test does not show multiple equilibria. |
 | 33 | Proposition 3 requires $0<\lambda_1+\lambda_2<1$ and $0<\lambda_1<1$. The row-normalized social norm need not average peer effort. The conclusion is conditional uniqueness, not existence supplied by SET. |
 | 34 | Connect inverse Engel curves and multiplex interactions to the potential route. Symmetric transformed derivatives help; further curvature assumptions are still needed for uniqueness. |
-| 35 | Introduce CES complements with an unnormalized adjacency matrix. Strict own-action concavity gives the best response. Maintain positive baselines and a connected nonempty undirected network for the uniqueness proof and threshold statement. |
-| 36 | Compare two neighbors' marginal influence. Beta changes relative weighting and, with an unnormalized aggregator, scale too. Do not describe it as only a stronger spillover parameter. |
-| 37 | Every equilibrium is positive, so log actions cover the entire equilibrium set. Separate the sign-preserving log comparison from the one-to-one change of variables. |
-| 38 | Derive the two factors in W and sum each row. Positive baselines make the sum strictly below one. A uniform bound is available on the compact segment between two proposed roots, not necessarily on all log-action space. |
-| 39 | State Theorem 4's three parts: existence and monotonicity below the threshold, diverging levels and Perron ratios at the limit, and non-existence above it. The appendix also excludes equality. The preceding slide proves conditional uniqueness only; these additional claims require the paper's appendix arguments. |
-| 40 | Introduce benefit from local total provision and private cost of own effort. Assumption 2 states curvature and marginal crossing; define autarky effort k*. |
-| 41 | Distinguish an interior marginal equality from a zero-effort inequality. Strict concavity gives a unique continuous best response bounded by k*, so Brouwer establishes existence before any spectral condition. |
-| 42 | Implicitly differentiate the best response. Linear costs give slope minus one when interior; positive cost curvature reduces crowding out locally. A bound on one scalar slope does not by itself prove network-wide uniqueness. |
-| 43 | Check the range before applying an inverse. Construct B, ell=theta(B), and the equilibrium-containing box. Explain why original and restricted games have identical best responses on this box and hence the same equilibrium set. |
-| 44 | Verify the signs with b' strictly decreasing. The transformed cross derivatives equal delta g_ij and are symmetric. Differentiate the potential to check its sign convention. |
-| 45 | Theorem 5 follows by differentiating the inverse and applying the Rayleigh lower bound. The spectral inequality is sufficient, not necessary; cost curvature contributes an extra nonnegative diagonal term. |
-| 46 | State Assumption 3, then Proposition 7(i). At zero effort and zero marginal cost, marginal benefit is strictly positive at every finite profile. Every equilibrium is interior, independently of uniqueness. |
-| 47 | Proposition 7(iii): on a complete graph all players face the same total provision. Strictly increasing marginal cost forces equal effort and a unique scalar solution; linear costs allow every allocation with the same total. |
-| 48 | State the homogeneous-functions, zero-initial-marginal-cost, strict-convexity, and delta=1 assumptions. Proposition 7(ii) uses neighborhood inclusion; Corollary 2 gives the nested-split degree ranking, not a degree rule on arbitrary graphs. |
-| 49 | Proposition 7(iv): all leaves have the same best response. Compare hub and leaf marginal benefits using positive leaf effort and n at least three. Strictly increasing marginal cost gives the strict effort ranking. |
-| 50 | Classify each proof by its purpose: preserving equilibrium, proving existence, or proving uniqueness. A valid transformation is not a substitute for the latter two arguments. |
-| 51 | Summarize the current deck: SET restores a global matrix certificate in the worked example, CES conditional uniqueness is distinct from the threshold statement, and public goods connect cost curvature to uniqueness, participation, and rankings. Ask which structure the transformation exposes. |
-| 52 | Give the full coordinate proof of Theorem 1(ii) when participants want the details of boundary-solution preservation. |
-| 53 | A unique algebraic solution can be negative and economically infeasible. Matrix invertibility is not the same as a nonnegative equilibrium in the network game. |
-| 54 | Prove Proposition 7(iii) directly from equal marginal costs and a strictly decreasing scalar equation. This works when the simple strict spectral bound is at equality. |
+| 35 | Introduce CES complements with an unnormalized adjacency matrix. Strict own-action concavity gives the best response. Maintain positive baselines and a connected nonempty undirected network for the derivative argument and threshold statement. |
+| 36 | Every equilibrium is positive, so log actions cover the entire equilibrium set. Separate the sign-preserving log comparison from the one-to-one change of variables. |
+| 37 | Derive the two factors in W and sum each row. Positive baselines make the sum strictly below one. The current slide displays the derivative only; the optional argument in this guide uses a uniform bound on the compact segment between two proposed roots, not necessarily on all log-action space. |
+| 38 | State Theorem 4's three parts: existence and monotonicity below the threshold, diverging levels and Perron ratios at the limit, and non-existence above it. The appendix also excludes equality. The derivative on page 37 supports conditional uniqueness; the theorem's additional claims require the paper's appendix arguments. |
+| 39 | Introduce benefit from local total provision and private cost of own effort. Assumption 2 states curvature and marginal crossing; define autarky effort k*. |
+| 40 | Distinguish an interior marginal equality from a zero-effort inequality. Strict concavity gives a unique continuous best response bounded by k*, so Brouwer establishes existence before any spectral condition. |
+| 41 | Implicitly differentiate the best response. Linear costs give slope minus one when interior; positive cost curvature reduces crowding out locally. A bound on one scalar slope does not by itself prove network-wide uniqueness. |
+| 42 | Check the range before applying an inverse. Construct B, ell=theta(B), and the equilibrium-containing box. Explain why original and restricted games have identical best responses on this box and hence the same equilibrium set. |
+| 43 | Verify the signs with b' strictly decreasing. The transformed cross derivatives equal delta g_ij and are symmetric. Differentiate the potential to check its sign convention. |
+| 44 | Theorem 5 follows by differentiating the inverse and applying the Rayleigh lower bound. The spectral inequality is sufficient, not necessary; cost curvature contributes an extra nonnegative diagonal term. |
+| 45 | State Assumption 3, then Proposition 7(i). At zero effort and zero marginal cost, marginal benefit is strictly positive at every finite profile. Every equilibrium is interior, independently of uniqueness. |
+| 46 | Proposition 7(iii): on a complete graph all players face the same total provision. Strictly increasing marginal cost forces equal effort and a unique scalar solution; linear costs allow every allocation with the same total. |
+| 47 | State the homogeneous-functions, zero-initial-marginal-cost, strict-convexity, and delta=1 assumptions. Proposition 7(ii) uses neighborhood inclusion; Corollary 2 gives the nested-split degree ranking, not a degree rule on arbitrary graphs. |
+| 48 | Proposition 7(iv): all leaves have the same best response. Compare hub and leaf marginal benefits using positive leaf effort and n at least three. Strictly increasing marginal cost gives the strict effort ranking. |
+| 49 | Classify each proof by its purpose: preserving equilibrium, proving existence, or proving uniqueness. A valid transformation is not a substitute for the latter two arguments. |
+| 50 | Summarize the current deck: SET restores a global matrix certificate in the worked example despite noncontractive best responses, CES conditional uniqueness is distinct from the threshold statement, and public goods connect cost curvature to uniqueness, participation, and rankings. Ask which structure the transformation exposes. |
+| 51 | Give the full coordinate proof of Theorem 1(ii) when participants want the details of boundary-solution preservation. |
+| 52 | A unique algebraic solution can be negative and economically infeasible. Matrix invertibility is not the same as a nonnegative equilibrium in the network game. |
+| 53 | Prove Proposition 7(iii) directly from equal marginal costs and a strictly decreasing scalar equation. This works when the simple strict spectral bound is at equality. |
 
 ## Worked-example speaking script
 
-Pages 4–9 walk through Figure 1 using one added seminar game. Call it
-the worked example throughout. Its payoffs are
+Pages 4–10 walk through Figure 1 using one added seminar game. Call it
+the worked example throughout. On $K=\mathbb R_+^2$, put
+$a(x_1)=e^{2-x_1}>0$. Its payoffs are
 
 \[
-u_1=x_1(1+x_2)-x_1^2-\tfrac13x_1^3,
+u_1=x_1(1+x_2^2)-\tfrac12x_1^2,
 \qquad
-u_2=1-e^{-x_2}-\frac{x_2}{2+x_1},
-\qquad K=\mathbb R_+^2.
+u_2=3a(x_1)^2x_2-a(x_1)x_2^2-\tfrac13x_2^3.
 \]
 
 ### Page 4: the game and its best responses
 
-Player 1 receives a linear benefit that increases with player 2's action,
-and pays quadratic and cubic costs. Player 2 receives a saturating benefit
-and pays a unit cost that decreases with player 1's action. Hold the rival's
-action fixed when differentiating.
+Player 1's marginal benefit rises with the square of player 2's action,
+against a quadratic own-action cost. For player 2, the rival-dependent
+index $a$ enters the linear benefit and quadratic cost; there is also a
+cubic own-action cost. Hold the rival's action fixed when differentiating:
+$a(x_1)$ is constant in player 2's own optimization problem.
 
 For player 1,
 
 \[
-\partial_1u_1=1+x_2-2x_1-x_1^2,
-\qquad \partial_{11}u_1=-2-2x_1<0.
+\partial_1u_1=1+x_2^2-x_1,
+\qquad \partial_{11}u_1=-1<0.
 \]
 
-The first-order equation gives $(x_1+1)^2=2+x_2$. Only its positive root
-is feasible, so $B_1(x_2)=\sqrt{2+x_2}-1$.
+The unique maximizer is $B_1(x_2)=1+x_2^2>0$.
 
 For player 2,
 
 \[
-\partial_2u_2=e^{-x_2}-\frac1{2+x_1},
-\qquad \partial_{22}u_2=-e^{-x_2}<0.
+\partial_2u_2=3a^2-2ax_2-x_2^2=(a-x_2)(3a+x_2),
+\qquad \partial_{22}u_2=-2(a+x_2)<0.
 \]
 
-Setting this derivative to zero gives $e^{-x_2}=1/(2+x_1)$ and therefore
-$B_2(x_1)=\ln(2+x_1)$. Each payoff tends to minus infinity as its own
-action increases without bound, so the strictly concave own-action problem
-has the stated unique maximizer. Both best responses are strictly positive
-for every feasible rival action. Every Nash equilibrium is interior.
+The roots are $x_2=a$ and $x_2=-3a$. Only the first is feasible, so
+$B_2(x_1)=a(x_1)=e^{2-x_1}$. Each payoff tends to minus infinity as its
+own action increases without bound, and each is strictly own-action
+concave. These are global best responses, not merely stationary candidates.
+Both are strictly positive for every feasible rival action, so every Nash
+equilibrium is interior. The first response is increasing and the second
+decreasing; this statement about best responses does not assert a global
+cross-payoff-derivative sign for player 2.
 
 ### Page 5: the original equilibrium operator
 
 Take negative marginal payoffs:
 
 \[
-F_1=x_1^2+2x_1-1-x_2,
-\qquad F_2=\frac1{2+x_1}-e^{-x_2}.
+F_1=x_1-1-x_2^2,
+\qquad F_2=x_2^2+2ax_2-3a^2.
 \]
 
 Own-action concavity makes each player's first-order optimality condition
@@ -227,79 +231,117 @@ positive diagonal entries and a positive determinant.
 
 ### Page 6: why the original sufficient test fails
 
-The diagonal entries of $DF$ are positive, but
+Remember $a'(x_1)=-a(x_1)$ when differentiating the second row:
 
 \[
-\det DF=(2+2x_1)e^{-x_2}-\frac1{(2+x_1)^2}.
+DF=\begin{pmatrix}
+1&-2x_2\\
+2a(3a-x_2)&2(a+x_2)
+\end{pmatrix},
+\qquad
+\det DF=2(a+x_2)+4ax_2(3a-x_2).
 \]
 
-At the feasible interior point $(1,4)$ this is
-$4e^{-4}-1/9\approx-0.03785$. A global certificate must hold everywhere
-on the feasible domain, so one such point defeats this certificate.
-The point need not itself be an equilibrium. Failure of a sufficient
-condition alone establishes neither multiplicity nor non-existence.
+Both diagonal entries are positive. At the feasible interior point
+$\widehat x=(2+\ln2,3)$, however, $a=1/2$, so
+$DF(\widehat x)=\left(\begin{smallmatrix}1&-6\\-3/2&7\end{smallmatrix}\right)$
+has determinant $7-9=-2$. A global certificate must hold everywhere on
+the feasible domain, so one such point defeats it. The point need not
+itself be an equilibrium. Failure of a sufficient condition alone
+establishes neither multiplicity nor non-existence.
 
-### Page 7: the sign-equivalent transformation
+### Page 7: why best-response contraction does not help
 
-Write $F_2=A-B$, with $A=1/(2+x_1)>0$ and $B=e^{-x_2}>0$.
-The function $h(t)=-1/t$ has derivative $1/t^2>0$ on $(0,\infty)$.
-Apply it to both terms, following SET 2:
+The joint best-response map is a self-map of the nonnegative orthant:
 
 \[
-h(A)-h(B)=-(2+x_1)+e^{x_2}=\widetilde F_2.
+B(x)=\begin{pmatrix}1+x_2^2\\e^{2-x_1}\end{pmatrix},
+\qquad
+DB(x)=\begin{pmatrix}0&2x_2\\-e^{2-x_1}&0\end{pmatrix}.
 \]
 
-Strict increase preserves the ordering of $A$ and $B$, including equality.
-Keep $\widetilde F_1=F_1$. Sign equivalence holds on the entire feasible
-set, and rectangularity gives $\Sol(K,F)=\Sol(K,\widetilde F)$.
-This covers boundary solutions too, although the best-response calculation
-has already shown that this game's equilibria must be interior. The payoffs
-and feasible actions have not changed.
+At $x^*=(2,1)$, $B(x^*)=x^*$ and
+$DB(x^*)=\left(\begin{smallmatrix}0&2\\-1&0\end{smallmatrix}\right)$.
+Its characteristic equation is $\lambda^2+2=0$, so its spectral radius
+is $\sqrt2>1$.
 
-### Page 8: the transformed matrix certificate
+If a differentiable map is a contraction with modulus $q<1$ in a fixed
+vector norm on a neighborhood of an interior point, taking directional
+difference quotients gives $\|DB(x^*)\|\leq q$. Every induced matrix norm
+is at least the spectral radius. Hence no such norm can make this map a
+contraction, even locally around its fixed point. This rules out that
+Banach argument, not uniqueness itself. It does not make a claim about
+every conceivable metric, transformed dynamic, or adjustment rule.
 
-The transformed derivative is symmetric:
+### Page 8: the sign-equivalent transformation
+
+Complete the square in the second component:
 
 \[
-D\widetilde F=\begin{pmatrix}2+2x_1&-1\\-1&e^{x_2}\end{pmatrix}.
+F_2=(x_2+a)^2-(2a)^2.
 \]
 
-On $K$, its diagonal entries are at least two and one, and its determinant
-is at least one. Thus the P-matrix test succeeds throughout the same domain
-where the original test failed. This yields at most one VI solution and
-hence at most one equilibrium. Keep existence separate at this stage.
-Symmetry also suggests integrating the operator into a potential.
-
-### Page 9: the potential and existence
-
-Differentiate
+The function $h(t)=\sqrt t$ is strictly increasing on $(0,\infty)$.
+Both operands are strictly positive on $K$, and $x_2+a>0$, so SET 2 gives
 
 \[
-\Phi=\tfrac13x_1^3+x_1^2-x_1-x_1x_2+e^{x_2}-2x_2
+\widetilde F_2=\sqrt{(x_2+a)^2}-\sqrt{(2a)^2}=x_2-a.
 \]
 
-to verify $\nabla\Phi=\widetilde F$. Its Hessian is uniformly bounded below by
-$M=\begin{pmatrix}2&-1\\-1&1\end{pmatrix}$, whose smallest eigenvalue is
-$\mu=(3-\sqrt5)/2>0$. Consequently,
+There is no hidden absolute-value issue. Keep $\widetilde F_1=F_1$.
+Strict increase preserves the ordering of the two operands, including
+equality, at every feasible profile. Thus
 
 \[
-\Phi(x)\geq1-x_1-x_2+\frac{\mu}{2}\lVert x\rVert_2^2.
+\widetilde F=\begin{pmatrix}x_1-1-x_2^2\\x_2-e^{2-x_1}\end{pmatrix},
+\qquad \Sol(K,F)=\Sol(K,\widetilde F).
 \]
 
-This lower bound tends to infinity with the norm, proving coercivity.
-Continuity and the closed feasible set give a minimizer. Strong convexity
-makes it unique. Its convex optimality condition is exactly the transformed
-VI, which SET identifies with the original game's equilibrium problem.
-We now have existence and uniqueness. The potential belongs to the
-transformed VI, rather than being an exact payoff potential for the original
-game. Return to Figure 1: the same equilibrium problem has acquired useful
-matrix and optimization representations.
+Rectangularity is what promotes full-domain sign equivalence to equality
+of the entire constrained VI solution sets. The payoffs and feasible
+actions have not changed.
+
+### Page 9: the transformed matrix certificate
+
+\[
+D\widetilde F=\begin{pmatrix}1&-2x_2\\a&1\end{pmatrix}.
+\]
+
+Its principal minors are $1$, $1$, and $1+2ax_2\geq1>0$ on all of $K$.
+The P-matrix test succeeds throughout the very domain where the original
+test failed. This yields at most one VI solution and hence at most one
+equilibrium. Existence is still a separate question at this step.
+
+The transformed Jacobian is not symmetric: its cross entries have opposite
+signs in the interior. Do not introduce a potential for this operator.
+The example follows only the matrix branch of Figure 1.
+
+### Page 10: existence and the unique equilibrium
+
+Evaluate the transformed operator at $(2,1)$: both components vanish.
+This explicit feasible zero proves existence on the unbounded domain;
+no compact-domain fixed-point theorem is needed. Combined with the
+P-matrix certificate, it gives the unique equilibrium $(2,1)$. Both best
+responses are strictly positive, so boundary equilibria cannot be missing.
+
+Return to Figure 1. The original global P-matrix test failed; best responses
+also failed every fixed-norm contraction test. SET preserved the equilibrium
+problem and revealed a useful P-matrix certificate. It did not change the
+best responses or turn the original best-response iteration into a
+contraction.
+
+For an optional independent check, substitute $x_1=1+x_2^2$ into
+$x_2=e^{2-x_1}$ to obtain
+$\log x_2+x_2^2=1$. The left-hand side is strictly increasing on
+$(0,\infty)$ and equals one at $x_2=1$, giving $(x_1,x_2)=(2,1)$.
+This corroborates uniqueness for this particular game; it is separate
+from the matrix route taught on the slide.
 
 ## Methodology speaking notes
 
-### Pages 10–12: optimality, the VI, and signs
+### Pages 11–13: optimality, the VI, and signs
 
-Page 10 states Definition 1 before Lemma 1. Page 11, "The VI as familiar
+Page 11 states Definition 1 before Lemma 1. Page 12, "The VI as familiar
 boundary conditions," displays the boundary-condition lemma (paper
 Lemma 4(i)), with three coordinate conditions from appendix p. 42,
 equation (51). The scalar-action derivation below explains their connection
@@ -317,25 +359,25 @@ of individual intervals. The VI then recovers that player's optimality
 condition. Concavity is doing substantive work: necessary first-order
 conditions are now sufficient.
 
-Page 11 displays the three cases on an interval: at the lower bound,
+Page 12 displays the three cases on an interval: at the lower bound,
 $F_i(x^*)\geq0$; in the interior, $F_i(x^*)=0$; at the upper bound,
 $F_i(x^*)\leq0$, for every $i$. Coordinatewise signs therefore encode
 the entire solution set on a rectangle. This statement allows binding
 constraints; it is stronger than saying that two systems have the same
-zeros. Page 12 then defines sign equivalence and states the preservation
+zeros. Page 13 then defines sign equivalence and states the preservation
 result.
 
-### Pages 13–14: constructions and the domain restriction
+### Pages 14–15: constructions and the domain restriction
 
 Multiplying a component by a positive function preserves its sign even
 when that function depends on every player's action. Alternatively, an
 increasing transformation preserves the ordering of two expressions. If
 the original component compares A with B, applying the same increasing
 function to A and B preserves the direction of the comparison. The worked
-example uses $h(t)=-1/t$ on two positive arguments. Later we use logarithms
+example uses $h(t)=\sqrt t$ on two positive arguments. Later we use logarithms
 and inverse functions. Their domains must be checked before applying them.
 
-Now consider the triangle on page 14. For a constant operator, the VI is
+Now consider the triangle on page 15. For a constant operator, the VI is
 the first-order condition for minimizing a linear objective. The first
 objective is minus total activity: every point using the whole shared
 resource is optimal. The transformed objective values activity in the
@@ -345,7 +387,7 @@ constraint. One cannot vary each coordinate independently as in the
 rectangle proof. This is a coupled-constraint VI illustration, not the
 strategy set of the preceding ordinary two-player game.
 
-### Pages 15–16: the uniqueness proof and its certificates
+### Pages 16–17: the uniqueness proof and its certificates
 
 The global P-condition says that for any two distinct profiles, at least
 one coordinate changes in the same strict direction as that coordinate's
@@ -370,13 +412,13 @@ Neither SET nor symmetry alone guarantees that a solution exists.
 
 ## Oligopoly speaking script
 
-Pages 18–32 follow Section 3.3, pp. 21–23, with the appendix argument on
+Pages 19–32 follow Section 3.3, pp. 21–23, with the appendix argument on
 p. 46. Work through the assumptions and proof at the group's pace.
 There is no fixed time limit for this application. The numerical logit
 price boxes are teaching examples, not numerical results reported by the
 paper.
 
-### Page 18: the economic problem
+### Page 19: the economic problem
 
 Each firm sells a differentiated product, so a higher price need not lose
 every customer. Price minus constant unit cost is the markup per sale;
@@ -389,21 +431,23 @@ separate intervals make the joint feasible set rectangular. Ask whether
 several price vectors can make every firm's choice optimal, including
 when a price floor or cap binds.
 
-### Page 19: where demand comes from
+### Page 20: the demand restrictions E1–E3
 
-A consumer compares product appeal minus price plus an individual taste
-shock across every option, including option zero. Aggregating choices
-gives each product's demand share. With unit consumer mass, its share is
-also its quantity sold.
+State the restrictions before deriving the markup equation. E1 says log
+demand is concave in own price. Equivalently, own-price semi-elasticity
+weakly increases with own price. E2 says the cross derivative of log
+demand is nonnegative: higher prices of other options weakly increase
+the desired markup. E2 must include the outside option.
 
-Independent standard extreme-value taste shocks give the displayed logit
-formula. Its price coefficient and shock scale are normalized to one.
-The numerator describes a product's own attractiveness; the denominator
-includes every competing option. A higher own price loses customers to
-rivals or the outside option. The paper's result is broader than logit;
-we will identify the demand properties that its proof actually needs.
+E3 says adding the same amount to every option's price leaves choices
+unchanged. It is common additive price-shift invariance, not multiplicative
+degree-zero homogeneity. The outside price remains fixed during strategic
+play, but is included in this hypothetical simultaneous shift. The logit
+checks later provide an example; the general theorem is not restricted to
+that demand formula. The deck takes demand and these restrictions as
+primitives, rather than deriving them from a consumer-choice model.
 
-### Page 20: the pricing trade-off
+### Page 21: the pricing trade-off
 
 Hold rivals' prices fixed and raise the firm's price a little. The firm
 earns more on every customer it retains, creating the positive term Q_i.
@@ -418,7 +462,7 @@ on the entire current price vector, including the firm's own price. The
 markup equation is an implicit condition, not generally an explicit
 best-response formula.
 
-### Page 21: the SET step
+### Page 22: the SET step
 
 Our original operator is negative marginal profit. Divide it by the
 positive number minus the own-price demand derivative. This removes a
@@ -432,7 +476,7 @@ demand, profit, cost, nor the feasible set. This is a new representation
 of marginal incentives, not a new profit function or a claim that the
 general pricing game has a potential.
 
-### Page 22: why boundaries require signs
+### Page 23: why boundaries require signs
 
 At an interior price both small directions are feasible, so marginal
 profit must vanish. At a cap, the firm may still want to increase price:
@@ -443,21 +487,8 @@ negative, while the gap is nonnegative.
 Positive rescaling preserves all three cases. On the rectangular price
 set, the original and transformed VIs therefore have exactly the same
 solution set. Merely preserving zeros would miss constrained equilibria.
-The next two pages identify and justify the demand assumptions under
-which these first-order signs characterize genuine best responses.
-
-### Page 23: E1–E3
-
-E1 says log demand is concave in own price. Equivalently, own-price
-semi-elasticity weakly increases with own price. E2 says the cross
-derivative of log demand is nonnegative: higher prices of other options
-weakly increase the desired markup. E2 must include the outside option.
-
-E3 says adding the same amount to every option's price leaves choices
-unchanged. It is common additive price-shift invariance, not multiplicative
-degree-zero homogeneity. The outside price remains fixed during strategic
-play, but is included in this hypothetical simultaneous shift. Logit
-satisfies all three; arbitrary demand functions need not.
+E1 has already been stated. The next page justifies why these first-order
+signs characterize genuine best responses under that restriction.
 
 ### Page 24: sufficiency, not just necessary conditions
 
@@ -516,7 +547,7 @@ Every cross term can be bounded in absolute value by the selected
 coordinate's squared difference times the absolute cross derivative.
 The diagonal therefore dominates the sum of cross terms, leaving a
 strictly positive coordinate product. This proves the global P-condition
-from page 15. Two VI solutions are impossible, including boundary
+from page 16. Two VI solutions are impossible, including boundary
 solutions. The proof does not need compactness of the whole price domain;
 finite bounds will be used separately for existence.
 
@@ -593,42 +624,46 @@ the transformed certificate did not change the game.
 
 ## Network-proof speaking notes
 
-### Pages 35–39: CES conditional uniqueness and the threshold statement
+### Pages 35–38: CES derivative and the threshold statement
 
 Page 35 derives the best response from the quadratic own-action cost.
-The unnormalized CES aggregate enters linearly in own action. Page 36
-shows how beta changes relative marginal peer influence and the aggregate's
-scale. Maintain positive baselines and a connected nonempty undirected
-network throughout this block.
+The unnormalized CES aggregate enters linearly in own action. Maintain
+positive baselines and a connected nonempty undirected network throughout
+this block. Page 36 introduces the log system; the current deck has no
+separate CES-parameter comparison slide.
 
 The log comparison preserves signs on positive quantities, and the log
 change of variables is one-to-one. Every equilibrium is positive because
 each baseline is positive. Thus no equilibrium is lost.
 
-The derivative W on page 38 has nonnegative entries and row sums strictly
-below one. This does not supply a single contraction constant below one
+Page 37, "CES uniqueness: the transformed derivative," defines the CES
+aggregate $S_i$ and displays W with nonnegative entries and row sums
+strictly below one. The current slide contains the derivative, not the
+following proof. If the group wants the conditional-uniqueness argument,
+work it through orally or at the board. The row bound does not supply a
+single contraction constant below one
 over all of log-action space. For two proposed finite roots, however,
 their joining segment is compact. Continuity and the strict row bounds
 give a common constant alpha below one on that segment, yielding the
 contradiction in the infinity norm. This establishes at most one root
 for any positive delta and beta, not existence for every such pair.
 
-Page 39 states the additional conclusions of Theorem 4, with
+Page 38 states the additional conclusions of Theorem 4, with
 $\bar\delta=\lambda_{\max}(G)^{-1/\beta}$. Below the threshold there is a
 unique positive equilibrium with monotone comparative statics. Actions
 diverge as delta approaches the threshold, with the stated Perron ratios.
 Part (iii) excludes finite positive equilibria above the threshold, and
 appendix Claim 2 also excludes equality. These existence, non-existence,
 and limiting-ratio arguments require the paper's appendix, pp. 47–49.
-They are not proved on the current slides. The main CES proof establishes
-conditional uniqueness only.
+They are not proved on the current slides. The optional derivative-based
+argument above establishes conditional uniqueness only.
 
 If the group asks how an invertible algebraic system can fail to give an
-economic equilibrium, use the two-node check on page 53. Above its
+economic equilibrium, use the two-node check on page 52. Above its
 threshold the unique algebraic solution is negative. This backup is a
 feasibility illustration, rather than the general proof of Theorem 4.
 
-### Pages 41–45: best responses, inverse domains, and a potential
+### Pages 40–44: best responses, inverse domains, and a potential
 
 Strict own-action concavity gives a unique best response theta(t) to
 neighbors' provision t. It is bounded by autarky effort k*. Its interior
@@ -662,7 +697,7 @@ under 1+delta lambda_min(G)>0. Existence was already established; the
 potential now supplies uniqueness. This spectral condition is sufficient,
 not necessary.
 
-### Pages 46–49: economic conclusions and their exact assumptions
+### Pages 45–48: economic conclusions and their exact assumptions
 
 With strictly convex costs and c'(0)=0, the marginal payoff at zero is
 strictly positive at every finite profile. Every equilibrium is interior,
@@ -716,10 +751,10 @@ on arbitrary networks.
    conditional uniqueness. Its existence and non-existence proofs are
    reading material in the paper's appendix.
 8. **Does the failed original matrix test imply multiple equilibria?** No.
-   In the worked example, it fails at the feasible point $(1,4)$, yet SET
-   exposes a global P-matrix certificate and a strongly convex coercive
-   potential. The game has a unique equilibrium. The original test was
-   sufficient, so its failure alone could not establish multiplicity.
+   In the worked example, it fails at $(2+\ln2,3)$ with determinant $-2$,
+   yet SET exposes a global P-matrix certificate. The game has the explicit
+   unique equilibrium $(2,1)$, without a potential argument. The original
+   test was sufficient, so its failure alone could not establish multiplicity.
 9. **Why not take the inverse marginal benefit on all nonnegative effort?**
    The cost derivative need not lie in the range of b' everywhere, especially
    when c'(0)=0. The equilibrium-containing box checks and repairs the
@@ -728,10 +763,12 @@ on arbitrary networks.
     uniqueness test?** No. The test is sufficient, and added cost curvature
     can help beyond it. The complete-network argument proves uniqueness
     directly even when the simple strict spectral inequality is at equality.
-11. **Is the worked example's potential an original payoff potential?** No.
-    Its gradient is the transformed VI operator. SET preserves the
-    equilibrium set, without requiring the original game's cross-payoff
-    derivatives to be symmetric or changing its payoffs.
+11. **Why not use a weighted norm to make the best responses contractive?**
+    At $(2,1)$ their derivative has spectral radius $\sqrt2>1$. Every
+    induced matrix norm, including weighted norms, is at least that radius.
+    Thus no fixed vector norm gives a local contraction there. Uniqueness
+    does not require contraction. This example takes the matrix branch of
+    Figure 1 and does not introduce a potential.
 12. **Does the paper establish a general convergent adjustment process?**
     Not from these arguments. The uniqueness and potential calculations
     here do not establish a general dynamic-stability theorem. Any proposed
@@ -742,15 +779,17 @@ on arbitrary networks.
 - The general NE–VI argument here uses own-payoff concavity. Do not replace
   it with an unrestricted assertion that quasi-concavity alone makes
   stationary first-order conditions sufficient.
-- In the worked example, the original determinant is negative at $(1,4)$.
+- In the worked example, the original determinant is $-2$ at $(2+\ln2,3)$.
   Its global P-matrix certificate fails, while the transformed certificate
   succeeds everywhere on the feasible domain. Failure of the original
   sufficient test alone says nothing about equilibrium multiplicity.
-- The worked example uses SET 2 with $h(t)=-1/t$ on positive arguments.
-  Its potential is for the transformed VI, rather than an exact payoff
-  potential of the original game. Strong convexity and coercivity give a
-  unique equilibrium, approximately (0.733681,1.005649). This value is a
-  guide check, not an additional number needed on the slides.
+- The worked example uses SET 2 with $h(t)=\sqrt t$ on strictly positive
+  arguments. The transformed principal minors are $1$, $1$, and
+  $1+2x_2e^{2-x_1}\geq1$. Its derivative is not symmetric; no potential is
+  used. The feasible zero $(2,1)$ supplies existence on the unbounded
+  orthant, and the matrix certificate supplies uniqueness. Its original
+  best-response map has spectral radius $\sqrt2$ at that point and is not
+  a contraction in any fixed vector norm, even locally.
 - For oligopoly, desired markup is an inverse semi-elasticity. Positive
   rescaling preserves all coordinate signs. Strict log-profit concavity,
   rather than generic profit concavity, justifies the pricing conditions.
@@ -759,10 +798,11 @@ on arbitrary networks.
   proof supplies the precise global inequality used here. Arbitrary
   averages of P-matrices need not remain P-matrices.
 - Connectedness and positive baselines are explicit in the CES discussion.
-  The main proof establishes conditional uniqueness. Theorem 4's existence
-  threshold and limiting ratios are stated, with the remaining proofs left
-  to the paper's appendix. The ratio limit does not describe a finite
-  equilibrium at the threshold.
+  The main slides display the derivative underlying conditional uniqueness;
+  the separate notes explain that argument. Theorem 4's existence threshold
+  and limiting ratios are stated, with those proofs left to the paper's
+  appendix. The ratio limit does not describe a finite equilibrium at the
+  threshold.
 - The public-good potential is used on the valid equilibrium-containing
   box. The deck consistently uses convex minimization; negating the
   potential changes to a maximization convention without changing the
