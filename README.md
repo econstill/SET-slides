@@ -1,27 +1,63 @@
-# SET — English Seminar Slides
+# SET — English Close-Reading Slides
 
-An English research seminar on *SET* by Yves Zenou and Junjie Zhou
-(paper version: February 17, 2026), using the supplied `Hyper0721.tex`
-Beamer template.
+An English, 1–2 hour literature-reading discussion of *SET* by Yves Zenou and
+Junjie Zhou (paper version: February 17, 2026), using the supplied
+`Hyper0721.tex` Beamer template.
 
 ## Files
 
-- [Slides (PDF)](SET-English-Seminar.pdf): 50 pages — 41 main pages including
-  the title, eight optional backup pages, and one reference page.
-- [Editable source](main.tex): Beamer source with the paper's Figure 1 on
-  slide 3, two worked two-player examples on slides 4–6 and 7–9, a detailed oligopoly
-  application with a two-firm logit example on slides 13–21, and inline diagrams and plots, without embedded speaker notes
-  or per-slide source footers.
-- [Figure 1 crop](assets/set-figure1-methodology.png): the original
-  methodology diagram from page 17 of the supplied paper.
-- [Presenter guide](SET-English-Presenter-Guide.md): application-focused
-  speaking route, suggested timing, and a detailed speaking script for each
-  oligopoly slide.
+- [Slides (PDF)](SET-English-Seminar.pdf): 65 pages — 60 main pages including
+  the title, four optional technical backup pages, and one reference page.
+- [Editable source](main.tex): native Beamer source. The paper's original
+  Figure 1 is on page 3, followed immediately by the two worked two-player
+  examples on pages 4–6 and 7–9. There are no embedded speaker notes or
+  per-slide source footers.
+- [Figure 1 crop](assets/set-figure1-methodology.png): the original methodology
+  diagram from page 17 of the supplied paper.
+- [Presenter guide](SET-English-Presenter-Guide.md): flexible reading routes,
+  a paper-page map, cues for every PDF page, detailed methodology and
+  oligopoly scripts, network-proof explanations, and discussion questions
+  with answers.
+
+Page numbers in the guide refer to physical PDF pages, including the cover;
+they are not the Beamer footer numbers.
+
+## Reading-group structure
+
+The organizing sequence is **hypotheses → transformation → proof → economic
+implication**. Questions can be taken during each derivation. The main deck
+contains the proof steps needed for close reading; the backups supply
+additional checks rather than holding all the substantive mathematics.
+
+| PDF pages | Reading block |
+|---|---|
+| 1–10 | Motivation, original Figure 1, and two complete worked examples |
+| 11–16 | Nash equilibrium and VI, rectangularity, SET constructions, and constrained uniqueness |
+| 17–31 | Oligopoly: consumer choice, markup conditions, E1–E3, uniqueness, existence, logit price bounds, and what SET changes |
+| 32–33 | Connections to existing peer-effect and potential applications |
+| 34–48 | CES complements: uniqueness, the spectral existence threshold, Bonacich/eigenvector centrality, and key players |
+| 49–58 | Public goods: best responses, valid inverse domains, a potential, spectral uniqueness, participation, and rankings |
+| 59–60 | What has been established and final discussion |
+| 61–65 | Optional technical checks and references |
+
+The guide offers a full route of approximately 105–120 minutes including
+interleaved discussion, and a focused approximately 60-minute route centered
+on methodology and oligopoly with selected network conclusions. The shorter
+route does **not** claim to derive every proof in the deck. Neither route is a
+hard time limit for a particular application: use the available time to
+resolve the group's questions, and select or postpone modules accordingly.
+
+The original marginal-profit operator and the transformed markup gap are
+kept distinct. So are equilibrium-set preservation, existence, and uniqueness.
+For the network public-good inverse, the slides first construct an
+equilibrium-containing box on which the inverse is well-defined. The linear
+centrality section explicitly connects `(I − δG)x = b` to the eigenvalues and
+eigenvectors of `G`.
 
 ## Compile
 
-Use XeLaTeX with a recent TeX Live or MacTeX installation containing
-Beamer, Metropolis, TikZ/PGFPlots, natbib, and appendixnumberbeamer.
+Use XeLaTeX with a recent TeX Live or MacTeX installation containing Beamer,
+Metropolis, TikZ/PGFPlots, natbib, and appendixnumberbeamer.
 
 ```sh
 xelatex -interaction=nonstopmode -halt-on-error main.tex
@@ -33,29 +69,8 @@ successful build. Keep the `assets/` directory next to `main.tex`. No BibTeX
 run or external bibliography file is required. On Overleaf, select `main.tex`
 as the main document and **XeLaTeX** as the compiler.
 
-The separate presenter guide contains speaking cues and timing suggestions.
-They are not embedded in `main.tex` or the slide PDF.
-
-## Scope
-
-The seminar introduces the transformation through the paper's Figure 1,
-Example 1 on positive payoff scaling that follows both branches of the map,
-Example 2 on a nonlinear transformation that exposes a convex minimization
-potential, and one concise equilibrium-set result. The oligopoly application starts
-with consumer choice and firms' pricing incentives, derives the markup condition,
-and uses a positive rescaling to obtain a sign-equivalent markup-gap system.
-It explains how the demand assumptions yield the P-property and why preserving
-signs, rather than only zeros, covers binding price floors and caps. A two-firm
-logit example compares the equilibrium in the common price boxes `[0,4]`, `[0,1]`,
-and `[1.5,4]`. The seminar then covers nonlinear peer effects, multiplex interactions, nonlinear CES
-strategic complements, centrality and key players, and network public goods
-with convex costs. The main speaking route takes approximately 82–85 minutes,
-including about 18 minutes for oligopoly, leaving time for questions within
-a 90-minute seminar. Pages 42–43 give the full oligopoly derivative proof, verification
-of the logit demand assumptions, and a counterexample to applying the P-matrix
-test directly to untransformed marginal profits. Pages 44–49 contain other optional
-proof details, and page 50 has references.
-
-The older image assets and `ref.bib` are preserved from the earlier
-repository version but are not needed to compile the current `main.tex`.
-The source paper itself is not included in this repository.
+Speaking cues remain only in the separate English presenter guide. Older
+image assets and `ref.bib` are preserved from the earlier repository version
+but are not needed to compile the current `main.tex`. The source paper itself
+is not included in this repository. The guide identifies seminar examples
+separately from results and numerical examples in the paper.
