@@ -61,7 +61,7 @@ curves, and two-node algebraic calculation are seminar teaching examples.
 
 | Deck pages | Primary reading | What to locate in the paper |
 |---|---|---|
-| 2–3, 10–15 | Section 2, pp. 7–16; Figure 1, p. 17 | Lemma 1; Definition 2; Theorem 1(ii); Proposition 1/SET 1–2; Lemmas 2–3 |
+| 2–3, 10–15 | Section 2, pp. 7–16; Figure 1, p. 17 | Definition 1; Lemma 1; Definition 2; Theorem 1(ii); Proposition 1/SET 1–2; Lemmas 2–3 |
 | 4–6, 62 | Section 2.3.2, pp. 15–16 | Why positive payoff rescaling should not change equilibrium but can change a direct matrix test |
 | 7–9 | Section 2.2, p. 12; potential discussion, p. 14 | Increasing transformations of both sides and integrability; the displayed nonlinear game is an added example |
 | 17–31 | Section 3.3, pp. 21–23, equations (20)–(21); appendix, p. 46 | Assumptions E1–E3, Proposition 4, price restrictions, positive rescaling, and the row-dominance proof |
@@ -90,7 +90,7 @@ on deck page 38.
 
 | Deck page | Original label | Scope to retain |
 |---:|---|---|
-| 10 | Lemma 1 | NE–VI equivalence for the displayed own-concave scalar-action specialization. |
+| 10 | Definition 1; Lemma 1 | Well-behaved games: closed convex strategy sets, $C^2$ payoffs, and own-action concavity. The negative payoff gradients give the NE–VI representation. |
 | 11 | Definition 2; Theorem 1(ii) | Full-domain sign equivalence and preservation of the entire VI solution set on a rectangle. |
 | 12 | Proposition 1 | Sign-preserving operations and their compositions; inverse/log domains must be valid. |
 | 15 | Lemma 2(ii); Lemma 3 | Rectangular-domain P-property uniqueness, and the convex-potential route; existence is separate. |
@@ -122,8 +122,8 @@ on deck page 38.
 | 7 | Derive both distinct nonlinear best responses. They are positive at every feasible rival action, so equilibria are interior. |
 | 8 | Apply the exponential to both sides of the second comparison. Its strict increase preserves signs, while making the two cross derivatives equal. This is more than simply multiplying payoff units. |
 | 9 | Differentiate the displayed potential and check its uniformly positive-definite Hessian. Strong convexity and coercivity give a unique minimizer. The original operator already has a uniqueness certificate; the gain here is a convex optimization representation. |
-| 10 | Introduce Lemma 1 in the own-concave scalar-action case. Sum the individual first-order inequalities to get the VI; vary one coordinate at a time for the converse. |
-| 11 | Definition 2 specifies sign equivalence; Theorem 1(ii) preserves the full VI solution set on a rectangle. Read the endpoint signs and explain why independent coordinate deviations characterize the VI. |
+| 10 | State Definition 1's three conditions, then define the negative payoff gradients and state Lemma 1. The slide gives the definition and NE–VI equivalence without the coordinate-by-coordinate derivation. |
+| 11 | Definition 2 specifies sign equivalence; Theorem 1(ii) preserves the full VI solution set on a rectangle. Explain how independent coordinate deviations preserve boundary solutions as well as interior ones. |
 | 12 | Proposition 1 supplies sign-preserving constructions. Explain positive profile-dependent rescaling and an increasing transformation of both sides. Logs need positive arguments; inverses need valid ranges. |
 | 13 | Compute both linear objectives on the triangle. The first is minimized along the top edge, the second only at (1,0). Same signs do not preserve arbitrary coupled-constraint VIs. |
 | 14 | Work through the contradiction from two VI solutions. A global P-condition ensures that at least one coordinate product is positive; coordinate optimality makes every such product nonpositive. |
@@ -173,7 +173,7 @@ on deck page 38.
 | 58 | Proposition 7(iv): all leaves have the same best response. Compare hub and leaf marginal benefits using positive leaf effort and n at least three. Strictly increasing marginal cost gives the strict effort ranking. |
 | 59 | Classify each proof by its purpose: preserving equilibrium, proving existence, or proving uniqueness. A valid transformation is not a substitute for the latter two arguments. |
 | 60 | Summarize the economic payoffs: nonlinear centrality and intervention under complements, and participation and rankings under substitutes. Ask which structural feature made the chosen transformation useful. |
-| 61 | Give the full coordinate proof of Theorem 1(ii) when someone wants more than the endpoint table. |
+| 61 | Give the full coordinate proof of Theorem 1(ii) when participants want the details of boundary-solution preservation. |
 | 62 | Compare the P-matrix and symmetric-part monotonicity tests under arbitrary positive payoff scaling. The latter can impose a stricter parameter bound even though best responses do not change. |
 | 63 | A unique algebraic solution can be negative and economically infeasible. Matrix invertibility is not the same as a nonnegative equilibrium in the network game. |
 | 64 | Prove Proposition 7(iii) directly from equal marginal costs and a strictly decreasing scalar equation. This works when the simple strict spectral bound is at equality. |
@@ -181,6 +181,9 @@ on deck page 38.
 ## Methodology speaking notes
 
 ### Pages 10–11: optimality, the VI, and signs
+
+Page 10 states Definition 1 before Lemma 1. The scalar-action derivation
+below is optional discussion material rather than text displayed on that slide.
 
 Fix the other players' actions. With a differentiable payoff concave in own
 action, a feasible action is optimal exactly when every feasible directional

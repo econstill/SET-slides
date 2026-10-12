@@ -253,8 +253,20 @@ SET exposes a convex optimization representation of the same equilibrium problem
 
 
 \begin{frame}{Individual optimality and the VI}
-
-\begin{lemma}[Nash equilibrium and the VI]For well-behaved game, 
+\compactmath
+\setcounter{theorem}{0}
+\begin{definition}[Well-behaved game]
+A normal-form game $\Gamma=(u_i,K_i)_{i\in N}$ is \alert{well-behaved} if, for every player $i$:
+\begin{enumerate}
+ \item $K_i\subseteq\R^{m_i}$ is closed and convex.
+ \item $u_i$ is twice continuously differentiable ($C^2$).
+ \item $u_i(\cdot,x_{-i})$ is concave on $K_i$ for every feasible $x_{-i}$.
+\end{enumerate}
+\end{definition}
+\setcounter{theorem}{0}
+\begin{lemma}[Nash equilibrium and the VI]
+For a well-behaved game, set $K=\prod_i K_i$ and $F_i=-\nabla_{x_i}u_i$.
+Then, for $x^*\in K$,
 \[
  x^*\in\mathrm{NE}
  \quad\Longleftrightarrow\quad
