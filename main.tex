@@ -288,6 +288,7 @@ If $K=\prod_i[a_i,b_i]$ and $F,\widetilde F$ are sign-equivalent on $K$, then
  \Sol(K,F)=\Sol(K,\widetilde F).
 \]
 \end{theorem}
+
 \end{frame}
 
 
@@ -412,23 +413,31 @@ including when a price floor or cap binds?
 \end{frame}
 
 
-\begin{frame}{Where demand comes from}
+\begin{frame}{The demand restrictions}
+Write $\ell_i=\log Q_i$. Demand is positive, $C^2$, and decreasing in own price.
+\begingroup
+\renewcommand{\theassumption}{E\arabic{assumption}}
+\setcounter{assumption}{0}
+\begin{assumption}[Own-price log-concavity]
 \compactmath
-Each consumer chooses the option with the highest utility:
-\[
- U_i=v_i-p_i+\varepsilon_i,\qquad i=0,1,\ldots,n.
-\]
-Here $v_i$ measures product appeal; $\varepsilon_i$ captures individual tastes.
-Option $0$ means not buying from any firm. Normalize the mass of consumers to one.
-\begin{block}{A familiar example: multinomial logit}
-With independent standard extreme-value taste shocks,
-\[
- Q_i(p)=\frac{e^{v_i-p_i}}
- {e^{v_0-p_0}+\sum_{j=1}^n e^{v_j-p_j}}.
-\]
-\end{block}
-A higher own price loses customers to rivals or the outside option.
-The paper's argument covers more than this logit example.
+ \[
+ \frac{\partial^2\ell_i}{\partial p_i^2}\leq0.
+ \]
+\end{assumption}
+\begin{assumption}[Cross-price log-supermodularity]
+\compactmath
+ \[
+ \frac{\partial^2\ell_i}{\partial p_i\partial p_j}\geq0
+ \quad(j\ne i,\ \text{including the outside option }j=0).
+ \]
+\end{assumption}
+\begin{assumption}[Common-price-shift invariance]
+\compactmath
+ \[
+ Q_i(p_1+t,\ldots,p_n+t,p_0+t)=Q_i(p_1,\ldots,p_n,p_0),\quad i=0,\ldots,n.
+ \]
+\end{assumption}
+\endgroup
 \end{frame}
 
 
@@ -495,33 +504,7 @@ Looking only for zeros would miss equilibria with binding bounds.
 \end{frame}
 
 
-\begin{frame}{The demand restrictions behind uniqueness}
-\small\compactmath
-Write $\ell_i=\log Q_i$. Demand is positive, $C^2$, and decreasing in own price.
-\begingroup
-\renewcommand{\theassumption}{E\arabic{assumption}}
-\setcounter{assumption}{0}
-\begin{assumption}[Own-price log-concavity]
-\compactmath
- \[
- \frac{\partial^2\ell_i}{\partial p_i^2}\leq0.
- \]
-\end{assumption}
-\begin{assumption}[Cross-price log-supermodularity]
-\compactmath
- \[
- \frac{\partial^2\ell_i}{\partial p_i\partial p_j}\geq0
- \quad(j\ne i,\ \text{including the outside option }j=0).
- \]
-\end{assumption}
-\begin{assumption}[Common-price-shift invariance]
-\compactmath
- \[
- Q_i(p_1+t,\ldots,p_n+t,p_0+t)=Q_i(p_1,\ldots,p_n,p_0),\quad i=0,\ldots,n.
- \]
-\end{assumption}
-\endgroup
-\end{frame}
+
 
 
 \begin{frame}{Why the first-order pricing conditions are sufficient}
@@ -758,8 +741,7 @@ The same method can reveal different mathematical structures across models.
 \]
 \begin{block}{Best response}
 \[
- T_i(x)=a_i+\delta S_i(x),\qquad
- S_i(x)=\Bigl(\sum\nolimits_jg_{ij}x_j^\beta\Bigr)^{1/\beta}.
+ T_i(x)=a_i+\delta \Bigl(\sum\nolimits_jg_{ij}x_j^\beta\Bigr)^{1/\beta}
 \]
 \end{block}
 \begin{itemize}
@@ -769,24 +751,7 @@ The same method can reveal different mathematical structures across models.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{What the CES parameter changes}
-\small\compactmath
-For positive neighbor actions,
-\[
- \frac{\partial S_i}{\partial x_j}
- =g_{ij}x_j^{\beta-1}S_i(x)^{1-\beta}.
-\]
-For two linked neighbors $j$ and $k$,
-\[
- \frac{\partial S_i/\partial x_j}{\partial S_i/\partial x_k}
- =\left(\frac{x_j}{x_k}\right)^{\beta-1}.
-\]
-\begin{block}{Relative peer influence}
-$\beta>1$ favors high-action peers at the margin.
-$0<\beta<1$ places relatively more marginal weight on low-action peers.
-\end{block}
-Changing $\beta$ also changes the scale of this unnormalized aggregate.
-\end{frame}
+
 
 
 \begin{frame}{CES complements: the logarithmic system}
@@ -818,16 +783,6 @@ Write $L_i(z)=\log T_i(e^z)$, $W=DL$, and $DH=I-W$. Direct differentiation gives
  \frac{g_{ij}e^{\beta z_j}}{\sum_k g_{ik}e^{\beta z_k}},
  \qquad \sum_jW_{ij}(z)<1.
 \]
-\begin{block}{Two distinct finite roots are impossible}
-If $H(z)=H(w)=0$, then
-\[
- z-w=\overline W(z-w),\qquad
- \overline W=\int_0^1W\!\left(w+t(z-w)\right)\,dt.
-\]
-On this compact segment, the row sums have a common bound $\alpha<1$.
-Hence $\lVert z-w\rVert_\infty\leq\alpha\lVert z-w\rVert_\infty$, so $z=w$.
-\end{block}
-\textbf{Discussion:} where does $a_i>0$ enter? The argument gives at most one equilibrium, without a uniform contraction bound on all of $\R^n$.
 \end{frame}
 
 
