@@ -6,8 +6,8 @@ Junjie Zhou (paper version: February 17, 2026), using the supplied
 
 ## Files
 
-- [Slides (PDF)](SET-English-Seminar.pdf): 65 pages — 60 main pages including
-  the title, four optional technical backup pages, and one reference page.
+- [Slides (PDF)](SET-English-Seminar.pdf): 64 pages — 60 main pages (including
+  the title) plus four optional technical backup pages.
 - [Editable source](main.tex): native Beamer source. The paper's original
   Figure 1 is on page 3, followed immediately by the two worked two-player
   examples on pages 4–6 and 7–9. There are no embedded speaker notes or
@@ -31,14 +31,15 @@ additional checks rather than holding all the substantive mathematics.
 
 | PDF pages | Reading block |
 |---|---|
-| 1–10 | Motivation, original Figure 1, and two complete worked examples |
-| 11–16 | Nash equilibrium and VI, rectangularity, SET constructions, and constrained uniqueness |
+| 1–9 | Motivation, original Figure 1, and two complete worked examples |
+| 10–15 | Nash equilibrium and VI, rectangularity, SET constructions, and constrained uniqueness |
+| 16 | Selected Applications: overview of the three close-reading blocks |
 | 17–31 | Oligopoly: consumer choice, markup conditions, E1–E3, uniqueness, existence, logit price bounds, and what SET changes |
 | 32–33 | Connections to existing peer-effect and potential applications |
 | 34–48 | CES complements: uniqueness, the spectral existence threshold, Bonacich/eigenvector centrality, and key players |
 | 49–58 | Public goods: best responses, valid inverse domains, a potential, spectral uniqueness, participation, and rankings |
 | 59–60 | What has been established and final discussion |
-| 61–65 | Optional technical checks and references |
+| 61–64 | Optional technical checks |
 
 The guide offers a full route of approximately 105–120 minutes including
 interleaved discussion, and a focused approximately 60-minute route centered

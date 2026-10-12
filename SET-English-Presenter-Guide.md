@@ -1,7 +1,7 @@
 # SET: close-reading discussion guide
 
-This English guide follows the 65-page PDF: 60 main pages including the
-cover, four optional technical backup pages, and references on page 65.
+This English guide follows the 64-page PDF: 60 main pages (including the
+cover) plus four optional technical backup pages.
 All page numbers below are physical PDF pages, not Beamer footer numbers.
 The source is Yves Zenou and Junjie Zhou, *SET*, February 17, 2026 version.
 Figure 1 on page 3 is the paper's original diagram. Speaking cues are kept
@@ -20,8 +20,8 @@ and move on.
 
 | PDF pages | Reading block | Flexible allocation |
 |---|---|---:|
-| 1–10 | Motivation, map, and both worked examples | 15 min |
-| 11–16 | VI, sign equivalence, rectangularity, and the uniqueness argument | 15–20 min |
+| 1–9 | Motivation, map, and both worked examples | 15 min |
+| 10–16 | Methodology on pages 10–15, then Selected Applications on page 16 | 15–20 min |
 | 17–31 | Oligopoly model, demand assumptions, proof, existence, and logit checks | 30–35 min |
 | 32–33 | Connections to other existing applications | 2 min |
 | 34–48 | CES complements, threshold, centrality, and intervention | 20–23 min |
@@ -61,7 +61,7 @@ curves, and two-node algebraic calculation are seminar teaching examples.
 
 | Deck pages | Primary reading | What to locate in the paper |
 |---|---|---|
-| 2–3, 10–16 | Section 2, pp. 7–16; Figure 1, p. 17 | Lemma 1; Definition 2; Theorems 1–2; SET 1–2; Lemmas 2–3 |
+| 2–3, 10–15 | Section 2, pp. 7–16; Figure 1, p. 17 | Lemma 1; Definition 2; Theorems 1–2; SET 1–2; Lemmas 2–3 |
 | 4–6, 62 | Section 2.3.2, pp. 15–16 | Why positive payoff rescaling should not change equilibrium but can change a direct matrix test |
 | 7–9 | Section 2.2, p. 12; potential discussion, p. 14 | Increasing transformations of both sides and integrability; the displayed nonlinear game is an added example |
 | 17–31 | Section 3.3, pp. 21–23, equations (20)–(21); appendix, p. 46 | E1–E3, price restrictions, positive rescaling, and the row-dominance proof |
@@ -89,13 +89,13 @@ gradient and Hessian are kept consistent throughout.
 | 7 | Derive both distinct nonlinear best responses. They are positive at every feasible rival action, so equilibria are interior. |
 | 8 | Apply the exponential to both sides of the second comparison. Its strict increase preserves signs, while making the two cross derivatives equal. This is more than simply multiplying payoff units. |
 | 9 | Differentiate the displayed potential and check its uniformly positive-definite Hessian. Strong convexity and coercivity give a unique minimizer. The original operator already has a uniqueness certificate; the gain here is a convex optimization representation. |
-| 10 | State the common reading sequence for the three applications: identify hypotheses, construct SET, prove the needed structure, then interpret the economic conclusion. |
-| 11 | Start from each player's first-order inequality under own-action concavity. Sum to get the VI; vary one coordinate at a time for the converse. |
-| 12 | Read the lower-bound, interior, and upper-bound signs. The independence of coordinate deviations is the reason this table characterizes the VI. |
-| 13 | Explain positive profile-dependent rescaling and an increasing transformation of both sides. Logs need positive arguments; inverses need valid ranges. |
-| 14 | Compute both linear objectives on the triangle. The first is minimized along the top edge, the second only at (1,0). Same signs do not preserve arbitrary coupled-constraint VIs. |
-| 15 | Work through the contradiction from two VI solutions. A global P-condition ensures that at least one coordinate product is positive; coordinate optimality makes every such product nonpositive. |
-| 16 | Define a P-matrix by positive principal minors, and distinguish this Jacobian certificate from the global inequality on page 15. For a potential, symmetry gives integrability; convexity is an additional condition. Existence remains separate. |
+| 10 | Start from each player's first-order inequality under own-action concavity. Sum to get the VI; vary one coordinate at a time for the converse. |
+| 11 | Read the lower-bound, interior, and upper-bound signs. The independence of coordinate deviations is the reason this table characterizes the VI. |
+| 12 | Explain positive profile-dependent rescaling and an increasing transformation of both sides. Logs need positive arguments; inverses need valid ranges. |
+| 13 | Compute both linear objectives on the triangle. The first is minimized along the top edge, the second only at (1,0). Same signs do not preserve arbitrary coupled-constraint VIs. |
+| 14 | Work through the contradiction from two VI solutions. A global P-condition ensures that at least one coordinate product is positive; coordinate optimality makes every such product nonpositive. |
+| 15 | Define a P-matrix by positive principal minors, and distinguish this Jacobian certificate from the global inequality on page 14. For a potential, symmetry gives integrability; convexity is an additional condition. Existence remains separate. |
+| 16 | Introduce Selected Applications and the common reading sequence for the three applications: identify hypotheses, construct SET, prove the needed structure, then interpret the economic conclusion. |
 | 17 | Explain differentiated products, costs, price intervals, rival prices, and the fixed outside option. The question concerns mutually optimal prices, including constrained prices. |
 | 18 | Derive demand conceptually from consumer choice. Logit is a running example with unit price coefficient and shock scale, not the full scope of the result. |
 | 19 | Differentiate profit into retained-customer revenue and lost-customer effects. Define the desired markup before discussing uniqueness. It is an inverse semi-elasticity, not an inverse elasticity. |
@@ -105,7 +105,7 @@ gradient and Hessian are kept consistent throughout.
 | 23 | Differentiate log-profit twice. E1 plus the strictly concave log-markup term gives strict log-profit concavity for prices above cost. Treat the cost-price endpoint directly using positive marginal profit. |
 | 24 | Differentiate the desired markup. E1 controls its own-price slope; E2 controls its rival- and outside-price slopes. Translate these into the diagonal and cross entries of the markup-gap Jacobian. |
 | 25 | Differentiate common-price-shift invariance for the desired markup. Sum only the strategic columns of the Jacobian, leaving the outside-option term. This gives the strict row-dominance margin. |
-| 26 | Pick the largest absolute coordinate of the difference between two price vectors. Integrate the Jacobian along their segment; row dominance makes the selected coordinate product strictly positive. Connect this to page 15. |
+| 26 | Pick the largest absolute coordinate of the difference between two price vectors. Integrate the Jacobian along their segment; row dominance makes the selected coordinate product strictly positive. Connect this to page 14. |
 | 27 | Keep the two arguments separate: the global P-condition rules out two equilibria; unique continuous best responses and Brouwer give existence on finite compact price boxes. |
 | 28 | Verify logit E1 and E2 directly and E3 by cancelling a common exponential factor. The general proof used these properties, not the logit formula itself. |
 | 29 | Solve the symmetric scalar equation. The feasible zero-gap solution proves existence; the global result rules out asymmetric equilibria too. |
@@ -144,16 +144,15 @@ gradient and Hessian are kept consistent throughout.
 | 62 | Compare the P-matrix and symmetric-part monotonicity tests under arbitrary positive payoff scaling. The latter can impose a stricter parameter bound even though best responses do not change. |
 | 63 | A unique algebraic solution can be negative and economically infeasible. Matrix invertibility is not the same as a nonnegative equilibrium in the network game. |
 | 64 | Prove complete-network uniqueness directly from equal marginal costs and a strictly decreasing scalar equation. This works when the simple strict spectral bound is at equality. |
-| 65 | Identify the source paper and the two benchmark network-game references. Distinguish added seminar examples from the paper's reported figures and results. |
 
 ## Methodology speaking notes
 
-### Pages 11–12: optimality, the VI, and signs
+### Pages 10–11: optimality, the VI, and signs
 
 Fix the other players' actions. With a differentiable payoff concave in own
 action, a feasible action is optimal exactly when every feasible directional
 derivative is nonpositive. We put a minus sign in front of marginal payoff,
-so the same statement becomes the coordinate inequality on page 11.
+so the same statement becomes the coordinate inequality on page 10.
 
 Sum these inequalities to get the VI. To reverse the argument, choose a
 test vector that differs from the candidate equilibrium in only one
@@ -168,7 +167,7 @@ must be nonpositive. Coordinatewise signs therefore encode the entire
 solution set on a rectangle. This statement allows binding constraints;
 it is stronger than saying that two systems have the same zeros.
 
-### Pages 13–14: constructions and the domain restriction
+### Pages 12–13: constructions and the domain restriction
 
 Multiplying a component by a positive function preserves its sign even
 when that function depends on every player's action. Alternatively, an
@@ -178,7 +177,7 @@ function to A and B preserves the direction of the comparison. Example 2
 uses an exponential; later we use logarithms and inverse functions. Their
 domains must be checked before applying them.
 
-Now consider the triangle on page 14. For a constant operator, the VI is
+Now consider the triangle on page 13. For a constant operator, the VI is
 the first-order condition for minimizing a linear objective. The first
 objective is minus total activity: every point using the whole shared
 resource is optimal. The transformed objective values activity in the
@@ -188,7 +187,7 @@ constraint. One cannot vary each coordinate independently as in the
 rectangle proof. This is a coupled-constraint VI illustration, not the
 strategy set of the preceding ordinary two-player game.
 
-### Pages 15–16: the uniqueness proof and its certificates
+### Pages 14–15: the uniqueness proof and its certificates
 
 The global P-condition says that for any two distinct profiles, at least
 one coordinate changes in the same strict direction as that coordinate's
@@ -359,7 +358,7 @@ Every cross term can be bounded in absolute value by the selected
 coordinate's squared difference times the absolute cross derivative.
 The diagonal therefore dominates the sum of cross terms, leaving a
 strictly positive coordinate product. This proves the global P-condition
-from page 15. Two VI solutions are impossible, including boundary
+from page 14. Two VI solutions are impossible, including boundary
 solutions. The proof does not need compactness of the whole price domain;
 finite bounds will be used separately for existence.
 
