@@ -6,7 +6,7 @@ Junjie Zhou (paper version: February 17, 2026), using the supplied
 
 ## Files
 
-- [Slides (PDF)](SET-English-Seminar.pdf): 64 pages — 60 main pages (including
+- [Slides (PDF)](SET-English-Seminar.pdf): 65 pages — 61 main pages (including
   the title) plus four optional technical backup pages.
 - [Editable source](main.tex): native Beamer source. The paper's original
   Figure 1 is on page 3, followed immediately by the two worked two-player
@@ -35,19 +35,20 @@ environments retain the paper's original types and numbering. Repeated
 parts of a result keep the same original number. Seminar teaching examples
 remain distinct from the paper's examples; in particular, the two-player
 Example 2 on pages 7–9 is not the paper's regular-network Example 2 on
-page 38.
+page 39. Page 11 displays Lemma 4(i)'s lower-bound, interior, and upper-bound
+conditions before introducing sign equivalence.
 
 | PDF pages | Reading block |
 |---|---|
 | 1–9 | Motivation, original Figure 1, and two complete worked examples |
-| 10–15 | Nash equilibrium and VI, rectangularity, SET constructions, and constrained uniqueness |
-| 16 | Selected Applications: overview of the three close-reading blocks |
-| 17–31 | Oligopoly: consumer choice, markup conditions, E1–E3, uniqueness, existence, logit price bounds, and what SET changes |
-| 32–33 | Connections to existing peer-effect and potential applications |
-| 34–48 | CES complements: uniqueness, the spectral existence threshold, Bonacich/eigenvector centrality, and key players |
-| 49–58 | Public goods: best responses, valid inverse domains, a potential, spectral uniqueness, participation, and rankings |
-| 59–60 | What has been established and final discussion |
-| 61–64 | Optional technical checks |
+| 10–16 | Nash equilibrium and VI, coordinate boundary conditions, rectangularity, SET constructions, and constrained uniqueness |
+| 17 | Selected Applications: overview of the three close-reading blocks |
+| 18–32 | Oligopoly: consumer choice, markup conditions, E1–E3, uniqueness, existence, logit price bounds, and what SET changes |
+| 33–34 | Connections to existing peer-effect and potential applications |
+| 35–49 | CES complements: uniqueness, the spectral existence threshold, Bonacich/eigenvector centrality, and key players |
+| 50–59 | Public goods: best responses, valid inverse domains, a potential, spectral uniqueness, participation, and rankings |
+| 60–61 | What has been established and final discussion |
+| 62–65 | Optional technical checks |
 
 The guide offers a full route of approximately 105–120 minutes including
 interleaved discussion, and a focused approximately 60-minute route centered

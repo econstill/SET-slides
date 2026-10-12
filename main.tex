@@ -56,7 +56,7 @@
 \date{Paper version: February 17, 2026}
 \begin{document}
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
-\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{59}\fi
+\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{60}\fi
 \maketitle
 
 \begin{frame}{Equilibrium uniqueness and representation}
@@ -273,6 +273,34 @@ Then, for $x^*\in K$,
  \langle y-x^*,F(x^*)\rangle\geq0\quad\text{for every }y\in K.
 \]
 \end{lemma}
+\end{frame}
+
+
+\begin{frame}{The VI as familiar boundary conditions}
+\compactmath
+\setcounter{theorem}{3}
+\begin{lemma}[Part (i): rectangular domains]
+Let $K=\prod_i[a_i,b_i]$, with $-\infty\leq a_i<b_i\leq+\infty$.
+For $x^*\in K$,
+\[
+\begin{gathered}
+ \langle y-x^*,F(x^*)\rangle\geq0\quad\text{for every }y\in K
+ \\[2pt]
+ \Updownarrow
+ \\[2pt]
+ \left.
+ \begin{aligned}
+  x_i^*=a_i &\quad\Longrightarrow\quad F_i(x^*)\geq0 &&\text{(lower bound)},\\[3pt]
+  a_i<x_i^*<b_i &\quad\Longrightarrow\quad F_i(x^*)=0 &&\text{(interior)},\\[3pt]
+  x_i^*=b_i &\quad\Longrightarrow\quad F_i(x^*)\leq0 &&\text{(upper bound)}.
+ \end{aligned}
+ \right\}\quad\text{for every }i.
+\end{gathered}
+\]
+\end{lemma}
+With $F_i=-\partial_i u_i$, these are the familiar constrained first-order conditions.
+\medskip\par
+\alert{Only the sign of each component matters, including at the boundary.}
 \end{frame}
 
 

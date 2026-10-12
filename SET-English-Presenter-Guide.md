@@ -1,6 +1,6 @@
 # SET: close-reading discussion guide
 
-This English guide follows the 64-page PDF: 60 main pages (including the
+This English guide follows the 65-page PDF: 61 main pages (including the
 cover) plus four optional technical backup pages.
 All page numbers below are physical PDF pages, not Beamer footer numbers.
 The source is Yves Zenou and Junjie Zhou, *SET*, February 17, 2026 version.
@@ -21,12 +21,12 @@ and move on.
 | PDF pages | Reading block | Flexible allocation |
 |---|---|---:|
 | 1–9 | Motivation, map, and both worked examples | 15 min |
-| 10–16 | Methodology on pages 10–15, then Selected Applications on page 16 | 15–20 min |
-| 17–31 | Oligopoly model, demand assumptions, proof, existence, and logit checks | 30–35 min |
-| 32–33 | Connections to other existing applications | 2 min |
-| 34–48 | CES complements, threshold, centrality, and intervention | 20–23 min |
-| 49–58 | Public goods, inverse domain, potential, and economic results | 18–20 min |
-| 59–60 | Synthesis and final questions | 5 min |
+| 10–17 | Methodology on pages 10–16, then Selected Applications on page 17 | 15–20 min |
+| 18–32 | Oligopoly model, demand assumptions, proof, existence, and logit checks | 30–35 min |
+| 33–34 | Connections to other existing applications | 2 min |
+| 35–49 | CES complements, threshold, centrality, and intervention | 20–23 min |
+| 50–59 | Public goods, inverse domain, potential, and economic results | 18–20 min |
+| 60–61 | Synthesis and final questions | 5 min |
 
 These allocations include questions taken within each block. They are a
 planning aid, not a ceiling on the oligopoly discussion or a requirement to
@@ -42,10 +42,10 @@ Use roughly 10 minutes for the map and two examples, 15 for methodology,
 25 for the oligopoly reading, five for selected network conclusions, and
 five for synthesis and questions. Within oligopoly, prioritize the markup
 gap, boundary signs, strict log-profit concavity, the roles of E1–E3, and
-the demonstration on page 31 of why SET helps the matrix test.
-On page 26 explain the maximum-coordinate idea; a line-by-line integral
-proof can be reserved for the longer route. Use pages 38, 42–43, 55–56,
-and 60 for selected network conclusions. Do not present pages 34–58 as if
+the demonstration on page 32 of why SET helps the matrix test.
+On page 27 explain the maximum-coordinate idea; a line-by-line integral
+proof can be reserved for the longer route. Use pages 39, 43–44, 56–57,
+and 61 for selected network conclusions. Do not present pages 35–59 as if
 all of their proofs have been covered in this shorter session.
 
 For either route, ask four questions before leaving a model: What is the
@@ -61,17 +61,17 @@ curves, and two-node algebraic calculation are seminar teaching examples.
 
 | Deck pages | Primary reading | What to locate in the paper |
 |---|---|---|
-| 2–3, 10–15 | Section 2, pp. 7–16; Figure 1, p. 17 | Definition 1; Lemma 1; Definition 2; Theorem 1(ii); Proposition 1/SET 1–2; Lemmas 2–3 |
-| 4–6, 62 | Section 2.3.2, pp. 15–16 | Why positive payoff rescaling should not change equilibrium but can change a direct matrix test |
+| 2–3, 10–16 | Section 2, pp. 7–16; Figure 1, p. 17; appendix, p. 42 | Definition 1; Lemma 1; Lemma 4(i), equation (51); Definition 2; Theorem 1(ii); Proposition 1/SET 1–2; Lemmas 2–3 |
+| 4–6, 63 | Section 2.3.2, pp. 15–16 | Why positive payoff rescaling should not change equilibrium but can change a direct matrix test |
 | 7–9 | Section 2.2, p. 12; potential discussion, p. 14 | Increasing transformations of both sides and integrability; the displayed nonlinear game is an added example |
-| 17–31 | Section 3.3, pp. 21–23, equations (20)–(21); appendix, p. 46 | Assumptions E1–E3, Proposition 4, price restrictions, positive rescaling, and the row-dominance proof |
-| 32 | Section 3.2, pp. 19–21 | Proposition 3: row-normalized CES social norms and uniqueness conditional on existence |
-| 33 | Sections 3.4–3.5, pp. 23–31 | Inverse functions, symmetric transformed systems, and potential methods |
-| 34–46, 63 | Section 4.1, pp. 32–34; appendix, pp. 47–49 | Theorem 4 and paper Example 2: separate uniqueness, existence, non-existence, and Perron-limit arguments |
-| 47–48 | Section 4.1, pp. 35–37 | Bridge network, key-player definition and numerical comparison; reported switch near beta 0.722 |
-| 49–58, 64 | Section 4.2, pp. 38–41; appendix, pp. 50–52 | Assumptions 2–3, Theorem 5, Proposition 7, and neighborhood rankings |
+| 18–32 | Section 3.3, pp. 21–23, equations (20)–(21); appendix, p. 46 | Assumptions E1–E3, Proposition 4, price restrictions, positive rescaling, and the row-dominance proof |
+| 33 | Section 3.2, pp. 19–21 | Proposition 3: row-normalized CES social norms and uniqueness conditional on existence |
+| 34 | Sections 3.4–3.5, pp. 23–31 | Inverse functions, symmetric transformed systems, and potential methods |
+| 35–47, 64 | Section 4.1, pp. 32–34; appendix, pp. 47–49 | Theorem 4 and paper Example 2: separate uniqueness, existence, non-existence, and Perron-limit arguments |
+| 48–49 | Section 4.1, pp. 35–37 | Bridge network, key-player definition and numerical comparison; reported switch near beta 0.722 |
+| 50–59, 65 | Section 4.2, pp. 38–41; appendix, pp. 50–52 | Assumptions 2–3, Theorem 5, Proposition 7, and neighborhood rankings |
 
-The inverse-domain box on page 52 makes explicit a range check needed when
+The inverse-domain box on page 53 makes explicit a range check needed when
 using the inverse marginal benefit in Section 4.2. On that valid domain,
 with a common valid integration reference, the deck's minimization potential
 is $\Psi=-\phi^{BKC}_{\mathrm{paper}}+C$. Thus it has the opposite sign to
@@ -86,28 +86,29 @@ Repeated parts retain the same number; they are not renumbered in order of
 appearance in this deck. Seminar examples and pedagogical proof steps do
 not acquire invented original-paper labels. The two-player Example 2 on
 pages 7–9 is distinct from paper Example 2, the regular-network calculation
-on deck page 38.
+on deck page 39.
 
 | Deck page | Original label | Scope to retain |
 |---:|---|---|
 | 10 | Definition 1; Lemma 1 | Well-behaved games: closed convex strategy sets, $C^2$ payoffs, and own-action concavity. The negative payoff gradients give the NE–VI representation. |
-| 11 | Definition 2; Theorem 1(ii) | Full-domain sign equivalence and preservation of the entire VI solution set on a rectangle. |
-| 12 | Proposition 1 | Sign-preserving operations and their compositions; inverse/log domains must be valid. |
-| 15 | Lemma 2(ii); Lemma 3 | Rectangular-domain P-property uniqueness, and the convex-potential route; existence is separate. |
-| 22 | Assumptions E1–E3 | Preserve the letter-number identifiers, including the outside option in E2 and E3. |
-| 27 | Proposition 4 | At most one pricing equilibrium. Finite-box Brouwer existence is a separate argument, not the proposition's literal conclusion. |
-| 32 | Proposition 3 | For positive baselines, under $0<\lambda_1+\lambda_2<1$ and $0<\lambda_1<1$, any positive solution of the specified peer-effect system is unique, conditional on existence. |
-| 38 | Theorem 4; paper Example 2 | The spectral result and its regular-network specialization. Part (iii) literally states non-existence for $\delta>\bar\delta$; appendix Claim 2 also excludes equality. |
-| 41 | Theorem 4(i) | Monotone comparative statics within the finite-equilibrium existence region. |
-| 45 | Theorem 4(ii) | Divergence of levels and convergence of relative efforts to transformed Perron ratios. |
-| 49 | Assumption 2 | Benefit/cost curvature, marginal crossing, and the autarky solution. |
-| 54 | Theorem 5 | The sufficient spectral condition for potential curvature and a unique public-good equilibrium. |
-| 55 | Assumption 3; Proposition 7(i) | Zero initial marginal cost and full participation under the stated model assumptions. |
-| 56 | Proposition 7(iii) | Complete-network uniqueness and equal efforts under the maintained strictly convex-cost assumptions. |
-| 57 | Proposition 7(ii); Corollary 2 | Neighborhood-inclusion rankings, and the degree ranking specifically for nested-split graphs. |
-| 58 | Proposition 7(iv) | Equal leaf efforts and strictly lower hub effort in a star with at least three nodes. |
-| 61 | Proof of Theorem 1(ii) | Coordinate proof of full solution-set preservation on a rectangle. |
-| 64 | Proof of Proposition 7(iii) | Complete-network uniqueness even when the simple strict spectral inequality is at equality. |
+| 11 | Lemma 4(i), equation (51) | On a rectangle, the VI is equivalent to a nonnegative component at a lower bound, zero in the interior, and a nonpositive component at an upper bound, for every coordinate. |
+| 12 | Definition 2; Theorem 1(ii) | Full-domain sign equivalence and preservation of the entire VI solution set on a rectangle. |
+| 13 | Proposition 1 | Sign-preserving operations and their compositions; inverse/log domains must be valid. |
+| 16 | Lemma 2(ii); Lemma 3 | Rectangular-domain P-property uniqueness, and the convex-potential route; existence is separate. |
+| 23 | Assumptions E1–E3 | Preserve the letter-number identifiers, including the outside option in E2 and E3. |
+| 28 | Proposition 4 | At most one pricing equilibrium. Finite-box Brouwer existence is a separate argument, not the proposition's literal conclusion. |
+| 33 | Proposition 3 | For positive baselines, under $0<\lambda_1+\lambda_2<1$ and $0<\lambda_1<1$, any positive solution of the specified peer-effect system is unique, conditional on existence. |
+| 39 | Theorem 4; paper Example 2 | The spectral result and its regular-network specialization. Part (iii) literally states non-existence for $\delta>\bar\delta$; appendix Claim 2 also excludes equality. |
+| 42 | Theorem 4(i) | Monotone comparative statics within the finite-equilibrium existence region. |
+| 46 | Theorem 4(ii) | Divergence of levels and convergence of relative efforts to transformed Perron ratios. |
+| 50 | Assumption 2 | Benefit/cost curvature, marginal crossing, and the autarky solution. |
+| 55 | Theorem 5 | The sufficient spectral condition for potential curvature and a unique public-good equilibrium. |
+| 56 | Assumption 3; Proposition 7(i) | Zero initial marginal cost and full participation under the stated model assumptions. |
+| 57 | Proposition 7(iii) | Complete-network uniqueness and equal efforts under the maintained strictly convex-cost assumptions. |
+| 58 | Proposition 7(ii); Corollary 2 | Neighborhood-inclusion rankings, and the degree ranking specifically for nested-split graphs. |
+| 59 | Proposition 7(iv) | Equal leaf efforts and strictly lower hub effort in a star with at least three nodes. |
+| 62 | Proof of Theorem 1(ii) | Coordinate proof of full solution-set preservation on a rectangle. |
+| 65 | Proof of Proposition 7(iii) | Complete-network uniqueness even when the simple strict spectral inequality is at equality. |
 
 ## Page-by-page cues
 
@@ -123,72 +124,75 @@ on deck page 38.
 | 8 | Apply the exponential to both sides of the second comparison. Its strict increase preserves signs, while making the two cross derivatives equal. This is more than simply multiplying payoff units. |
 | 9 | Differentiate the displayed potential and check its uniformly positive-definite Hessian. Strong convexity and coercivity give a unique minimizer. The original operator already has a uniqueness certificate; the gain here is a convex optimization representation. |
 | 10 | State Definition 1's three conditions, then define the negative payoff gradients and state Lemma 1. The slide gives the definition and NE–VI equivalence without the coordinate-by-coordinate derivation. |
-| 11 | Definition 2 specifies sign equivalence; Theorem 1(ii) preserves the full VI solution set on a rectangle. Explain how independent coordinate deviations preserve boundary solutions as well as interior ones. |
-| 12 | Proposition 1 supplies sign-preserving constructions. Explain positive profile-dependent rescaling and an increasing transformation of both sides. Logs need positive arguments; inverses need valid ranges. |
-| 13 | Compute both linear objectives on the triangle. The first is minimized along the top edge, the second only at (1,0). Same signs do not preserve arbitrary coupled-constraint VIs. |
-| 14 | Work through the contradiction from two VI solutions. A global P-condition ensures that at least one coordinate product is positive; coordinate optimality makes every such product nonpositive. |
-| 15 | Read Lemma 2(ii) and Lemma 3 as separate routes. Define a P-matrix by positive principal minors, distinguishing the Jacobian certificate from page 14's global inequality. Symmetry gives integrability; convexity and existence require their own arguments. |
-| 16 | Introduce Selected Applications and the common reading sequence for the three applications: identify hypotheses, construct SET, prove the needed structure, then interpret the economic conclusion. |
-| 17 | Explain differentiated products, costs, price intervals, rival prices, and the fixed outside option. The question concerns mutually optimal prices, including constrained prices. |
-| 18 | Derive demand conceptually from consumer choice. Logit is a running example with unit price coefficient and shock scale, not the full scope of the result. |
-| 19 | Differentiate profit into retained-customer revenue and lost-customer effects. Define the desired markup before discussing uniqueness. It is an inverse semi-elasticity, not an inverse elasticity. |
-| 20 | Divide by the positive absolute own-price demand slope. The resulting markup gap has the same sign as negative marginal profit, hence the opposite sign to a profitable price increase. |
-| 21 | At a cap, positive marginal profit can be optimal; at a floor, negative marginal profit can be optimal. Sign preservation retains these outcomes. First-order sufficiency is justified on page 23. |
-| 22 | State Assumptions E1–E3 precisely, retaining their original identifiers. Include option 0 in E2 and in the hypothetical common shift in E3, while holding its price fixed during strategic play. |
-| 23 | Differentiate log-profit twice. E1 plus the strictly concave log-markup term gives strict log-profit concavity for prices above cost. Treat the cost-price endpoint directly using positive marginal profit. |
-| 24 | Differentiate the desired markup. E1 controls its own-price slope; E2 controls its rival- and outside-price slopes. Translate these into the diagonal and cross entries of the markup-gap Jacobian. |
-| 25 | Differentiate common-price-shift invariance for the desired markup. Sum only the strategic columns of the Jacobian, leaving the outside-option term. This gives the strict row-dominance margin. |
-| 26 | Pick the largest absolute coordinate of the difference between two price vectors. Integrate the Jacobian along their segment; row dominance makes the selected coordinate product strictly positive. Connect this to page 14. |
-| 27 | Proposition 4 gives at most one pricing equilibrium. Keep finite-box existence separate: unique continuous best responses and Brouwer supply a fixed point, yielding exactly one only after combining both arguments. |
-| 28 | Verify logit E1 and E2 directly and E3 by cancelling a common exponential factor. The general proof used these properties, not the logit formula itself. |
-| 29 | Solve the symmetric scalar equation. The feasible zero-gap solution proves existence; the global result rules out asymmetric equilibria too. |
-| 30 | Compare zero-gap interior pricing with negative-gap cap pricing and positive-gap floor pricing. Bounds change the economic outcome, while the same uniqueness argument applies in each box. |
-| 31 | The original pricing derivative has a negative diagonal entry at (4,4), so it fails the global P-matrix test on the box. The transformed derivative passes throughout that same box. This concretely shows what SET changes; failure of the original sufficient test does not show multiple equilibria. |
-| 32 | Proposition 3 requires $0<\lambda_1+\lambda_2<1$ and $0<\lambda_1<1$. The row-normalized social norm need not average peer effort. The conclusion is conditional uniqueness, not existence supplied by SET. |
-| 33 | Connect inverse Engel curves and multiplex interactions to the potential route. Symmetric transformed derivatives help; further curvature assumptions are still needed for uniqueness. |
-| 34 | Introduce CES complements with an unnormalized adjacency matrix. Strict own-action concavity gives the best response. Positive baselines and a connected nonempty undirected network will matter in the proofs. |
-| 35 | Compare two neighbors' marginal influence. Beta changes relative weighting and, with an unnormalized aggregator, scale too. Do not describe it as only a stronger spillover parameter. |
-| 36 | Every equilibrium is positive, so log actions cover the entire equilibrium set. Separate the sign-preserving log comparison from the one-to-one change of variables. |
-| 37 | Derive the two factors in W and sum each row. Positive baselines make the sum strictly below one. A uniform bound is available on the compact segment between two proposed roots, not necessarily on all log-action space. |
-| 38 | Read Theorem 4 with its original parts: part (iii) states non-existence for $\delta>\bar\delta$. Equality is additionally excluded by appendix Claim 2 and the proof on deck page 40. Paper Example 2 is the regular-network specialization, not the seminar's two-player Example 2. |
-| 39 | Use the Perron vector to construct an upper bound with exactly the same network amplification direction. Explain why the denominator is positive only below the threshold, then bound increasing best-response iteration. |
-| 40 | Raise the equilibrium equation componentwise to beta and take its positive Perron-weighted sum. Strictly positive baselines create a strict inequality, forcing delta below the threshold. |
-| 41 | Theorem 4(i) gives monotone comparative statics within the existence region. Use the equilibrium first-order condition to verify payoff equals one half of squared effort. |
-| 42 | At beta=1, write the resolvent solution. The baseline b in (I−delta G)x=b is the vector a here. A unit baseline gives standard Katz–Bonacich centrality. |
-| 43 | Expand the baseline in an orthonormal eigenbasis. Each eigen-direction has its own multiplier 1/(1−delta lambda_k). Near the threshold, the leading term dominates after normalization. |
-| 44 | Explain why bounded actions would imply a forbidden equilibrium at the threshold. Connectedness propagates divergence. Normalize x to the beta power, take subsequences, and use uniqueness of the positive Perron direction. |
-| 45 | Theorem 4(ii) gives the limiting ratio. Actions diverge; there is no finite equilibrium at the critical parameter. It is x to the beta power, not generally x itself, that aligns with the Perron vector. |
-| 46 | Read the path-network teaching plot at a common fraction of each beta-specific threshold. It compares ratios, not finite action levels at the right endpoint. |
-| 47 | Define the key player by total equilibrium activity lost after removal and re-equilibration. This includes both the removed action and the response of survivors. |
-| 48 | Identify the bridge and the high-degree types before reading the table. The reported nonlinear switch is near beta 0.722 for delta 0.1, within the paper's specified parameter range. |
-| 49 | Introduce benefit from local total provision and private cost of own effort. Assumption 2 states curvature and marginal crossing; define autarky effort k*. |
-| 50 | Distinguish an interior marginal equality from a zero-effort inequality. Strict concavity gives a unique continuous best response bounded by k*, so Brouwer establishes existence before any spectral condition. |
-| 51 | Implicitly differentiate the best response. Linear costs give slope minus one when interior; positive cost curvature reduces crowding out locally. A bound on one scalar slope does not by itself prove network-wide uniqueness. |
-| 52 | Check the range before applying an inverse. Construct B, ell=theta(B), and the equilibrium-containing box. Explain why original and restricted games have identical best responses on this box and hence the same equilibrium set. |
-| 53 | Verify the signs with b' strictly decreasing. The transformed cross derivatives equal delta g_ij and are symmetric. Differentiate the potential to check its sign convention. |
-| 54 | Theorem 5 follows by differentiating the inverse and applying the Rayleigh lower bound. The spectral inequality is sufficient, not necessary; cost curvature contributes an extra nonnegative diagonal term. |
-| 55 | State Assumption 3, then Proposition 7(i). At zero effort and zero marginal cost, marginal benefit is strictly positive at every finite profile. Every equilibrium is interior, independently of uniqueness. |
-| 56 | Proposition 7(iii): on a complete graph all players face the same total provision. Strictly increasing marginal cost forces equal effort and a unique scalar solution; linear costs allow every allocation with the same total. |
-| 57 | State the homogeneous-functions, zero-initial-marginal-cost, strict-convexity, and delta=1 assumptions. Proposition 7(ii) uses neighborhood inclusion; Corollary 2 gives the nested-split degree ranking, not a degree rule on arbitrary graphs. |
-| 58 | Proposition 7(iv): all leaves have the same best response. Compare hub and leaf marginal benefits using positive leaf effort and n at least three. Strictly increasing marginal cost gives the strict effort ranking. |
-| 59 | Classify each proof by its purpose: preserving equilibrium, proving existence, or proving uniqueness. A valid transformation is not a substitute for the latter two arguments. |
-| 60 | Summarize the economic payoffs: nonlinear centrality and intervention under complements, and participation and rankings under substitutes. Ask which structural feature made the chosen transformation useful. |
-| 61 | Give the full coordinate proof of Theorem 1(ii) when participants want the details of boundary-solution preservation. |
-| 62 | Compare the P-matrix and symmetric-part monotonicity tests under arbitrary positive payoff scaling. The latter can impose a stricter parameter bound even though best responses do not change. |
-| 63 | A unique algebraic solution can be negative and economically infeasible. Matrix invertibility is not the same as a nonnegative equilibrium in the network game. |
-| 64 | Prove Proposition 7(iii) directly from equal marginal costs and a strictly decreasing scalar equation. This works when the simple strict spectral bound is at equality. |
+| 11 | The VI as familiar boundary conditions: Lemma 4(i) displays $F_i\geq0$ at a lower bound, $F_i=0$ in the interior, and $F_i\leq0$ at an upper bound, for every $i$. Vary one coordinate while holding the others fixed; rectangularity makes each such deviation feasible. With $F_i=-\partial_i u_i$, these are the familiar constrained first-order conditions. |
+| 12 | Definition 2 specifies sign equivalence; Theorem 1(ii) preserves the full VI solution set on a rectangle. Explain how independent coordinate deviations preserve boundary solutions as well as interior ones. |
+| 13 | Proposition 1 supplies sign-preserving constructions. Explain positive profile-dependent rescaling and an increasing transformation of both sides. Logs need positive arguments; inverses need valid ranges. |
+| 14 | Compute both linear objectives on the triangle. The first is minimized along the top edge, the second only at (1,0). Same signs do not preserve arbitrary coupled-constraint VIs. |
+| 15 | Work through the contradiction from two VI solutions. A global P-condition ensures that at least one coordinate product is positive; coordinate optimality makes every such product nonpositive. |
+| 16 | Read Lemma 2(ii) and Lemma 3 as separate routes. Define a P-matrix by positive principal minors, distinguishing the Jacobian certificate from page 15's global inequality. Symmetry gives integrability; convexity and existence require their own arguments. |
+| 17 | Introduce Selected Applications and the common reading sequence for the three applications: identify hypotheses, construct SET, prove the needed structure, then interpret the economic conclusion. |
+| 18 | Explain differentiated products, costs, price intervals, rival prices, and the fixed outside option. The question concerns mutually optimal prices, including constrained prices. |
+| 19 | Derive demand conceptually from consumer choice. Logit is a running example with unit price coefficient and shock scale, not the full scope of the result. |
+| 20 | Differentiate profit into retained-customer revenue and lost-customer effects. Define the desired markup before discussing uniqueness. It is an inverse semi-elasticity, not an inverse elasticity. |
+| 21 | Divide by the positive absolute own-price demand slope. The resulting markup gap has the same sign as negative marginal profit, hence the opposite sign to a profitable price increase. |
+| 22 | At a cap, positive marginal profit can be optimal; at a floor, negative marginal profit can be optimal. Sign preservation retains these outcomes. First-order sufficiency is justified on page 24. |
+| 23 | State Assumptions E1–E3 precisely, retaining their original identifiers. Include option 0 in E2 and in the hypothetical common shift in E3, while holding its price fixed during strategic play. |
+| 24 | Differentiate log-profit twice. E1 plus the strictly concave log-markup term gives strict log-profit concavity for prices above cost. Treat the cost-price endpoint directly using positive marginal profit. |
+| 25 | Differentiate the desired markup. E1 controls its own-price slope; E2 controls its rival- and outside-price slopes. Translate these into the diagonal and cross entries of the markup-gap Jacobian. |
+| 26 | Differentiate common-price-shift invariance for the desired markup. Sum only the strategic columns of the Jacobian, leaving the outside-option term. This gives the strict row-dominance margin. |
+| 27 | Pick the largest absolute coordinate of the difference between two price vectors. Integrate the Jacobian along their segment; row dominance makes the selected coordinate product strictly positive. Connect this to page 15. |
+| 28 | Proposition 4 gives at most one pricing equilibrium. Keep finite-box existence separate: unique continuous best responses and Brouwer supply a fixed point, yielding exactly one only after combining both arguments. |
+| 29 | Verify logit E1 and E2 directly and E3 by cancelling a common exponential factor. The general proof used these properties, not the logit formula itself. |
+| 30 | Solve the symmetric scalar equation. The feasible zero-gap solution proves existence; the global result rules out asymmetric equilibria too. |
+| 31 | Compare zero-gap interior pricing with negative-gap cap pricing and positive-gap floor pricing. Bounds change the economic outcome, while the same uniqueness argument applies in each box. |
+| 32 | The original pricing derivative has a negative diagonal entry at (4,4), so it fails the global P-matrix test on the box. The transformed derivative passes throughout that same box. This concretely shows what SET changes; failure of the original sufficient test does not show multiple equilibria. |
+| 33 | Proposition 3 requires $0<\lambda_1+\lambda_2<1$ and $0<\lambda_1<1$. The row-normalized social norm need not average peer effort. The conclusion is conditional uniqueness, not existence supplied by SET. |
+| 34 | Connect inverse Engel curves and multiplex interactions to the potential route. Symmetric transformed derivatives help; further curvature assumptions are still needed for uniqueness. |
+| 35 | Introduce CES complements with an unnormalized adjacency matrix. Strict own-action concavity gives the best response. Positive baselines and a connected nonempty undirected network will matter in the proofs. |
+| 36 | Compare two neighbors' marginal influence. Beta changes relative weighting and, with an unnormalized aggregator, scale too. Do not describe it as only a stronger spillover parameter. |
+| 37 | Every equilibrium is positive, so log actions cover the entire equilibrium set. Separate the sign-preserving log comparison from the one-to-one change of variables. |
+| 38 | Derive the two factors in W and sum each row. Positive baselines make the sum strictly below one. A uniform bound is available on the compact segment between two proposed roots, not necessarily on all log-action space. |
+| 39 | Read Theorem 4 with its original parts: part (iii) states non-existence for $\delta>\bar\delta$. Equality is additionally excluded by appendix Claim 2 and the proof on deck page 41. Paper Example 2 is the regular-network specialization, not the seminar's two-player Example 2. |
+| 40 | Use the Perron vector to construct an upper bound with exactly the same network amplification direction. Explain why the denominator is positive only below the threshold, then bound increasing best-response iteration. |
+| 41 | Raise the equilibrium equation componentwise to beta and take its positive Perron-weighted sum. Strictly positive baselines create a strict inequality, forcing delta below the threshold. |
+| 42 | Theorem 4(i) gives monotone comparative statics within the existence region. Use the equilibrium first-order condition to verify payoff equals one half of squared effort. |
+| 43 | At beta=1, write the resolvent solution. The baseline b in (I−delta G)x=b is the vector a here. A unit baseline gives standard Katz–Bonacich centrality. |
+| 44 | Expand the baseline in an orthonormal eigenbasis. Each eigen-direction has its own multiplier 1/(1−delta lambda_k). Near the threshold, the leading term dominates after normalization. |
+| 45 | Explain why bounded actions would imply a forbidden equilibrium at the threshold. Connectedness propagates divergence. Normalize x to the beta power, take subsequences, and use uniqueness of the positive Perron direction. |
+| 46 | Theorem 4(ii) gives the limiting ratio. Actions diverge; there is no finite equilibrium at the critical parameter. It is x to the beta power, not generally x itself, that aligns with the Perron vector. |
+| 47 | Read the path-network teaching plot at a common fraction of each beta-specific threshold. It compares ratios, not finite action levels at the right endpoint. |
+| 48 | Define the key player by total equilibrium activity lost after removal and re-equilibration. This includes both the removed action and the response of survivors. |
+| 49 | Identify the bridge and the high-degree types before reading the table. The reported nonlinear switch is near beta 0.722 for delta 0.1, within the paper's specified parameter range. |
+| 50 | Introduce benefit from local total provision and private cost of own effort. Assumption 2 states curvature and marginal crossing; define autarky effort k*. |
+| 51 | Distinguish an interior marginal equality from a zero-effort inequality. Strict concavity gives a unique continuous best response bounded by k*, so Brouwer establishes existence before any spectral condition. |
+| 52 | Implicitly differentiate the best response. Linear costs give slope minus one when interior; positive cost curvature reduces crowding out locally. A bound on one scalar slope does not by itself prove network-wide uniqueness. |
+| 53 | Check the range before applying an inverse. Construct B, ell=theta(B), and the equilibrium-containing box. Explain why original and restricted games have identical best responses on this box and hence the same equilibrium set. |
+| 54 | Verify the signs with b' strictly decreasing. The transformed cross derivatives equal delta g_ij and are symmetric. Differentiate the potential to check its sign convention. |
+| 55 | Theorem 5 follows by differentiating the inverse and applying the Rayleigh lower bound. The spectral inequality is sufficient, not necessary; cost curvature contributes an extra nonnegative diagonal term. |
+| 56 | State Assumption 3, then Proposition 7(i). At zero effort and zero marginal cost, marginal benefit is strictly positive at every finite profile. Every equilibrium is interior, independently of uniqueness. |
+| 57 | Proposition 7(iii): on a complete graph all players face the same total provision. Strictly increasing marginal cost forces equal effort and a unique scalar solution; linear costs allow every allocation with the same total. |
+| 58 | State the homogeneous-functions, zero-initial-marginal-cost, strict-convexity, and delta=1 assumptions. Proposition 7(ii) uses neighborhood inclusion; Corollary 2 gives the nested-split degree ranking, not a degree rule on arbitrary graphs. |
+| 59 | Proposition 7(iv): all leaves have the same best response. Compare hub and leaf marginal benefits using positive leaf effort and n at least three. Strictly increasing marginal cost gives the strict effort ranking. |
+| 60 | Classify each proof by its purpose: preserving equilibrium, proving existence, or proving uniqueness. A valid transformation is not a substitute for the latter two arguments. |
+| 61 | Summarize the economic payoffs: nonlinear centrality and intervention under complements, and participation and rankings under substitutes. Ask which structural feature made the chosen transformation useful. |
+| 62 | Give the full coordinate proof of Theorem 1(ii) when participants want the details of boundary-solution preservation. |
+| 63 | Compare the P-matrix and symmetric-part monotonicity tests under arbitrary positive payoff scaling. The latter can impose a stricter parameter bound even though best responses do not change. |
+| 64 | A unique algebraic solution can be negative and economically infeasible. Matrix invertibility is not the same as a nonnegative equilibrium in the network game. |
+| 65 | Prove Proposition 7(iii) directly from equal marginal costs and a strictly decreasing scalar equation. This works when the simple strict spectral bound is at equality. |
 
 ## Methodology speaking notes
 
-### Pages 10–11: optimality, the VI, and signs
+### Pages 10–12: optimality, the VI, and signs
 
-Page 10 states Definition 1 before Lemma 1. The scalar-action derivation
-below is optional discussion material rather than text displayed on that slide.
+Page 10 states Definition 1 before Lemma 1. Page 11, "The VI as familiar
+boundary conditions," displays Lemma 4(i)'s three coordinate conditions
+from appendix p. 42, equation (51). The scalar-action derivation below
+explains their connection to the VI.
 
 Fix the other players' actions. With a differentiable payoff concave in own
 action, a feasible action is optimal exactly when every feasible directional
 derivative is nonpositive. We put a minus sign in front of marginal payoff,
-so the same statement becomes the coordinate inequality on page 10.
+so optimality becomes $(y_i-x_i^*)F_i(x^*)\geq0$ for every feasible $y_i$.
 
 Sum these inequalities to get the VI. To reverse the argument, choose a
 test vector that differs from the candidate equilibrium in only one
@@ -197,13 +201,15 @@ of individual intervals. The VI then recovers that player's optimality
 condition. Concavity is doing substantive work: necessary first-order
 conditions are now sufficient.
 
-On an interval, only three cases remain. At the lower bound the operator
-must be nonnegative; in the interior it must vanish; at the upper bound it
-must be nonpositive. Coordinatewise signs therefore encode the entire
-solution set on a rectangle. This statement allows binding constraints;
-it is stronger than saying that two systems have the same zeros.
+Page 11 displays the three cases on an interval: at the lower bound,
+$F_i(x^*)\geq0$; in the interior, $F_i(x^*)=0$; at the upper bound,
+$F_i(x^*)\leq0$, for every $i$. Coordinatewise signs therefore encode
+the entire solution set on a rectangle. This statement allows binding
+constraints; it is stronger than saying that two systems have the same
+zeros. Page 12 then defines sign equivalence and states the preservation
+result.
 
-### Pages 12–13: constructions and the domain restriction
+### Pages 13–14: constructions and the domain restriction
 
 Multiplying a component by a positive function preserves its sign even
 when that function depends on every player's action. Alternatively, an
@@ -213,7 +219,7 @@ function to A and B preserves the direction of the comparison. Example 2
 uses an exponential; later we use logarithms and inverse functions. Their
 domains must be checked before applying them.
 
-Now consider the triangle on page 13. For a constant operator, the VI is
+Now consider the triangle on page 14. For a constant operator, the VI is
 the first-order condition for minimizing a linear objective. The first
 objective is minus total activity: every point using the whole shared
 resource is optimal. The transformed objective values activity in the
@@ -223,7 +229,7 @@ constraint. One cannot vary each coordinate independently as in the
 rectangle proof. This is a coupled-constraint VI illustration, not the
 strategy set of the preceding ordinary two-player game.
 
-### Pages 14–15: the uniqueness proof and its certificates
+### Pages 15–16: the uniqueness proof and its certificates
 
 The global P-condition says that for any two distinct profiles, at least
 one coordinate changes in the same strict direction as that coordinate's
@@ -248,13 +254,13 @@ Neither SET nor symmetry alone guarantees that a solution exists.
 
 ## Oligopoly speaking script
 
-Pages 17–31 follow Section 3.3, pp. 21–23, with the appendix argument on
+Pages 18–32 follow Section 3.3, pp. 21–23, with the appendix argument on
 p. 46. Work through the assumptions and proof at the group's pace.
 There is no fixed time limit for this application. The numerical logit
 price boxes are teaching examples, not numerical results reported by the
 paper.
 
-### Page 17: the economic problem
+### Page 18: the economic problem
 
 Each firm sells a differentiated product, so a higher price need not lose
 every customer. Price minus constant unit cost is the markup per sale;
@@ -267,7 +273,7 @@ separate intervals make the joint feasible set rectangular. Ask whether
 several price vectors can make every firm's choice optimal, including
 when a price floor or cap binds.
 
-### Page 18: where demand comes from
+### Page 19: where demand comes from
 
 A consumer compares product appeal minus price plus an individual taste
 shock across every option, including option zero. Aggregating choices
@@ -281,7 +287,7 @@ includes every competing option. A higher own price loses customers to
 rivals or the outside option. The paper's result is broader than logit;
 we will identify the demand properties that its proof actually needs.
 
-### Page 19: the pricing trade-off
+### Page 20: the pricing trade-off
 
 Hold rivals' prices fixed and raise the firm's price a little. The firm
 earns more on every customer it retains, creating the positive term Q_i.
@@ -296,7 +302,7 @@ on the entire current price vector, including the firm's own price. The
 markup equation is an implicit condition, not generally an explicit
 best-response formula.
 
-### Page 20: the SET step
+### Page 21: the SET step
 
 Our original operator is negative marginal profit. Divide it by the
 positive number minus the own-price demand derivative. This removes a
@@ -310,7 +316,7 @@ demand, profit, cost, nor the feasible set. This is a new representation
 of marginal incentives, not a new profit function or a claim that the
 general pricing game has a potential.
 
-### Page 21: why boundaries require signs
+### Page 22: why boundaries require signs
 
 At an interior price both small directions are feasible, so marginal
 profit must vanish. At a cap, the firm may still want to increase price:
@@ -324,7 +330,7 @@ solution set. Merely preserving zeros would miss constrained equilibria.
 The next two pages identify and justify the demand assumptions under
 which these first-order signs characterize genuine best responses.
 
-### Page 22: E1–E3
+### Page 23: E1–E3
 
 E1 says log demand is concave in own price. Equivalently, own-price
 semi-elasticity weakly increases with own price. E2 says the cross
@@ -337,7 +343,7 @@ degree-zero homogeneity. The outside price remains fixed during strategic
 play, but is included in this hypothetical simultaneous shift. Logit
 satisfies all three; arbitrary demand functions need not.
 
-### Page 23: sufficiency, not just necessary conditions
+### Page 24: sufficiency, not just necessary conditions
 
 For prices strictly above cost, profit is positive. Its logarithm is
 the sum of log markup and log demand. The second derivative of log
@@ -353,7 +359,7 @@ At a feasible price equal to cost, profit is zero and marginal profit
 equals positive demand. A feasible higher price gives positive profit,
 so that endpoint cannot be optimal.
 
-### Page 24: E1 and E2 in the transformed derivative
+### Page 25: E1 and E2 in the transformed derivative
 
 Differentiate the inverse semi-elasticity mu_i. The squared denominator
 is positive, so each derivative's sign is the sign of the corresponding
@@ -368,7 +374,7 @@ higher price raises the desired markup and reduces the gap. These sign
 restrictions alone are not yet the full uniqueness proof. We still need
 to control their combined magnitudes.
 
-### Page 25: E3 and the outside option
+### Page 26: E3 and the outside option
 
 Common-shift invariance also holds for the desired markup. Differentiate
 it with respect to the common shift: the sum of its derivatives across
@@ -382,7 +388,7 @@ cross effects. It is at least one. This is exactly strict row diagonal
 dominance. The outside option is not an additional strategic player;
 its hypothetical derivative provides a bound on strategic feedback.
 
-### Page 26: from local derivatives to a global proof
+### Page 27: from local derivatives to a global proof
 
 Take any two distinct feasible price vectors and their difference d.
 Select a coordinate with the largest absolute difference. Along the
@@ -394,11 +400,11 @@ Every cross term can be bounded in absolute value by the selected
 coordinate's squared difference times the absolute cross derivative.
 The diagonal therefore dominates the sum of cross terms, leaving a
 strictly positive coordinate product. This proves the global P-condition
-from page 14. Two VI solutions are impossible, including boundary
+from page 15. Two VI solutions are impossible, including boundary
 solutions. The proof does not need compactness of the whole price domain;
 finite bounds will be used separately for existence.
 
-### Page 27: existence is a separate argument
+### Page 28: existence is a separate argument
 
 We now have at most one equilibrium. To get exactly one on finite price
 intervals, each firm must have a best response and those best responses
@@ -412,7 +418,7 @@ Combining existence with the uniqueness proof gives exactly one.
 An unbounded price domain needs its own existence argument; the
 finite-box Brouwer argument cannot simply be reused there.
 
-### Page 28: check the running example
+### Page 29: check the running example
 
 Differentiate logit log demand. The first own derivative is minus
 (one minus the share); the second own derivative is minus Q_i times
@@ -425,7 +431,7 @@ connect the abstract hypotheses to a familiar demand model. The general
 proof did not require the explicit logit formula after the hypotheses
 were established.
 
-### Page 29: a feasible equilibrium and symmetry
+### Page 30: a feasible equilibrium and symmetry
 
 Take two identical firms with zero costs and deterministic appeals,
 and normalize outside utility to zero. Differentiating the share gives
@@ -439,7 +445,7 @@ This feasible zero-gap profile is an equilibrium, demonstrating existence
 directly. Symmetric search alone would not rule out asymmetric solutions;
 the global uniqueness result rules them out.
 
-### Page 30: the same market under different price bounds
+### Page 31: the same market under different price bounds
 
 Keep consumers, costs, and all demand primitives unchanged. In [0,1],
 the markup gap at (1,1) is approximately −0.268941. Both firms would
@@ -453,7 +459,7 @@ its own price box. Constraints clearly matter for the outcome. SET
 lets the same proof cover the different constrained problems without
 mistaking a boundary optimum for an interior first-order condition.
 
-### Page 31: why the transformation matters for the test
+### Page 32: why the transformation matters for the test
 
 Could we have applied the same matrix test directly to negative marginal
 profits? Evaluate that derivative in our running example at prices (4,4).
@@ -471,13 +477,13 @@ the transformed certificate did not change the game.
 
 ## Network-proof speaking notes
 
-### Pages 36–40: conditional uniqueness versus existence
+### Pages 37–41: conditional uniqueness versus existence
 
 The log comparison preserves signs on positive quantities, and the log
 change of variables is one-to-one. Every equilibrium is positive because
 each baseline is positive. Thus no equilibrium is lost.
 
-The derivative W on page 37 has nonnegative entries and row sums strictly
+The derivative W on page 38 has nonnegative entries and row sums strictly
 below one. This does not supply a single contraction constant below one
 over all of log-action space. For two proposed finite roots, however,
 their joining segment is compact. Continuity and the strict row bounds
@@ -499,10 +505,10 @@ to the beta power times G times x to the beta power. Positive a makes
 the left vector strictly smaller than x to the beta power. A positive
 Perron-weighted sum forces delta below the threshold, including a strict
 exclusion of equality. Invertibility of a linear system above its
-critical value would not rescue economic feasibility; page 63 illustrates
+critical value would not rescue economic feasibility; page 64 illustrates
 that distinction.
 
-### Pages 42–45: eigenvalues, Bonacich, and the limiting direction
+### Pages 43–46: eigenvalues, Bonacich, and the limiting direction
 
 At beta one, the equilibrium equation is the linear resolvent response
 (I−delta G) inverse times a. Expand a in the orthonormal eigenbasis of
@@ -526,7 +532,7 @@ The Perron direction is unique, so the full normalized vector converges.
 Taking componentwise beta-th roots gives the limiting action ratios.
 There is no finite equilibrium at the endpoint itself.
 
-### Pages 50–54: best responses, inverse domains, and a potential
+### Pages 51–55: best responses, inverse domains, and a potential
 
 Strict own-action concavity gives a unique best response theta(t) to
 neighbors' provision t. It is bounded by autarky effort k*. Its interior
@@ -560,7 +566,7 @@ under 1+delta lambda_min(G)>0. Existence was already established; the
 potential now supplies uniqueness. This spectral condition is sufficient,
 not necessary.
 
-### Pages 55–58: economic conclusions and their exact assumptions
+### Pages 56–59: economic conclusions and their exact assumptions
 
 With strictly convex costs and c'(0)=0, the marginal payoff at zero is
 strictly positive at every finite profile. Every equilibrium is interior,
