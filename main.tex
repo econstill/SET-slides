@@ -62,9 +62,6 @@
 In nonlinear models, standard sufficient conditions for uniqueness
 can be difficult to verify.
 
-Some of this difficulty may come from how the equilibrium
-conditions are written.
-
 \begin{block}{The central question}
 How can we transform nonlinear equilibrium to simplify analysis, without changing the equilibrium set?
 \end{block}
@@ -251,7 +248,7 @@ SET exposes a convex optimization representation of the same equilibrium problem
 
 
 
-\begin{frame}{Individual optimality and the VI}
+\begin{frame}{Well-behaved Game and the VI}
 \compactmath
 Suppose each payoff is differentiable and \alert{concave in the player's own action}.
 For $K=\prod_i[a_i,b_i]$, define $F_i=-\partial_i u_i$.
@@ -260,14 +257,15 @@ For $K=\prod_i[a_i,b_i]$, define $F_i=-\partial_i u_i$.
  \quad\Longleftrightarrow\quad
  (y_i-x_i^*)F_i(x^*)\geq0\quad\text{for every }y_i\in[a_i,b_i].
 \]
-Sum these individual inequalities to obtain
-\begin{block}{The variational inequality}
-\[
+\begin{lemma}
+  \[
  x^*\in\mathrm{NE}
  \quad\Longleftrightarrow\quad
- \langle y-x^*,F(x^*)\rangle\geq0\quad\text{for every }y\in K.
+x^* \text{ solves }\langle y-x^*,F(x^*)\rangle\geq0\quad\text{for every }y\in K.
 \]
-\end{block}
+\end{lemma}
+
+
 Conversely, vary one coordinate of $y$ at a time to recover each player's condition.
 Own-action concavity makes these first-order conditions sufficient.
 \end{frame}
@@ -356,26 +354,6 @@ The argument covers constrained solutions as well as interior zeros.
 \end{frame}
 
 
-\begin{frame}{What a better representation can reveal}
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{block}{$P$-property route}
-A $P$-matrix has positive principal minors. The paper uses this condition on the
-transformed Jacobian over a rectangle to establish \alert{at most one} equilibrium.
-\medskip
-\textbf{Used for:} oligopoly pricing, peer effects, CES complements.
-\end{block}
-\column{0.48\textwidth}
-\begin{block}{Potential route}
-A symmetric transformed Jacobian can yield a potential. Strict convexity then gives
-\alert{at most one} constrained minimizer.
-\medskip
-\textbf{Used for:} network games, public goods, multiplex interactions.
-\end{block}
-\end{columns}
-\medskip
-Existence needs its own argument in each application.
-\end{frame}
 
 
 \begin{frame}{Selected Applications}
