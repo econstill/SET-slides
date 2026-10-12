@@ -6,17 +6,17 @@ Junjie Zhou (paper version: February 17, 2026), using the supplied
 
 ## Files
 
-- [Slides (PDF)](SET-English-Seminar.pdf): 65 pages — 61 main pages (including
-  the title) plus four optional technical backup pages.
+- [Slides (PDF)](SET-English-Seminar.pdf): 54 pages — 51 main pages (including
+  the title) plus three optional technical backup pages.
 - [Editable source](main.tex): native Beamer source. The paper's original
-  Figure 1 is on page 3, followed immediately by the two worked two-player
-  examples on pages 4–6 and 7–9. There are no embedded speaker notes or
+  Figure 1 is on page 3, followed immediately by the worked nonlinear
+  two-player example on pages 4–9. There are no embedded speaker notes or
   per-slide source footers.
 - [Figure 1 crop](assets/set-figure1-methodology.png): the original methodology
   diagram from page 17 of the supplied paper.
 - [Presenter guide](SET-English-Presenter-Guide.md): flexible reading routes,
-  a paper-page map, cues for every PDF page, detailed methodology and
-  oligopoly scripts, network-proof explanations, and discussion questions
+  a paper-page map, cues for every PDF page, a full worked-example script,
+  detailed methodology and oligopoly scripts, network-proof explanations, and discussion questions
   with answers. It also maps the formal results to their original paper
   numbers.
 
@@ -27,30 +27,33 @@ they are not the Beamer footer numbers.
 
 The organizing sequence is **hypotheses → transformation → proof → economic
 implication**. Questions can be taken during each derivation. The main deck
-contains the proof steps needed for close reading; the backups supply
-additional checks rather than holding all the substantive mathematics.
+contains the main proof steps for the worked example, oligopoly, CES
+conditional uniqueness, and public goods. The CES spectral result is
+stated, with its existence and limiting-ratio proofs left to the paper.
+The backups supply additional checks.
 
 Native lemma, theorem, proposition, corollary, definition, and assumption
 environments retain the paper's original types and numbering. Repeated
-parts of a result keep the same original number. Seminar teaching examples
-remain distinct from the paper's examples; in particular, the two-player
-Example 2 on pages 7–9 is not the paper's regular-network Example 2 on
-page 39. Page 11 displays Lemma 4(i)'s lower-bound, interior, and upper-bound
-conditions before introducing sign equivalence.
+parts of a result keep the same original number. Page 11 is the exception:
+its short boundary-condition lemma heading uses automatic deck numbering,
+and the guide maps it to paper Lemma 4(i). The worked example is an added
+seminar game with no original-paper example number. The boundary-condition
+lemma displays the lower-bound, interior, and upper-bound cases before
+introducing sign equivalence.
 
 | PDF pages | Reading block |
 |---|---|
-| 1–9 | Motivation, original Figure 1, and two complete worked examples |
+| 1–9 | Motivation, original Figure 1, and the worked nonlinear example |
 | 10–16 | Nash equilibrium and VI, coordinate boundary conditions, rectangularity, SET constructions, and constrained uniqueness |
 | 17 | Selected Applications: overview of the three close-reading blocks |
 | 18–32 | Oligopoly: consumer choice, markup conditions, E1–E3, uniqueness, existence, logit price bounds, and what SET changes |
 | 33–34 | Connections to existing peer-effect and potential applications |
-| 35–49 | CES complements: uniqueness, the spectral existence threshold, Bonacich/eigenvector centrality, and key players |
-| 50–59 | Public goods: best responses, valid inverse domains, a potential, spectral uniqueness, participation, and rankings |
-| 60–61 | What has been established and final discussion |
-| 62–65 | Optional technical checks |
+| 35–39 | CES complements: conditional-uniqueness proof and the spectral threshold statement |
+| 40–49 | Public goods: best responses, valid inverse domains, a potential, spectral uniqueness, participation, and rankings |
+| 50–51 | What has been established and final discussion |
+| 52–54 | Optional technical checks |
 
-The guide offers a full route of approximately 105–120 minutes including
+The guide offers a full route of approximately 100–120 minutes including
 interleaved discussion, and a focused approximately 60-minute route centered
 on methodology and oligopoly with selected network conclusions. The shorter
 route does **not** claim to derive every proof in the deck. Neither route is a
@@ -59,10 +62,12 @@ resolve the group's questions, and select or postpone modules accordingly.
 
 The original marginal-profit operator and the transformed markup gap are
 kept distinct. So are equilibrium-set preservation, existence, and uniqueness.
-For the network public-good inverse, the slides first construct an
-equilibrium-containing box on which the inverse is well-defined. The linear
-centrality section explicitly connects `(I − δG)x = b` to the eigenvalues and
-eigenvectors of `G`.
+The worked example follows the paper's map from the game to the original
+VI, a failed global P-matrix certificate, a sign-equivalent transformation,
+and a successful matrix test and convex potential. Failure of the original
+sufficient certificate does not imply multiple equilibria. For the network
+public-good inverse, the slides first construct an equilibrium-containing
+box on which the inverse is well-defined.
 
 ## Compile
 

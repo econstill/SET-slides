@@ -56,7 +56,7 @@
 \date{Paper version: February 17, 2026}
 \begin{document}
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
-\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{60}\fi
+\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{50}\fi
 \maketitle
 
 \begin{frame}{Equilibrium uniqueness and representation}
@@ -85,99 +85,18 @@ to reveal useful mathematical structure in equilibrium problems.
 \end{frame}
 
 
-\begin{frame}{Example 1: a two-player game}
-\compactmath
-Two players choose $x_i\geq0$, so $K=\mathbb R_+^2$.
-\begin{block}{Payoffs}
-\[
-\begin{aligned}
- u_1(x)&=x_1\Bigl(1+\tfrac12x_2\Bigr)-\tfrac12x_1^2,\\
- u_2(x)&=4\Bigl[x_2\Bigl(1+\tfrac12x_1\Bigr)-\tfrac12x_2^2\Bigr].
-\end{aligned}
-\]
-\end{block}
-Each payoff is strictly concave in the player's own action.
-\begin{block}{Best responses}
-\[
- B_1(x_2)=1+\tfrac12x_2,\qquad
- B_2(x_1)=1+\tfrac12x_1.
-\]
-\end{block}
-The factor $4$ changes player 2's payoff units, but leaves the best response unchanged.
-\end{frame}
-
-
-\begin{frame}{Example 1: the VI and its transformation}
-\compactmath
-For a candidate $x^*\in K$, use the negative marginal payoffs:
-\[
-\begin{gathered}
- F_i=-\partial_i u_i,\qquad
- F(x)=\begin{pmatrix}x_1-1-\tfrac12x_2\\4(x_2-1-\tfrac12x_1)\end{pmatrix}.\\[2pt]
- x^*\in\mathrm{NE}
- \quad\Longleftrightarrow\quad
- \langle y-x^*,F(x^*)\rangle\geq0\quad\text{for every }y\in K.
-\end{gathered}
-\]
-\begin{block}{SET: divide the second component by $4$}
-\[
- \widetilde F(x)=\operatorname{diag}(1,\tfrac14)F(x)
- =\begin{pmatrix}x_1-1-\tfrac12x_2\\x_2-1-\tfrac12x_1\end{pmatrix}.
-\]
-\end{block}
-Positive scaling preserves every component's sign on $K$. Since $K$ is rectangular,
-\[
- \operatorname{Sol}(K,F)=\operatorname{Sol}(K,\widetilde F).
-\]
-\end{frame}
-
-
-\begin{frame}{Example 1: the two uniqueness routes}
-\compactmath
-\setlength{\belowdisplayskip}{3pt}
-The transformed system has a symmetric derivative:
-\[
- H=D\widetilde F=\begin{pmatrix}1&-\tfrac12\\-\tfrac12&1\end{pmatrix},
- \qquad\lambda(H)\in\{\tfrac12,\tfrac32\}.
-\]
-\begin{columns}[T,onlytextwidth]
-\column{0.40\textwidth}
-\textbf{$P$-property method}\par
-The principal minors of $H$ are $1,1,\tfrac34>0$.
-\medskip\par
-The $P$-matrix condition gives at most one VI solution.
-\column{0.56\textwidth}
-\textbf{Potential method}
-\[
-\begin{aligned}
- \Phi(x)={}&\tfrac12(x_1^2+x_2^2)\\
-           &-\tfrac12x_1x_2-x_1-x_2.
-\end{aligned}
-\]
-$\nabla\Phi=\widetilde F$ and $\nabla^2\Phi=H\succ0$.
-The VI minimizes the strictly convex $\Phi$ over $K$.
-\end{columns}
-\[
- \widetilde F(x^*)=0
- \quad\Longrightarrow\quad
- \boxed{x_1^*=x_2^*=2}.
-\]
-This feasible zero proves existence. The equilibrium is \alert{unique}.
-\end{frame}
-
-
-\begin{frame}{Example 2: different nonlinear best responses}
+\begin{frame}{Example: different nonlinear best responses}
 \compactmath
 Two players choose $x_i\geq0$, with $K=\mathbb R_+^2$.
 \begin{block}{Payoffs}
 \[
 \begin{aligned}
  u_1(x)&=x_1(1+x_2)-x_1^2-\tfrac13x_1^3,\\
- u_2(x)&=x_2\ln(2+x_1)-\tfrac12x_2^2.
+ u_2(x)&=1-e^{-x_2}-\frac{x_2}{2+x_1}.
 \end{aligned}
 \]
 \end{block}
-Each payoff is strictly concave in the player's own action.
+Both payoffs are strictly concave in the player's own action.
 \begin{block}{Best responses}
 \[
  B_1(x_2)=\sqrt{2+x_2}-1,\qquad
@@ -188,49 +107,99 @@ Every equilibrium is interior because both best responses are positive on $K$.
 \end{frame}
 
 
-\begin{frame}{Example 2: a nonlinear sign-equivalent transformation}
+\begin{frame}{Example: the original VI}
 \compactmath
 The negative marginal payoffs define $F_i=-\partial_i u_i$.
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\textbf{Original VI}
 \[
  F(x)=\begin{pmatrix}
  x_1^2+2x_1-1-x_2\\
- x_2-\ln(2+x_1)
+ \dfrac1{2+x_1}-e^{-x_2}
  \end{pmatrix}.
 \]
 \[
- \partial_2F_1=-1,\quad
- \partial_1F_2=-\frac1{2+x_1}.
+ x^*\in\mathrm{NE}
+ \quad\Longleftrightarrow\quad
+ \langle y-x^*,F(x^*)\rangle\geq0\quad\text{for every }y\in K.
 \]
-\column{0.48\textwidth}
-\textbf{After SET}
+One possible uniqueness test asks whether $DF(x)$ is a $P$-matrix throughout $K$.
+\begin{block}{The two-dimensional $P$-matrix test}
+A matrix $J$ is a $P$-matrix if every principal minor is positive:
+\[
+ J_{11}>0,\qquad J_{22}>0,\qquad \det J>0.
+\]
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Example: the original $P$-matrix test fails}
+\compactmath
+The original Jacobian is
+\[
+ DF(x)=\begin{pmatrix}
+ 2+2x_1&-1\\[3pt]
+ -\dfrac1{(2+x_1)^2}&e^{-x_2}
+ \end{pmatrix}.
+\]
+Its diagonal entries are positive, but its determinant need not be:
+\[
+ \det DF(x)=(2+2x_1)e^{-x_2}-\frac1{(2+x_1)^2}.
+\]
+At the interior feasible point $\widehat x=(1,4)$,
+\[
+ \boxed{\det DF(\widehat x)=4e^{-4}-\frac19\approx-0.03785<0.}
+\]
+The original Jacobian fails the global $P$-matrix test.
+This failure alone says nothing about the number of equilibria.
+\end{frame}
+
+
+\begin{frame}{Example: a nonlinear sign-equivalent transformation}
+\compactmath
+Write $F_2=A-B$, with $A=\dfrac1{2+x_1}>0$ and $B=e^{-x_2}>0$.
+Use the strictly increasing function $h(t)=-1/t$ on $(0,\infty)$:
+\[
+ \widetilde F_2(x)
+ =h\!\left(\frac1{2+x_1}\right)-h(e^{-x_2})
+ =e^{x_2}-2-x_1.
+\]
+Keeping $\widetilde F_1=F_1$ gives
 \[
  \widetilde F(x)=\begin{pmatrix}
- x_1^2+2x_1-1-x_2\\
- e^{x_2}-2-x_1
- \end{pmatrix}.
+ x_1^2+2x_1-1-x_2\\e^{x_2}-2-x_1
+ \end{pmatrix},\qquad
+ \sgn\widetilde F_i(x)=\sgn F_i(x)\quad\text{on }K.
 \]
+Strict increase preserves the ordering of the two positive terms.
+Since $K$ is rectangular,
 \[
- \partial_2\widetilde F_1=\partial_1\widetilde F_2=-1.
-\]
-\end{columns}
-\medskip
-The exponential is strictly increasing:
-\[
- x_2\gtreqless\ln(2+x_1)
- \quad\Longleftrightarrow\quad
- e^{x_2}\gtreqless2+x_1.
-\]
-All component signs agree on the rectangular domain $K$. Thus
-\[
- \mathrm{NE}=\operatorname{Sol}(K,F)=\operatorname{Sol}(K,\widetilde F).
+ \mathrm{NE}=\Sol(K,F)=\Sol(K,\widetilde F).
 \]
 \end{frame}
 
 
-\begin{frame}{Example 2: a convex equilibrium problem}
+\begin{frame}{Example: the transformed $P$-matrix test}
+\compactmath
+The transformed Jacobian is
+\[
+ D\widetilde F(x)=\begin{pmatrix}
+ 2+2x_1&-1\\-1&e^{x_2}
+ \end{pmatrix}.
+\]
+For every $x\in K=\mathbb R_+^2$, its three principal minors satisfy
+\[
+ 2+2x_1\geq2>0,\qquad e^{x_2}\geq1>0,
+\]
+\[
+ \det D\widetilde F(x)=(2+2x_1)e^{x_2}-1\geq1>0.
+\]
+Thus $D\widetilde F$ is a $P$-matrix throughout the same feasible domain.
+The transformed VI has \alert{at most one} solution, so the game has at most one equilibrium.
+\medskip\par
+Existence still needs an argument. Here symmetry also gives a potential.
+\end{frame}
+
+
+\begin{frame}{Example: a convex equilibrium problem}
 \compactmath
 The transformed operator is a gradient, $\widetilde F=\nabla\Phi$, where
 \[
@@ -247,7 +216,9 @@ For every $x\in K$,
 \begin{block}{Unique equilibrium}
 Strong convexity and coercivity give a unique minimizer on $K$.
 \end{block}
-SET exposes a convex optimization representation of the same equilibrium problem.
+\[
+ \mathrm{NE}=\Sol(K,\widetilde F)=\argmin_{x\in K}\Phi(x).
+\]
 \end{frame}
 
 
@@ -339,7 +310,8 @@ Finite compositions of the following componentwise operations preserve signs.
 For strictly decreasing $h_i$, reverse the order: $h_i(B_i)-h_i(A_i)$.
 \end{proposition}
 The rescaling factor may depend on the full profile, as in oligopoly pricing.
-Our Example 2 uses $h(t)=e^t$. Logs and inverses require valid domains.
+Our worked example uses $h(t)=-1/t$ on positive arguments.
+Logs and inverses require valid domains.
 \end{frame}
 
 
@@ -415,7 +387,7 @@ Existence needs its own argument in each application.
 \begin{frame}{Selected Applications}
 \begin{enumerate}
 \item \textbf{Oligopoly pricing:} derive the markup condition and trace how the demand assumptions deliver uniqueness.
-\item \textbf{Network complements:} separate the existence threshold from uniqueness and relate equilibrium to centrality.
+\item \textbf{Network complements:} prove conditional uniqueness and distinguish it from the spectral existence threshold.
 \item \textbf{Network public goods:} construct the potential and explain how convex costs change equilibrium behavior.
 \end{enumerate}
 \medskip
@@ -1133,7 +1105,7 @@ Suitable transformations can reveal structure absent from the original Jacobian.
 \end{block}
 \begin{itemize}
  \item CES complements combine a SET uniqueness argument with a Perron existence threshold.
- \item Bonacich centrality is a resolvent response. Eigenvector centrality describes its critical direction.
+ \item The worked example shows how SET restores a global $P$-matrix certificate while preserving equilibrium.
  \item Under strategic substitutes, cost curvature and the smallest network eigenvalue govern uniqueness.
 \end{itemize}
 \medskip
@@ -1164,35 +1136,6 @@ Consequently, for every $x\in K$,
 \]
 Thus $\operatorname{Sol}(K,F)\subseteq\operatorname{Sol}(K,\widetilde F)$.
 Interchanging the two operators gives the reverse inclusion.
-\end{frame}
-
-\begin{frame}{Backup: matrix tests in the payoff-scaling example}
-\small\compactmath
-For $J=\begin{pmatrix}1&-\delta\\-\kappa\delta&\kappa\end{pmatrix}$ with $\kappa>0$:
-\begin{columns}[T,onlytextwidth]
-\column{0.47\textwidth}
-\begin{block}{P-matrix test}
-The principal minors are
-\[
- 1,\quad\kappa,\quad\kappa(1-\delta^2).
-\]
-All are positive if $0<\delta<1$.
-\end{block}
-\column{0.47\textwidth}
-\begin{block}{Strict monotonicity test}
-For $S=(J+J^\top)/2$,
-\[
- \det S=\kappa-\frac{(1+\kappa)^2\delta^2}{4}.
-\]
-$S\succ0$ iff $\delta<2\sqrt\kappa/(1+\kappa)$.
-\end{block}
-\end{columns}
-Let $\Delta=(1-\kappa)^2+(1+\kappa)^2\delta^2$. The smallest eigenvalue is
-\[
- \lambda_{\min}(S)=\frac{1+\kappa-\sqrt{\Delta}}{2}.
-\]
-Rescaling by $\operatorname{diag}(1,1/\kappa)$ restores the symmetric derivative
-with eigenvalues $1-\delta$ and $1+\delta$.
 \end{frame}
 
 \begin{frame}{Backup: algebraic solutions and positive equilibria}
