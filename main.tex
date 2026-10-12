@@ -253,25 +253,14 @@ SET exposes a convex optimization representation of the same equilibrium problem
 
 
 \begin{frame}{Individual optimality and the VI}
-\compactmath
-Suppose each payoff is $C^2$ and \alert{concave in the player's own action}.
-For $K=\prod_i[a_i,b_i]$, define $F_i=-\partial_i u_i$.
-\[
- x_i^*\in\argmax_{x_i\in[a_i,b_i]}u_i(x_i,x_{-i}^*)
- \quad\Longleftrightarrow\quad
- (y_i-x_i^*)F_i(x^*)\geq0\quad\text{for every }y_i\in[a_i,b_i].
-\]
-Sum these individual inequalities to obtain
-\setcounter{theorem}{0}
-\begin{lemma}[Nash equilibrium and the VI]
+
+\begin{lemma}[Nash equilibrium and the VI]For well-behaved game, 
 \[
  x^*\in\mathrm{NE}
  \quad\Longleftrightarrow\quad
  \langle y-x^*,F(x^*)\rangle\geq0\quad\text{for every }y\in K.
 \]
 \end{lemma}
-Conversely, vary one coordinate of $y$ at a time to recover each player's condition.
-Own-action concavity makes these first-order conditions sufficient.
 \end{frame}
 
 
@@ -289,21 +278,6 @@ If $K=\prod_i[a_i,b_i]$ and $F,\widetilde F$ are sign-equivalent on $K$, then
  \Sol(K,F)=\Sol(K,\widetilde F).
 \]
 \end{theorem}
-\smallskip
-{\centering
-\renewcommand{\arraystretch}{1.0}
-\begin{tabular}{lll}
-\toprule
-Player's choice & Equilibrium condition & What matters\\
-\midrule
-Lower bound & $F_i\geq0$ & Sign\\
-Interior & $F_i=0$ & Zero\\
-Upper bound & $F_i\leq0$ & Sign\\
-\bottomrule
-\end{tabular}
-\par}
-\smallskip
-Coordinate deviations give these conditions, including boundary solutions.
 \end{frame}
 
 
