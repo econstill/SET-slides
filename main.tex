@@ -55,7 +55,7 @@
 \date{Paper version: February 17, 2026}
 \begin{document}
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
-\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{37}\fi
+\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{40}\fi
 \maketitle
 
 \begin{frame}{Equilibrium uniqueness and representation}
@@ -304,122 +304,172 @@ Existence needs its own argument in each application.
 \end{frame}
 
 
-\begin{frame}{Production networks: firms and technology}
+\begin{frame}{Production networks: the price question}
+An industry's output is another industry's input.
+\begin{itemize}
+ \item Industry $i$ hires labor at wage $w$ and buys goods from its suppliers.
+ \item Its productivity is $z_i>0$. Its output sells at price $p_i>0$.
+ \item Firms take prices as given and have constant returns to scale.
+\end{itemize}
+\medskip
+A cheaper supplier lowers its customers' costs. Their lower prices can then
+feed back into the original supplier's costs.
+\begin{block}{The equilibrium question}
+For a given wage, which prices are consistent with every active industry's
+cost of production? Can there be more than one such price vector?
+\end{block}
+We study this \alert{price subsystem}, holding the wage fixed.
+\end{frame}
+
+
+\begin{frame}{A firm's cost of production}
 \compactmath
-Each industry produces one good using labor and inputs bought from other industries.
-\begin{block}{Normalized production technology}
+The technology is Cobb--Douglas between labor and an intermediate-input bundle.
+Let $Q_i(p)$ be the price of one unit of that bundle.
+\begin{block}{Cost of producing one unit}
+After choosing the cheapest input quantities, the firm has unit cost
 \[
- y_i=z_i\left(\frac{l_i}{\alpha_i}\right)^{\!\alpha_i}
- \left(\frac{M_i}{1-\alpha_i}\right)^{\!1-\alpha_i},\qquad
- M_i=\left(\sum\nolimits_j\omega_{ij}^{1/\sigma_i}
- q_{ij}^{\,1-1/\sigma_i}\right)^{\!\sigma_i/(\sigma_i-1)}.
-\]
-\[
- \omega_{ij}=\frac{a_{ij}}{1-\alpha_i},\quad
- \sum\nolimits_j\omega_{ij}=1,\quad 0<\alpha_i<1,\quad \sigma_i>1.
+ \boxed{c_i(p,w)=\frac{w^{\alpha_i}Q_i(p)^{\,1-\alpha_i}}{z_i}}.
 \]
 \end{block}
 \begin{itemize}
- \item $l_i$ is labor, $q_{ij}$ is the quantity of good $j$ used by industry $i$,
- and $z_i>0$ is productivity.
- \item $a_{ij}\geq0$ records input links. A supplier's price affects its customers' costs.
- \item Labor has share $\alpha_i$. The elasticity $\sigma_i$ governs substitution
- among intermediate inputs. The $\sigma_i=1$ case follows by a limit.
+ \item $\alpha_i\in(0,1)$ is labor's cost share. Intermediates account for $1-\alpha_i$.
+ \item Higher wages or supplier prices raise unit cost.
+ \item Doubling $z_i$ halves unit cost, holding input prices fixed.
 \end{itemize}
+Constant returns make unit cost independent of the amount produced.
 \end{frame}
 
 
-\begin{frame}{Cost minimization in two steps}
+\begin{frame}{Two industries: a simple price system}
 \compactmath
-For a given output $y_i$, minimize input cost at positive prices $(w,p)$.
-
-\textbf{1. Intermediate inputs.} The cheapest bundle has unit price
+Measure prices in units of the fixed wage, so $w=1$.
+Each industry spends half its cost on labor and half on the other industry's good.
 \[
- Q_i(p)=\Bigl(\sum\nolimits_j\omega_{ij}p_j^{\,1-\sigma_i}\Bigr)^{\!1/(1-\sigma_i)}.
+ Q_1=p_2,\qquad Q_2=p_1,\qquad \alpha_1=\alpha_2=\tfrac12.
 \]
-\textbf{2. Labor and intermediates.} With total cost $E_i=wl_i+Q_iM_i$,
-optimal spending satisfies
+Competition and constant returns require \alert{price = unit cost}
+for an industry producing a positive amount:
 \[
- wl_i=\alpha_i E_i,\qquad Q_iM_i=(1-\alpha_i)E_i.
+ \boxed{p_1=\frac{\sqrt{p_2}}{z_1},\qquad
+        p_2=\frac{\sqrt{p_1}}{z_2}}.
 \]
-Substitute these demands into the production function:
-\[
- y_i=z_i\left(\frac{E_i}{w}\right)^{\!\alpha_i}
- \left(\frac{E_i}{Q_i}\right)^{\!1-\alpha_i}
- \quad\Longrightarrow\quad
- \boxed{c_i(p,w)=\frac{E_i}{y_i}
- =\frac{w^{\alpha_i}Q_i^{\,1-\alpha_i}}{z_i}}.
-\]
-The cost per unit $c_i$ does not depend on output because returns to scale are constant.
+\begin{itemize}
+ \item A price below unit cost cannot sustain positive production.
+ \item A price above unit cost would generate unbounded profit at given prices.
+\end{itemize}
+At $z_1=z_2=1$, the prices $p_1=p_2=1$ satisfy both equations.
 \end{frame}
 
 
-\begin{frame}{Competitive prices and unit costs}
+\begin{frame}{Two industries: a productivity shock}
 \compactmath
-Price-taking firms with constant returns earn zero profit when output is positive:
+Industry 1's productivity doubles: $z_1=2$, $z_2=1$.
+Take exact logs, with $x_i=\log p_i$:
 \[
- \pi_i=(p_i-c_i)y_i=0\qquad\Longrightarrow\qquad p_i=c_i(p,w).
+ x_1=-\log2+\tfrac12x_2,\qquad x_2=\tfrac12x_1.
 \]
-\begin{block}{The production-price system}
+Since $x_1=-\log2+\tfrac14x_1$,
 \[
- p_i z_i=C_i(p),\qquad
- C_i(p)=w^{\alpha_i}
- \Bigl(\frac{\sum\nolimits_j a_{ij}p_j^{\,1-\sigma_i}}{1-\alpha_i}\Bigr)^{\!\tfrac{1-\alpha_i}{1-\sigma_i}}.
+ x_1=-\tfrac43\log2,\qquad x_2=-\tfrac23\log2.
+\]
+\begin{center}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{lcc}
+\toprule
+ & Before the shock & After the shock\\
+\midrule
+Industry 1's price & $1$ & $2^{-4/3}\approx0.397$\\
+Industry 2's price & $1$ & $2^{-2/3}\approx0.630$\\
+\bottomrule
+\end{tabular}
+\end{center}
+If $p_2$ stayed at $1$, then $p_1$ would be $0.5$.
+Input feedback lowers it further to \alert{$0.397$}.
+\end{frame}
+
+
+\begin{frame}{Many suppliers: the CES input price index}
+\compactmath
+With several suppliers, the cheapest intermediate bundle has unit price
+\[
+ Q_i(p)=\left(\sum_j\omega_{ij}p_j^{\,1-\sigma_i}\right)^{1/(1-\sigma_i)},
+ \qquad \omega_{ij}\geq0,\quad\sum_j\omega_{ij}=1.
+\]
+\begin{itemize}
+ \item $\omega_{ij}$ is supplier $j$'s technology weight.
+ \item $\sigma_i>1$ is the elasticity of substitution among suppliers.
+\end{itemize}
+\begin{block}{The same zero-profit condition}
+\[
+ p_i=\frac{Q_i(p)^{\,1-\alpha_i}}{z_i}\qquad(w=1).
+\]
+\end{block}
+With several suppliers, these coupled equations are generally nonlinear.
+\end{frame}
+
+
+\begin{frame}{SET: the same prices in a better representation}
+\compactmath
+Write $x_i=\log p_i$, $\varepsilon_i=\log z_i$, and $p=e^x$.
+\[
+ p_i z_i=Q_i(p)^{\,1-\alpha_i}
+ \quad\Longleftrightarrow\quad
+ x_i=\underbrace{-\varepsilon_i+(1-\alpha_i)\log Q_i(e^x)}_{T_i(x)}.
+\]
+\begin{block}{Why this transformation preserves equilibrium}
+The logarithm is strictly increasing. For every positive price vector,
+\[
+ \sgn\!\left[p_i z_i-Q_i(p)^{\,1-\alpha_i}\right]
+ =\sgn\!\left[x_i-T_i(x)\right].
+\]
+\end{block}
+The change of variables $p=e^x$ is one-to-one between $\R^n$ and positive prices.
+Thus $x=T(x)$ describes \alert{exactly the same positive price equilibria}.
+\medskip\par
+The next step is to examine how much one industry's log price affects another's.
+\end{frame}
+
+
+\begin{frame}{Labor limits the feedback in prices}
+\compactmath
+Shares in total cost measure log-price pass-through:
+\[
+ W_{ij}(x)=\frac{\partial T_i(x)}{\partial x_j}\geq0,\qquad
+ \sum_j W_{ij}(x)=1-\alpha_i<1.
+\]
+Labor's price stays fixed. A common $1\%$ rise in suppliers' prices raises unit cost
+by less than $1\%$ to first order.
+\begin{block}{A unique positive price vector}
+Let $q=\max_i(1-\alpha_i)<1$. Then
+\[
+ \|T(x)-T(y)\|_\infty\leq q\|x-y\|_\infty.
+\]
+The contraction theorem gives existence and uniqueness on $\R^n$.
+\end{block}
+The paper's $P$-matrix proof uses the same cost shares.
+\end{frame}
+
+
+\begin{frame}{Cobb--Douglas: tracing the network multiplier}
+\compactmath
+As $\sigma_i\to1$, supplier cost shares become constant:
+\[
+ a_{ij}=(1-\alpha_i)\omega_{ij},\qquad A=(a_{ij}),\qquad
+ x=-\varepsilon+Ax.
+\]
+\begin{block}{Direct and indirect productivity effects}
+\[
+ x^*=-(I-A)^{-1}\varepsilon,
+ \qquad (I-A)^{-1}=I+A+A^2+\cdots.
 \]
 \end{block}
 \begin{itemize}
- \item Suppliers' prices enter customers' costs, so prices are jointly determined.
- \item When every $z_i=1$, the benchmark is $p_i=w$ for every industry.
+ \item $I$: a productivity gain lowers the producer's own price.
+ \item $A,A^2,\ldots$: cheaper inputs transmit the gain through successive supply links.
 \end{itemize}
-\alert{Question:} For a given wage $w$, is the positive price vector unique?
-\end{frame}
-
-
-\begin{frame}{Production networks: labor anchors the price system}
-\compactmath
-Taking logs and setting $x_i=\log(p_i/w)$ gives $\widetilde F_i(x)=x_i-T_i(x)$, with
-\[
- T_i(x)=-\log z_i+\frac{1-\alpha_i}{1-\sigma_i}
- \log\Bigl(\sum\nolimits_j\omega_{ij}e^{(1-\sigma_i)x_j}\Bigr).
-\]
-Price pass-through equals each supplier's share in total cost:
-\[
- W_{ij}(x)=\frac{\partial T_i}{\partial x_j}
- =(1-\alpha_i)\frac{\omega_{ij}e^{(1-\sigma_i)x_j}}
- {\sum_k\omega_{ik}e^{(1-\sigma_i)x_k}}\geq0.
-\]
-\[
-D\widetilde F(x)=I-W(x),\qquad
-\sum\nolimits_j W_{ij}(x)=1-\alpha_i<1.
-\]
-Labor absorbs the remaining share $\alpha_i$, limiting feedback through suppliers.
-\begin{block}{Existence and uniqueness of prices}
-$\|DT(x)\|_\infty\leq\max_i(1-\alpha_i)<1$: the log-price map is a contraction.
-For a given wage, a positive price vector \alert{exists and is unique}.
-\end{block}
-\end{frame}
-
-
-\begin{frame}{Cobb--Douglas and the Leontief inverse}
-\compactmath
-As $\sigma_i\to1$, let $\varepsilon_i=\log z_i$ and $A=(a_{ij})$.
-\begin{block}{The nonlinear system becomes linear}
-\[
- x+\varepsilon-Ax=0,
- \qquad x^*=-(I-A)^{-1}\varepsilon.
-\]
-\[
- L=(I-A)^{-1}=I+A+A^2+\cdots,
- \qquad \rho(A)\leq\max_i(1-\alpha_i)<1.
-\]
-\end{block}
-\begin{itemize}
-  \item $-\partial x_i/\partial\varepsilon_j=L_{ij}$ measures the price response
-  to productivity in industry $j$.
-  \item Powers of $A$ collect direct and indirect input paths.
-  \item The same resolvent $(I-\delta G)^{-1}$ appears in Bonacich centrality.
-  Here the forcing term is $-\varepsilon$ and $A$ contains input weights.
-\end{itemize}
+In our example, each link has weight $\tfrac12$, so a full feedback loop has weight $\tfrac14$.
+The same inverse appears in Bonacich centrality, with $A=\delta G$ and a different forcing vector.
 \end{frame}
 
 
@@ -853,6 +903,54 @@ Suitable transformations can reveal structure absent from the original Jacobian.
 
 \appendix
 
+\begin{frame}{Backup: deriving the production unit cost}
+\small\compactmath
+The normalized quantity technology corresponding to the main slides is
+\[
+ m_i=\left(\sum_j\omega_{ij}^{1/\sigma_i}q_{ij}^{\,1-1/\sigma_i}\right)^{\sigma_i/(\sigma_i-1)},
+ \qquad
+ y_i=z_i\left(\frac{l_i}{\alpha_i}\right)^{\!\alpha_i}
+          \left(\frac{m_i}{1-\alpha_i}\right)^{\!1-\alpha_i}.
+\]
+Here $q_{ij}$ is the quantity of input $j$, $l_i$ is labor, and $m_i$ is the bundle.
+The minimum cost of $m_i$ is $Q_i(p)m_i$.
+\medskip\par
+For a target output, let $E_i=wl_i+Q_i m_i$. Cost minimization gives
+\[
+ wl_i=\alpha_i E_i,\qquad Q_i m_i=(1-\alpha_i)E_i.
+\]
+Substituting the optimal input quantities into the technology yields
+\[
+ y_i=z_i\left(\frac{E_i}{w}\right)^{\!\alpha_i}
+           \left(\frac{E_i}{Q_i}\right)^{\!1-\alpha_i}
+     =\frac{z_i E_i}{w^{\alpha_i}Q_i^{\,1-\alpha_i}}.
+\]
+Therefore $c_i=E_i/y_i=w^{\alpha_i}Q_i^{\,1-\alpha_i}/z_i$.
+\end{frame}
+
+\begin{frame}{Backup: the production-network matrix test}
+\small\compactmath
+For $\sigma_i>1$, the log-price map and its derivative are
+\[
+ T_i(x)=-\varepsilon_i+\frac{1-\alpha_i}{1-\sigma_i}
+ \log\left(\sum_j\omega_{ij}e^{(1-\sigma_i)x_j}\right),
+\]
+\[
+ W_{ij}(x)=\frac{\partial T_i}{\partial x_j}
+ =(1-\alpha_i)\frac{\omega_{ij}e^{(1-\sigma_i)x_j}}
+                         {\sum_k\omega_{ik}e^{(1-\sigma_i)x_k}}.
+\]
+The fraction is supplier $j$'s share within intermediate expenditure.
+Multiplying by $1-\alpha_i$ gives its share in total cost.
+\[
+ W\geq0,\qquad \sum_jW_{ij}=1-\alpha_i,
+ \qquad D(x-T(x))=I-W(x).
+\]
+The diagonal dominance margin of $I-W$ in row $i$ equals $\alpha_i>0$.
+Every principal submatrix has positive determinant, so $I-W$ is a $P$-matrix.
+The uniform margin $\min_i\alpha_i>0$ also yields the contraction used in the main slides.
+\end{frame}
+
 \begin{frame}{Backup: a formal coordinate proof of Theorem 1}
 \small\compactmath
 Let $K=\prod_i K_i$ and suppose $x^*\in\operatorname{Sol}(K,F)$.
@@ -1004,7 +1102,8 @@ The proof applies to every equilibrium, without a uniqueness assumption.
 \end{itemize}
 \medskip
 The seminar follows the supplied SET draft.
-The two-player walkthroughs, path-network curves, and two-node calculation are seminar examples.
+The two-player walkthroughs, two-industry production example, path-network curves,
+and two-node calculation are seminar examples.
 \end{frame}
 
 \end{document}

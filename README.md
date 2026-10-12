@@ -6,16 +6,17 @@ Beamer template.
 
 ## Files
 
-- [Slides (PDF)](SET-English-Seminar.pdf): 45 pages — 38 main pages including
-  the title, six optional backup pages, and one reference page.
+- [Slides (PDF)](SET-English-Seminar.pdf): 50 pages — 41 main pages including
+  the title, eight optional backup pages, and one reference page.
 - [Editable source](main.tex): Beamer source with the paper's Figure 1 on
   slide 3, two worked two-player examples on slides 4–6 and 7–9, a production-network
-  model derivation and application on slides 13–17, and inline diagrams and plots, without embedded speaker notes
+  application with a running two-industry example on slides 13–20, and inline diagrams and plots, without embedded speaker notes
   or per-slide source footers.
 - [Figure 1 crop](assets/set-figure1-methodology.png): the original
   methodology diagram from page 17 of the supplied paper.
 - [Presenter guide](SET-English-Presenter-Guide.md): application-focused
-  speaking route and suggested timing.
+  speaking route, suggested timing, and a detailed speaking script for each
+  production-network slide.
 
 ## Compile
 
@@ -41,11 +42,17 @@ The seminar introduces the transformation through the paper's Figure 1,
 Example 1 on positive payoff scaling that follows both branches of the map,
 Example 2 on a nonlinear transformation that exposes a convex minimization
 potential, and one concise equilibrium-set result. The production-network application
-introduces firms' normalized technology, derives unit costs by cost minimization,
-and links competitive prices to the transformed price system. The seminar then covers
+explains unit cost and zero profit through two industries that buy each other's output.
+An exact productivity-shock calculation separates the direct effect from network feedback.
+The sequence then introduces CES intermediate prices, the sign-preserving log
+transformation, cost shares and contraction, and the Leontief–Bonacich connection.
+It studies the positive price subsystem conditional on a fixed wage. The seminar then covers
 nonlinear peer effects, oligopoly, multiplex interactions, nonlinear CES
 strategic complements, centrality and key players, and network public goods
-with convex costs. Proof details are in the optional backup pages.
+with convex costs. The main speaking route takes approximately 82–85 minutes,
+including 14–16 minutes for production networks, leaving time for questions within
+a 90-minute seminar. Pages 42–43 give the full production-cost derivation and matrix
+test. Pages 44–49 contain other optional proof details, and page 50 has references.
 
 The older image assets and `ref.bib` are preserved from the earlier
 repository version but are not needed to compile the current `main.tex`.
