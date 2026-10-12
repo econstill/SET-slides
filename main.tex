@@ -56,7 +56,7 @@
 \date{Paper version: February 17, 2026}
 \begin{document}
 % Seed the first compilation only. Subsequent runs use Beamer's actual count.
-\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{49}\fi
+\ifnum\inserttotalframenumber<2\relax\gdef\inserttotalframenumber{32}\fi
 \maketitle
 
 \begin{frame}{Equilibrium uniqueness and representation}
@@ -406,30 +406,39 @@ Existence needs its own argument in each application.
 
 
 \begin{frame}{Selected Applications}
+Each application follows the same comparison.
 \begin{enumerate}
-\item \textbf{Oligopoly pricing:} derive the markup condition and trace how the demand assumptions deliver uniqueness.
-\item \textbf{Network complements:} examine the transformed derivative and distinguish uniqueness from the spectral existence threshold.
-\item \textbf{Network public goods:} construct the potential and explain how convex costs change equilibrium behavior.
+ \item Write the original equilibrium operator $F$ and its Jacobian.
+ \item Apply a sign-equivalent transformation.
+ \item Inspect the new Jacobian and state the uniqueness condition.
 \end{enumerate}
 \medskip
-For each model: what does SET preserve, and which additional argument delivers the economic result?
+\begin{itemize}
+ \item \textbf{Oligopoly pricing:} positive rescaling and a $P$-matrix.
+ \item \textbf{CES network complements:} logarithms and a $P$-matrix.
+ \item \textbf{Network public goods:} an inverse function and a symmetric Jacobian.
+\end{itemize}
 \end{frame}
 
 
-\begin{frame}{Oligopoly: what price should each firm charge?}
-There are $n\geq2$ firms, each selling one differentiated product.
-\begin{itemize}
- \item Firm $i$ has constant unit cost $c_i$ and chooses $p_i\in[a_i,b_i]$, with $c_i\leq a_i<b_i$.
- \item Demand $Q_i(p)>0$ depends on its own price and its rivals' prices.
- \item Consumers can also choose an outside option, whose price $p_0$ is fixed.
-\end{itemize}
-\begin{block}{The firm's problem}
+\begin{frame}{Oligopoly: the original equilibrium operator}
+\compactmath
+Firm $i$ chooses $p_i\in[a_i,b_i]$, with $c_i\leq a_i<b_i$, and earns
 \[
- \max_{p_i\in[a_i,b_i]}\;\pi_i(p)=(p_i-c_i)Q_i(p).
+ \pi_i(p)=(p_i-c_i)Q_i(p),\qquad Q_i>0,\quad
+ Q_{i,i}:=\frac{\partial Q_i}{\partial p_i}<0.
 \]
-\end{block}
-Can firms' pricing decisions be mutually consistent in more than one way,
-including when a price floor or cap binds?
+The outside-option price $p_0$ is fixed. Let $K=\prod_i[a_i,b_i]$.
+The original operator is negative marginal profit:
+\[
+ \boxed{F_i(p)=-Q_i(p)-(p_i-c_i)Q_{i,i}(p).}
+\]
+Under E1, log-profit is strictly concave for $p_i>c_i$.
+At $p_i=c_i$, marginal profit is $Q_i>0$.
+Hence the marginal-profit signs characterize best responses, and
+\[
+ \mathrm{NE}=\Sol(K,F).
+\]
 \end{frame}
 
 
@@ -461,631 +470,280 @@ Write $\ell_i=\log Q_i$. Demand is positive, $C^2$, and decreasing in own price.
 \end{frame}
 
 
-\begin{frame}{An optimal price balances two effects}
+\begin{frame}{Oligopoly: the original Jacobian}
 \compactmath
-Differentiate profit, holding rivals' prices fixed:
+Write $Q_{i,j}=\partial Q_i/\partial p_j$ and
+$Q_{i,ij}=\partial^2Q_i/\partial p_i\partial p_j$.
+Differentiating $F_i=-Q_i-(p_i-c_i)Q_{i,i}$ gives
 \[
- \frac{\partial\pi_i}{\partial p_i}
- =\underbrace{Q_i}_{\text{more revenue per customer}}
- +\underbrace{(p_i-c_i)\frac{\partial Q_i}{\partial p_i}}_{\text{lost customers}},
- \qquad \frac{\partial Q_i}{\partial p_i}<0.
+ \boxed{
+ \begin{aligned}
+ (DF)_{ii}&=-2Q_{i,i}-(p_i-c_i)Q_{i,ii},\\
+ (DF)_{ij}&=-Q_{i,j}-(p_i-c_i)Q_{i,ij}\qquad(j\ne i).
+ \end{aligned}}
 \]
-\begin{block}{At an interior optimum}
-\[
- \underbrace{p_i-c_i}_{\text{actual markup}}
- =\underbrace{\frac{Q_i}{-\partial Q_i/\partial p_i}}_{\text{demand-implied markup }\mu_i(p)}.
-\]
-\end{block}
-$\mu_i$ is the inverse own-price \alert{semi-elasticity}, $1/[-\partial_{p_i}\log Q_i]$.
-Less price-sensitive demand supports a larger markup; rivals' prices affect this sensitivity.
+The own-price demand slope contributes a positive term to the diagonal.
+The second-derivative term has no such guaranteed sign.
+\medskip\par
+Even the diagonal entries need not be positive.
+The original Jacobian therefore need not pass the global $P$-matrix test.
 \end{frame}
 
 
-\begin{frame}{SET: rewrite pricing as a markup gap}
+\begin{frame}{Oligopoly: SET removes the demand-slope scale}
 \compactmath
-The original VI uses negative marginal profit, $F_i=-\partial\pi_i/\partial p_i$.
-Divide by the positive number $-\partial Q_i/\partial p_i$:
-\begin{block}{A sign-equivalent pricing condition}
+Divide each component by the positive number $-Q_{i,i}$:
 \[
- \boxed{\widetilde F_i(p)=\frac{F_i(p)}{-\partial Q_i/\partial p_i}
-       =\underbrace{p_i-c_i}_{\text{actual markup}}-\underbrace{\mu_i(p)}_{\text{desired markup}}.}
+ \widetilde F_i(p)=\frac{F_i(p)}{-Q_{i,i}(p)}
+ =p_i-c_i-\mu_i(p),
+ \qquad
+ \mu_i(p)=\frac{Q_i}{-Q_{i,i}}
+ =-\frac1{\partial_{p_i}\log Q_i}.
 \]
-\end{block}
-\begin{itemize}
- \item $\widetilde F_i<0$: the firm wants to \alert{raise} its price.
- \item $\widetilde F_i>0$: the firm wants to \alert{cut} its price.
- \item $\widetilde F_i=0$: the two pricing effects balance.
-\end{itemize}
-This is a new representation of the marginal condition, not a new profit function.
+Thus $\widetilde F_i$ is actual markup minus demand-implied markup.
+The multiplier $1/(-Q_{i,i})$ is positive throughout the feasible domain, so
+\[
+ \sgn\widetilde F_i=\sgn F_i.
+\]
+Since the price domain is rectangular,
+\[
+ \boxed{\mathrm{NE}=\Sol(K,F)=\Sol(K,\widetilde F).}
+\]
+This includes equilibrium prices at a floor or cap.
 \end{frame}
 
 
-\begin{frame}{Price floors and caps: signs, not just zeros}
+\begin{frame}{Oligopoly: the transformed Jacobian}
 \compactmath
-\begin{center}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{lll}
-\toprule
-Chosen price & Marginal profit & Markup gap\\
-\midrule
-Floor: $p_i=a_i$ & $\partial\pi_i/\partial p_i\leq0$ & $\widetilde F_i\geq0$\\
-Interior & $\partial\pi_i/\partial p_i=0$ & $\widetilde F_i=0$\\
-Cap: $p_i=b_i$ & $\partial\pi_i/\partial p_i\geq0$ & $\widetilde F_i\leq0$\\
-\bottomrule
-\end{tabular}
-\end{center}
-Under E1 (own-price log-concavity), these conditions characterize best responses.
-Positive rescaling preserves all three cases. On $K=\prod_i[a_i,b_i]$,
-\[
- \mathrm{NE}=\Sol(K,F)=\Sol(K,\widetilde F).
-\]
-The \alert{entire equilibrium set} is preserved.
-Looking only for zeros would miss equilibria with binding bounds.
-\end{frame}
-
-
-
-
-
-\begin{frame}{Why the first-order pricing conditions are sufficient}
-\compactmath
-For $p_i>c_i$, profit is positive. Under E1,
-\[
- \log\pi_i=\log(p_i-c_i)+\log Q_i.
-\]
-\[
- \frac{\partial^2\log\pi_i}{\partial p_i^2}
- =-\frac1{(p_i-c_i)^2}
-   +\frac{\partial^2\log Q_i}{\partial p_i^2}<0.
-\]
-Strict log-concavity makes the pricing incentive cross zero at most once.
-Thus the interior and endpoint signs characterize a best response.
-\begin{block}{The cost-price endpoint}
-At $p_i=c_i$, marginal profit equals $Q_i>0$.
-A feasible higher price gives positive profit, so cost pricing cannot be optimal.
-\end{block}
-The argument uses log-profit concavity. Profit itself may fail to be concave.
-\end{frame}
-
-
-\begin{frame}{E1 and E2: derivatives of the desired markup}
-\compactmath
-Use $\ell_i=\log Q_i$ and $\mu_i=-1/\partial_{p_i}\ell_i$. Then
+Let $J=D\widetilde F=I-D\mu$. For every price coordinate, including $p_0$,
 \[
  \frac{\partial\mu_i}{\partial p_j}
  =\frac{\partial^2\ell_i/\partial p_i\partial p_j}
-        {(\partial\ell_i/\partial p_i)^2}.
+ {(\partial\ell_i/\partial p_i)^2}.
 \]
-\begin{itemize}
- \item E1: $\partial_{p_i}\mu_i\leq0$. A higher own price weakly lowers the desired markup.
- \item E2: $\partial_{p_j}\mu_i\geq0$ for $j\ne i$, including $j=0$.
- A higher rival price weakly raises the desired markup.
-\end{itemize}
-Since $\widetilde F_i=p_i-c_i-\mu_i$, its Jacobian satisfies
+E1 and E2 therefore give
 \[
+ \boxed{
  J_{ii}=1-\partial_{p_i}\mu_i\geq1,\qquad
- J_{ij}=-\partial_{p_j}\mu_i\leq0\quad(j\ne i).
+ J_{ij}=-\partial_{p_j}\mu_i\leq0\quad(j\ne i).}
 \]
-E1 controls the own effect. E2 controls the cross effects.
+Here $J$ contains only the $n$ strategic price coordinates.
+\medskip\par
+The transformed Jacobian has a positive diagonal and nonpositive cross entries.
+E3 controls their combined magnitude.
 \end{frame}
 
 
-\begin{frame}{E3: relative prices and the outside option}
+\begin{frame}{Oligopoly: diagonal dominance and uniqueness}
 \compactmath
-Common-price-shift invariance also holds for the desired markup.
-Differentiating with respect to the common shift gives
+E3 implies $\sum_{j=0}^n\partial_{p_j}\mu_i=0$. Consequently,
 \[
- \sum_{j=0}^n\frac{\partial\mu_i}{\partial p_j}=0.
+ \boxed{
+ J_{ii}-\sum_{j\ne i}|J_{ij}|
+ =1+\partial_{p_0}\mu_i\geq1>0.}
 \]
-Using the nonpositive cross effects, the firms' price Jacobian satisfies
-\[
-\begin{aligned}
- \sum_{j=1}^n J_{ij}
- =1-\sum_{j=1}^n\frac{\partial\mu_i}{\partial p_j}
- &=1+\frac{\partial\mu_i}{\partial p_0}\geq1,\\[4pt]
- J_{ii}-\sum_{j\ne i}|J_{ij}|&=\sum_{j=1}^nJ_{ij}\geq1.
-\end{aligned}
-\]
-The outside-option derivative bounds the combined strategic cross effects.
-\end{frame}
-
-
-\begin{frame}{A direct uniqueness proof for the pricing VI}
-\compactmath
-Take distinct $p,q\in K$, write $d=p-q$, and choose $i$ with
-$|d_i|=\|d\|_\infty>0$.
-The segment $q+td$ stays in the price rectangle.
-\[
-\begin{aligned}
- d_i\bigl[\widetilde F_i(p)-\widetilde F_i(q)\bigr]
- &=\int_0^1 d_i\sum_j J_{ij}(q+td)d_j\,dt\\[3pt]
- &\geq d_i^2\int_0^1\left[J_{ii}(q+td)-\sum_{j\ne i}|J_{ij}(q+td)|\right]dt\\[3pt]
- &\geq d_i^2>0.
-\end{aligned}
-\]
-This proves the global $P$-condition. The earlier coordinate argument therefore
-rules out two VI solutions, including solutions with binding price bounds.
-\medskip
-\textbf{Discussion.} Where did E1, E2, E3, and rectangularity enter this proof?
-\end{frame}
-
-
-\begin{frame}{Existence and uniqueness in the pricing game}
-\compactmath
+Positive diagonal entries and strict row diagonal dominance make $J$
+a $P$-matrix at every feasible price vector.
 \setcounter{proposition}{3}
 \begin{proposition}[Oligopoly pricing]
-Under E1--E3, the pricing game on $\prod_i[a_i,b_i]$ with $a_i\geq c_i$
+Under E1--E3, the pricing game on $K=\prod_i[a_i,b_i]$, with $a_i\geq c_i$,
 has \alert{at most one} pure-strategy Nash equilibrium.
 \end{proposition}
-The proof uses strict row diagonal dominance of the transformed markup gap.
-\begin{block}{Existence on finite price intervals}
-Each firm has a unique best response on its compact interval.
-Continuous profits make this best response continuous.
-The joint best-response map is a self-map of the compact price box, so Brouwer gives a fixed point.
-\end{block}
-Together, these arguments give \alert{exactly one equilibrium} on the finite box.
-An unbounded price domain requires a separate existence argument.
+Lemma 2(ii) gives uniqueness, including binding price bounds.
 \end{frame}
 
 
-\begin{frame}{Verification of the logit demand assumptions}
+\begin{frame}{CES complements: the original operator and Jacobian}
+\small\compactmath
+On a connected, nonempty undirected network without self-loops, let
+\[
+ u_i=a_ix_i-\tfrac12x_i^2+\delta x_iS_i(x),\qquad
+ S_i(x)=\left(\sum_jg_{ij}x_j^\beta\right)^{1/\beta},
+ \quad a_i,\delta,\beta>0.
+\]
+Every equilibrium is positive and satisfies $x_i=T_i(x):=a_i+\delta S_i(x)$.
+Thus the original operator and Jacobian on $\R_{++}^n$ are
+\[
+ F_i(x)=x_i-a_i-\delta S_i(x),\qquad
+ \boxed{DF(x)=I-\delta DS(x),}
+\]
+\[
+ (DS(x))_{ij}=g_{ij}x_j^{\beta-1}S_i(x)^{1-\beta}.
+\]
+The aggregate's derivatives depend on the levels and relative sizes of efforts.
+For $\beta<1$, we do not assert differentiability at zero.
+\end{frame}
+
+
+\begin{frame}{CES complements: SET and log coordinates}
 \compactmath
-Let $Q_0$ be the outside-option share and $\ell_i=\log Q_i$.
-For unit-slope logit,
+First apply the increasing logarithm to the two positive terms:
 \[
- \partial_{p_i}\ell_i=-(1-Q_i),\qquad
- \partial^2_{p_ip_i}\ell_i=-Q_i(1-Q_i)\leq0.
+ \widetilde F_i(x)=\log x_i-\log T_i(x),
+ \qquad
+ \sgn\widetilde F_i(x)=\sgn\!\left[x_i-T_i(x)\right].
 \]
-For every other option, including the outside option,
+Then make the one-to-one change of variables $z_i=\log x_i$:
 \[
- \partial^2_{p_ip_j}\ell_i=Q_iQ_j\geq0\qquad(j\ne i,\ j=0\text{ allowed}).
+ H_i(z)=\widetilde F_i(e^z)=z_i-\log T_i(e^z),\qquad z\in\R^n.
 \]
-Adding $t$ to all prices multiplies every logit weight by $e^{-t}$.
-The common factor cancels from each share, verifying E3.
-\begin{block}{Discussion}
-Which parts of the uniqueness proof depend on logit's formula, and which depend
-only on E1--E3?
-\end{block}
+Every equilibrium has $x_i\geq a_i>0$, so
+\[
+ \boxed{x^*\in\mathrm{NE}\quad\Longleftrightarrow\quad H(\log x^*)=0.}
+\]
+The logarithmic comparison is SET. The change of coordinates is a separate step.
 \end{frame}
 
 
-\begin{frame}{A two-firm logit example: solve for prices}
-\compactmath
-Take two identical firms: $c_1=c_2=v_1=v_2=0$ and $v_0-p_0=0$.
-\[
- Q_i(p)=\frac{e^{-p_i}}{1+e^{-p_1}+e^{-p_2}},\qquad
- -\frac{\partial Q_i}{\partial p_i}=Q_i(1-Q_i).
-\]
-\begin{block}{The markup gap becomes especially simple}
-\[
- \mu_i=\frac1{1-Q_i},\qquad
- \widetilde F_i=p_i-\frac1{1-Q_i}.
-\]
-\end{block}
-With $p_i\in[0,4]$, look for a symmetric interior price $p$:
-\[
- p=\frac{1+2e^{-p}}{1+e^{-p}}
- \quad\Longrightarrow\quad
- \boxed{p_1^*=p_2^*\approx1.227,\quad Q_1^*=Q_2^*\approx0.185.}
-\]
-The uniqueness result also rules out asymmetric equilibria.
-\end{frame}
-
-
-\begin{frame}{The same market with price floors or caps}
-Keep demand and costs unchanged; change only the feasible price intervals.
-\begin{center}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{lcc}
-\toprule
-Interval for both firms & Equilibrium prices & Markup gap\\
-\midrule
-$[0,4]$: no binding bound & $(1.227,1.227)$ & $0$\\
-$[0,1]$: cap at $1$ & $(1,1)$ & $-0.269$\\
-$[1.5,4]$: floor at $1.5$ & $(1.5,1.5)$ & $+0.318$\\
-\bottomrule
-\end{tabular}
-\end{center}
-At the cap firms want higher prices; at the floor they want lower prices.
-\begin{block}{What SET buys us}
-Bounds change prices, but sign preservation lets the
-\alert{same uniqueness argument} cover all three cases.
-\end{block}
-\end{frame}
-
-
-\begin{frame}{What SET changes in the uniqueness test}
+\begin{frame}{CES complements: the new Jacobian and uniqueness}
 \small\compactmath
-Keep the two-firm logit example, with zero costs and deterministic appeal.
-\begin{block}{The original derivative need not be a $P$-matrix}
-Take $p_1=p_2=4$ and write $s=Q_1=Q_2\approx0.017668$.
-For $F_i=-\partial\pi_i/\partial p_i$,
+The Jacobian in log coordinates is
 \[
- \frac{\partial F_i}{\partial p_i}
- =s(1-s)\bigl[2-p_i(1-2s)\bigr]\approx-0.03226<0.
-\]
-A negative $1\times1$ principal minor rules out a global $P$-matrix test for $DF$.
-The transformed derivative passes the test throughout the same price box.
-\end{block}
-Failure of this sufficient matrix test does not imply multiple equilibria.
-SET exposes a useful certificate that the original derivative does not have.
-\end{frame}
-
-
-\begin{frame}{Existing application: nonlinear peer effects}
-\compactmath
-\begin{block}{A social norm need not be the average peer}
-\[
-\widetilde x_{-i}(\beta)=\left(\sum_j\widetilde g_{ij}x_j^{\beta}\right)^{1/\beta},
-\qquad
-x_i=(1-\lambda_2)a_i+(\lambda_1+\lambda_2)\widetilde x_{-i}(\beta).
-\]
-Here $\widetilde g_{ij}=g_{ij}/d_i$ are row-normalized links.
-\end{block}
-\setcounter{proposition}{2}
-\begin{proposition}[Nonlinear peer effects]
-For $a\gg0$, $0<\lambda_1+\lambda_2<1$, and $0<\lambda_1<1$, the system has
-\alert{at most one positive solution}.
-\end{proposition}
-$\beta=1$ recovers linear-in-means; other values change relative peer influence.
-Taking logs reveals the $P$-property. Existence remains a separate question.
-\end{frame}
-
-
-
-\begin{frame}{Existing applications: network games and multiplexity}
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{block}{Network public goods with income}
-An inverse Engel curve turns heterogeneous marginal conditions into a symmetric system on an undirected graph.
-\medskip
-A potential and a spectral condition can then give uniqueness.
-\end{block}
-\column{0.48\textwidth}
-\begin{block}{Several network layers}
-An agent chooses effort across multiple kinds of ties. A transformed system can have a potential even with cross-layer costs.
-\medskip
-Extra curvature conditions are needed for uniqueness.
-\end{block}
-\end{columns}
-\medskip
-The same method can reveal different mathematical structures across models.
-\end{frame}
-
-
-\begin{frame}{CES peer effects on an unnormalized network}
-\small\compactmath
-\[
- u_i(x)=a_ix_i-\frac12x_i^2+
- \delta x_i\Bigl(\sum\nolimits_jg_{ij}x_j^\beta\Bigr)^{1/\beta}.
-\]
-\begin{block}{Best response}
-\[
- T_i(x)=a_i+\delta \Bigl(\sum\nolimits_jg_{ij}x_j^\beta\Bigr)^{1/\beta}
-\]
-\end{block}
-\begin{itemize}
- \item $a_i>0$, $\delta>0$, $\beta>0$, and $x_i\geq0$.
- \item $G$ is an undirected adjacency matrix, without self-loops.
- \item We use a \alert{connected, nonempty} network throughout this CES discussion.
-\end{itemize}
-\end{frame}
-
-
-
-
-\begin{frame}{CES complements: the logarithmic system}
-\small\compactmath
-Every equilibrium satisfies $x_i=T_i(x)\geq a_i>0$.
-The change of variables $z_i=\log x_i$ therefore covers the entire equilibrium set.
-\[
- R_i(x)=x_i-T_i(x),\qquad
- H_i(z)=z_i-\log T_i(e^z).
-\]
-\begin{block}{SET on positive quantities}
-Because the logarithm is strictly increasing,
-\[
- \operatorname{sign}R_i(e^z)
- =\operatorname{sign}\!\left[\log e^{z_i}-\log T_i(e^z)\right]
- =\operatorname{sign}H_i(z).
-\]
-Thus $R(x)=0$ and $H(\log x)=0$ describe the same equilibria.
-\end{block}
-The next step uses the homogeneity of the CES aggregate to study the derivative of $H$.
-\end{frame}
-
-\begin{frame}{CES uniqueness: the transformed derivative}
-\small\compactmath
-Write $S_i(x)=\bigl(\sum_jg_{ij}x_j^\beta\bigr)^{1/\beta}$,
-$L_i(z)=\log T_i(e^z)$, and $W=DL$. Then $DH=I-W$, with
-\[
+ \boxed{DH(z)=I-W(z),}\qquad
  W_{ij}(z)=
  \frac{\delta S_i(e^z)}{a_i+\delta S_i(e^z)}
- \frac{g_{ij}e^{\beta z_j}}{\sum_k g_{ik}e^{\beta z_k}},
- \qquad \sum_jW_{ij}(z)<1.
+ \frac{g_{ij}e^{\beta z_j}}{\sum_k g_{ik}e^{\beta z_k}}.
 \]
-\end{frame}
-
-
-\begin{frame}{The spectral existence threshold}
-\small\compactmath
-\setcounter{theorem}{3}
-\begin{theorem}[CES equilibrium]
-Let $Ge=\lambda_{\max}(G)e$, $e\gg0$, and $\bar\delta=\lambda_{\max}(G)^{-1/\beta}$.
-\begin{itemize}
- \item[(i)] $0<\delta<\bar\delta$: a unique positive equilibrium exists, monotone in $a$ and $\delta$.
- \item[(ii)] As $\delta\uparrow\bar\delta$, all actions diverge and
- $x_i^*/x_j^*\to(e_i/e_j)^{1/\beta}$.
- \item[(iii)] $\delta>\bar\delta$: no finite positive equilibrium exists.
-\end{itemize}
-\end{theorem}
-The appendix proof also excludes $\delta=\bar\delta$.
-
-\end{frame}
-
-
-
-\begin{frame}{Network public goods with nonlinear costs}
-\small\compactmath
-On an undirected network, player $i$ chooses $x_i\geq0$ and receives
+Since there are no self-loops, $W_{ii}=0$. Also $W_{ij}\geq0$ and
 \[
- u_i(x)=b\!\left(x_i+\delta\sum_jg_{ij}x_j\right)-c(x_i),
- \qquad 0<\delta\leq1.
+ \sum_jW_{ij}(z)=\frac{\delta S_i(e^z)}{a_i+\delta S_i(e^z)}<1.
 \]
+Hence, for every $z\in\R^n$,
+\[
+ (DH)_{ii}-\sum_{j\ne i}|(DH)_{ij}|
+ =1-\sum_jW_{ij}>0.
+\]
+The positive diagonal and strict row dominance give a $P$-matrix.
+By Lemma 2(ii), $H$ has at most one zero, so the game has \alert{at most one}
+equilibrium. This is the conditional-uniqueness argument used in Theorem 4.
+\end{frame}
+
+
+\begin{frame}{Public goods: the original operator and Jacobian}
+\small\compactmath
+On an undirected network without self-loops, let
+$s=(I+\delta G)x$ and $u_i(x)=b(s_i)-c(x_i)$, with $x_i\geq0$ and $0<\delta\leq1$.
 \setcounter{assumption}{1}
-\begin{assumption}[Benefits, costs, and a marginal crossing]
-\[
- b'>0,\qquad b''<0,\qquad c'(x)>0\ (x>0),\qquad c''\geq0,
-\]
-\[
- b'(0)>c'(0),\qquad
- \lim_{x\to\infty}b'(x)<\lim_{x\to\infty}c'(x).
-\]
+\begin{assumption}[Benefits and costs]
+$b'>0$, $b''<0$, $c'(u)>0$ for $u>0$, and $c''\geq0$, with
+$b'(0)>c'(0)$ and $\lim_{u\to\infty}b'(u)<\lim_{u\to\infty}c'(u)$.
 \end{assumption}
-The positive autarky effort $k^*$ uniquely solves $b'(k^*)=c'(k^*)$.
-
-The benchmark of Bramoull\'e and Kranton (2007) has $c(x)=x$ and $\delta=1$.
-\end{frame}
-
-\begin{frame}{Best responses, corners, and existence}
-\small
-Let $t_i=\delta\sum_jg_{ij}x_j$ be the public good supplied by neighbors.
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{block}{If $x_i>0$}
-The agent balances marginal benefit and cost:
+Negative marginal payoffs give
 \[
- b'(x_i+t_i)=c'(x_i).
+ F_i(x)=c'(x_i)-b'(s_i),\qquad
+ \boxed{DF(x)=C(x)+A(x)(I+\delta G),}
 \]
-\end{block}
-\column{0.48\textwidth}
-\begin{block}{If $x_i=0$}
-The first unit is not worthwhile when
+where
 \[
- b'(t_i)\leq c'(0).
+ C(x)=\diag(c''(x_i)),\qquad A(x)=\diag(-b''(s_i))\succ0.
 \]
-\end{block}
-\end{columns}
-\medskip
-Strict concavity gives a unique continuous best response, at most $k^*$.
-The best-response mapping sends $[0,k^*]^n$ into itself.
-Brouwer's theorem therefore gives existence, before any spectral restriction.
+For $j\ne i$, $(DF)_{ij}=-\delta g_{ij}b''(s_i)$.
+Its row-dependent benefit curvature generally makes $DF$ asymmetric.
 \end{frame}
 
 
-\begin{frame}{The slope of the best response}
-\small\compactmath
-Write $\theta(t)=\argmax_{x\geq0}\{b(x+t)-c(x)\}$.
-At an interior choice, differentiate $b'(\theta(t)+t)=c'(\theta(t))$:
+\begin{frame}{Public goods: SET through an inverse function}
+\compactmath
+Work on an equilibrium-preserving rectangle $K\subset[0,k^*]^n$ where
+$c'(K_i)\subset\operatorname{range}(b')$, with $b'(k^*)=c'(k^*)$.
+The inverse is finite on this domain. Define
 \[
- b''(\theta+t)\,[\theta'(t)+1]=c''(\theta)\theta'(t),
- \qquad
- \theta'(t)=\frac{b''(\theta+t)}{c''(\theta)-b''(\theta+t)}.
+ h(u)=(b')^{-1}(c'(u)).
 \]
-\textbf{Cost curvature.}
-Because $b''<0$ and $c''\geq0$, $-1\leq\theta'(t)<0$ at an interior choice.
-\begin{itemize}
- \item Linear costs give one-for-one crowding out at interior choices.
- \item Positive $c''$ reduces the magnitude of this local response.
- \item At zero, further neighbor provision keeps effort at zero.
-\end{itemize}
-\textbf{Discussion:} does a slope bound for one best response prove uniqueness of the network fixed point?
+Because $b'$ is strictly decreasing,
+\[
+ F_i(x)=b'(h(x_i))-b'(s_i)
+ \quad\sim_{\rm sign}\quad s_i-h(x_i).
+\]
+The transformed operator is therefore
+\[
+ \boxed{\widetilde F(x)=(I+\delta G)x-h(x).}
+\]
+Rectangularity preserves the constrained VI solutions:
+\[
+ \mathrm{NE}=\Sol(K,F)=\Sol(K,\widetilde F).
+\]
 \end{frame}
 
-\begin{frame}{The inverse marginal benefit: a valid domain}
-\small\compactmath
-Before using $(b')^{-1}$, its argument must lie in the range of $b'$.
-Let $d_{\max}$ be the largest degree and define
+
+\begin{frame}{Public goods: the transformed Jacobian}
+\compactmath
+Differentiate $b'(h(u))=c'(u)$:
 \[
- B=\delta d_{\max}k^*,\qquad \ell=\theta(B),\qquad K=[\ell,k^*]^n.
+ h'(u)=\frac{c''(u)}{b''(h(u))}\leq0.
 \]
-For $x\in[0,k^*]^n$, $0\leq t_i\leq B$, so every best response lies in $K$.
-Restricting the game to $K$ retains its entire equilibrium set.
-\begin{block}{A finite inverse on the equilibrium-containing box}
-The first-order or corner condition at $\theta(B)$ gives, for $u\in[\ell,k^*]$,
+The new Jacobian is
 \[
- \lim_{s\to\infty}b'(s)<c'(u)
- \leq c'(k^*)=b'(k^*)<b'(0).
+ \boxed{D\widetilde F(x)=I+\delta G-\diag(h'(x_i)).}
 \]
-Thus $h(u)=(b')^{-1}(c'(u))$ is well-defined on this interval.
-\end{block}
-When $c'(0)=0$, $\ell>0$. No finite inverse value at zero is needed.
+Its diagonal and cross entries are
+\[
+ (D\widetilde F)_{ii}=1-h'(x_i)\geq1,\qquad
+ (D\widetilde F)_{ij}=\delta g_{ij}=(D\widetilde F)_{ji}\quad(j\ne i).
+\]
+SET removes the row-dependent benefit curvature from the cross effects.
+The Jacobian is now \alert{symmetric}, making the potential route available.
 \end{frame}
 
-\begin{frame}{Substitutes: SET and a symmetric derivative}
-\small\compactmath
-For $s_i=x_i+\delta\sum_jg_{ij}x_j$, the decreasing function $b'$ gives
-\[
- F_i=c'(x_i)-b'(s_i)
- \quad\sim_{\rm sign}\quad
- \widetilde F_i=s_i-h(x_i),\qquad x\in K.
-\]
-For $j\ne i$, the derivatives are
-\[
- \frac{\partial F_i}{\partial x_j}=-\delta g_{ij}b''(s_i),
- \qquad
- \frac{\partial\widetilde F_i}{\partial x_j}=\delta g_{ij}
- =\frac{\partial\widetilde F_j}{\partial x_i}.
-\]
-The original derivative is generally asymmetric. The transformed system has the minimization potential
-\[
- \Psi(x)=\sum_i\left[\frac{x_i^2}{2}-\int_{\ell}^{x_i}h(u)\,du\right]
- +\frac{\delta}{2}x^\top Gx,
- \qquad \nabla\Psi=\widetilde F.
-\]
-SET preserves the constrained equilibria on $K$, including any zero-effort corners when $\ell=0$.
-\end{frame}
 
-\begin{frame}{Substitutes: the spectral uniqueness proof}
-\small\compactmath
-Differentiate the inverse relation $b'(h(u))=c'(u)$:
+\begin{frame}{Public goods: positive definiteness and uniqueness}
+\compactmath
+Since $G=G^\top$ and $-h'(x_i)\geq0$, for every $x\in K$,
 \[
- h'(u)=\frac{c''(u)}{b''(h(u))}\leq0,
- \qquad D^2\Psi=I+\delta G-\operatorname{diag}(h'(x_i)).
+ D\widetilde F(x)\succeq
+ [1+\delta\lambda_{\min}(G)]I.
 \]
-For any vector $v$, the Rayleigh bound gives
-\[
- v^\top D^2\Psi\,v
- \geq[1+\delta\lambda_{\min}(G)]\lVert v\rVert_2^2.
-\]
+Thus $1+\delta\lambda_{\min}(G)>0$ makes the transformed Jacobian positive definite.
+Symmetry gives a potential, and positive definiteness makes it strictly convex.
 \setcounter{theorem}{4}
 \begin{theorem}[Public-good equilibrium]
-Under Assumption 2, if $1+\delta\lambda_{\min}(G)>0$, the paper's maximization
-potential $\phi^{\mathrm{BKC}}$ is strictly concave and the game has a unique Nash equilibrium.
+Under Assumption 2, if $1+\delta\lambda_{\min}(G)>0$, the game has a unique
+Nash equilibrium.
 \end{theorem}
-On $K$, $\Psi=-\phi^{\mathrm{BKC}}+\text{constant}$, using a finite integration reference.
-Strict convexity gives at most one solution; earlier compactness gives existence.
-The extra curvature $-h'$ can give uniqueness beyond the bound, as the complete-network example shows.
+The Jacobian calculation supplies the uniqueness argument.
+The theorem's existence argument is separate.
 \end{frame}
 
 
-\begin{frame}{Zero marginal cost at zero implies full participation}
-\small\compactmath
-Maintain Assumption 2, add strict convexity of $c$, and set $\delta=1$.
-\setcounter{assumption}{2}
-\begin{assumption}[Zero marginal cost at zero]
-$b'(0)>c'(0)=0$.
-\end{assumption}
-\setcounter{proposition}{6}
-\begin{proposition}[Part (i): full participation]
-Every Nash equilibrium is interior: $x_i^*>0$ for every player.
-\end{proposition}
-\textbf{Proof (independent of uniqueness).} At any finite profile with $x_i=0$,
-\[
- \left.\frac{\partial u_i}{\partial x_i}\right|_{x_i=0}
-   =b'\!\Bigl(\sum\nolimits_jg_{ij}x_j\Bigr)-c'(0)>0.
-\]
-All equilibrium conditions therefore hold with equality:
-\[
- b'\!\Bigl(x_i^*+\sum\nolimits_jg_{ij}x_j^*\Bigr)=c'(x_i^*).
-\]
-\end{frame}
-
-\begin{frame}{Complete networks: convex costs remove the continuum}
-\small\compactmath
-On a complete network with $n\geq2$ and $\delta=1$, write $S=\sum_jx_j$.
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\setcounter{proposition}{6}
-\begin{proposition}[Part (iii)]
-Under Assumptions 2--3 and strictly convex costs, the equilibrium is unique:
-\[
- x_i^*=\bar x,\qquad b'(n\bar x)=c'(\bar x).
-\]
-\end{proposition}
-At any equilibrium,
-\[
- c'(x_i)=b'(S)\quad\text{for all }i.
-\]
-Increasing $c'$ forces equal effort; the decreasing function $b'(nz)-c'(z)$ crosses zero once.
-\column{0.48\textwidth}
-\begin{block}{Linear costs, $c(x)=x$}
-With $b'(k^*)=1$, every profile satisfying
-\[
- x_i\geq0,\qquad \sum_ix_i=k^*
-\]
-is an equilibrium.
-
-The continuum includes both equal sharing and a single specialist.
-\end{block}
-\end{columns}
-Here $\lambda_{\min}(G)=-1$. Uniqueness with strictly convex costs holds even
-though $1+\delta\lambda_{\min}(G)=0$.
-\end{frame}
-
-\begin{frame}{Network structure determines effort rankings}
-\small\compactmath
-Maintain Assumptions 2--3, homogeneous $b,c$, strictly convex $c$, and $\delta=1$.
-Let $N_i$ and $\overline N_i=N_i\cup\{i\}$ denote open and closed neighborhoods.
-\setcounter{proposition}{6}
-\begin{proposition}[Part (ii): neighborhood inclusion]
-At every equilibrium,
-\[
- N_i\subseteq N_j\ \text{ or }\quad
- \overline N_i\subseteq\overline N_j
- \quad\Longrightarrow\quad x_i^*\geq x_j^*.
-\]
-Proper inclusion makes the effort inequality strict.
-\end{proposition}
-\setcounter{theorem}{1}
-\begin{corollary}[Nested split graphs]
-Under the same assumptions, if $G$ is an NSG, then
-$d_i<d_j$ implies $x_i^*>x_j^*$ at every Nash equilibrium.
-\end{corollary}
-\textbf{Star, $n\geq3$.} Proposition 7(iv) gives equal leaf effort, strictly above the hub's.
-Degree alone does not imply this ranking on arbitrary networks.
-\end{frame}
-
-\begin{frame}{Why the hub contributes less in a star}
-\small\compactmath
-Maintain Assumptions 2--3, homogeneous $b,c$, strictly convex $c$, and $\delta=1$.
-\setcounter{proposition}{6}
-\begin{proposition}[Part (iv): star network]
-In a star with $n\geq3$, every equilibrium has common leaf effort $x_L>x_H$, where $x_H$ is the hub's effort.
-\end{proposition}
-\begin{enumerate}
- \item All leaves face $x_H$. Their unique best response gives one common $x_L>0$.
- \item The hub and a leaf satisfy
- \[
- c'(x_H)=b'\!\left(x_H+(n-1)x_L\right),\qquad
- c'(x_L)=b'(x_H+x_L).
- \]
- \item Since $(n-2)x_L>0$, decreasing $b'$ and increasing $c'$ imply
- \[
- c'(x_H)<c'(x_L)\quad\Longrightarrow\quad\boxed{x_H<x_L}.
- \]
-\end{enumerate}
-The proof applies to every equilibrium, without a uniqueness assumption.
-\end{frame}
-
-\begin{frame}{What SET establishes in these applications}
+\begin{frame}{Jacobian comparison across applications}
 \small
 \begin{center}
-\renewcommand{\arraystretch}{1.45}
-\begin{tabular}{P{3.25cm}P{8.65cm}}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{P{2.25cm}P{4.1cm}P{5.15cm}}
 \toprule
-Question & Required argument\\
+Application & Before SET & After SET\\
 \midrule
-Equilibrium equivalence & Valid VI representation, full-domain sign equivalence, and appropriate domain geometry.\\
-Existence & A compactness, coercivity, strong-P, or bounded-iteration argument.\\
-Uniqueness & A suitable P property, strict monotonicity, or strict convexity.\\
+Oligopoly &
+First and second demand derivatives &
+$I-D\mu$\newline
+Strict row dominance gives a $P$-matrix.\\
+CES complements &
+$I-\delta DS$ &
+$I-W$, with $W\geq0$ and row sums below one.\newline
+A $P$-matrix in log coordinates.\\
+Public goods &
+$C+A(I+\delta G)$ &
+$I+\delta G-\diag(h')$\newline
+Symmetric and positive definite under the spectral condition.\\
 \bottomrule
 \end{tabular}
 \end{center}
 \end{frame}
+
 
 \begin{frame}{Main conclusions}
 \begin{block}{A general method}
-On rectangular domains, the signs of the equilibrium operator determine the VI solution set.
-Suitable transformations can reveal structure absent from the original Jacobian.
+On rectangular domains, sign-equivalent transformations preserve the entire VI
+solution set and can simplify the Jacobian used to study uniqueness.
 \end{block}
 \begin{itemize}
- \item CES complements combine a SET uniqueness argument with a Perron existence threshold.
- \item The worked example shows how SET restores a global $P$-matrix certificate while preserving equilibrium.
- \item Under strategic substitutes, cost curvature and the smallest network eigenvalue govern uniqueness.
+ \item Oligopoly and CES complements use a transformed $P$-matrix.
+ \item Public goods use symmetry and positive definiteness.
+ \item The worked example has a unique equilibrium even though its original
+ global $P$-matrix test fails and its best responses are not a contraction.
 \end{itemize}
 \medskip
-\centering Which transformation exposes the useful structure in a given model?
+The useful representation depends on the model. Existence remains a separate question.
 \end{frame}
 
 \appendix
@@ -1113,49 +771,5 @@ Consequently, for every $x\in K$,
 Thus $\operatorname{Sol}(K,F)\subseteq\operatorname{Sol}(K,\widetilde F)$.
 Interchanging the two operators gives the reverse inclusion.
 \end{frame}
-
-\begin{frame}{Backup: algebraic solutions and positive equilibria}
-\small\compactmath
-For two linked agents with baseline $a=\mathbf1$,
-\[
- G=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
- \lambda_1=1,\quad\lambda_2=-1.
-\]
-Whenever $\delta\neq\pm1$, the linear system has the solution
-\[
- x=(I-\delta G)^{-1}\mathbf1=\frac{1}{1-\delta}\mathbf1.
-\]
-\begin{center}
-\begin{tabular}{lll}
-\toprule
-Parameter & Algebraic system & Economic equilibrium\\
-\midrule
-$0<\delta<1$ & Unique solution & Positive and finite\\
-$\delta=1$ & Singular, inconsistent & None\\
-$\delta>1$ & Unique negative solution & None on $\R_+^2$\\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{frame}
-
-\begin{frame}{Backup: proof of Proposition 7(iii)}
-\small\compactmath
-Assume homogeneous $b,c$, strictly convex $c$, $c'(0)=0$, and $\delta=1$.
-On the complete network, write $S=\sum_jx_j$.
-\begin{enumerate}
- \item Full participation makes every first-order condition an equality:
- \[
- c'(x_i)=b'(S)=c'(x_j)\qquad\text{for every }i,j.
- \]
- \item Strictly increasing $c'$ implies $x_i=x_j=\bar x$.
- \item The function $f(z)=b'(nz)-c'(z)$ is strictly decreasing, with
- $f(0)>0$ and an eventually negative value. Thus it has exactly one positive zero.
-\end{enumerate}
-\begin{block}{Why the spectral test is only sufficient}
-For $n\geq2$, the complete graph has $\lambda_{\min}(G)=-1$.
-At $\delta=1$ the strict spectral inequality fails, but the argument above proves uniqueness.
-\end{block}
-\end{frame}
-
 
 \end{document}
