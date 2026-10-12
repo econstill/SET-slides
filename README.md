@@ -17,7 +17,8 @@ Junjie Zhou (paper version: February 17, 2026), using the supplied
 - [Presenter guide](SET-English-Presenter-Guide.md): flexible reading routes,
   a paper-page map, cues for every PDF page, detailed methodology and
   oligopoly scripts, network-proof explanations, and discussion questions
-  with answers.
+  with answers. It also maps the formal results to their original paper
+  numbers.
 
 Page numbers in the guide refer to physical PDF pages, including the cover;
 they are not the Beamer footer numbers.
@@ -28,6 +29,13 @@ The organizing sequence is **hypotheses → transformation → proof → economi
 implication**. Questions can be taken during each derivation. The main deck
 contains the proof steps needed for close reading; the backups supply
 additional checks rather than holding all the substantive mathematics.
+
+Native lemma, theorem, proposition, corollary, definition, and assumption
+environments retain the paper's original types and numbering. Repeated
+parts of a result keep the same original number. Seminar teaching examples
+remain distinct from the paper's examples; in particular, the two-player
+Example 2 on pages 7–9 is not the paper's regular-network Example 2 on
+page 38.
 
 | PDF pages | Reading block |
 |---|---|

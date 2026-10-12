@@ -35,12 +35,13 @@
  pdftitle={SET: Sign-Equivalent Transformation},pdfauthor={Yves Zenou and Junjie Zhou}}
 \pdfstringdefDisableCommands{\def\translate#1{#1}}
 \setbeamertemplate{theorems}[numbered]
+\addtobeamertemplate{theorem begin}{}{\normalfont}
+% Keep the paper's result types and numbers, not presentation-order numbers.
+% Beamer's theorem, lemma, corollary, definition, and example share a counter.
 \theoremstyle{plain}
-\newtheorem{mytheorem}{Theorem}
-\newtheorem{myproposition}{Proposition}
+\newtheorem{proposition}{Proposition}
 \theoremstyle{definition}
-\newtheorem{mydefinition}{Definition}
-\newtheorem{myexample}{Example}
+\newtheorem{assumption}{Assumption}
 \newcommand{\R}{\mathbb{R}}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\Sol}{Sol}
@@ -253,7 +254,7 @@ SET exposes a convex optimization representation of the same equilibrium problem
 
 \begin{frame}{Individual optimality and the VI}
 \compactmath
-Suppose each payoff is differentiable and \alert{concave in the player's own action}.
+Suppose each payoff is $C^2$ and \alert{concave in the player's own action}.
 For $K=\prod_i[a_i,b_i]$, define $F_i=-\partial_i u_i$.
 \[
  x_i^*\in\argmax_{x_i\in[a_i,b_i]}u_i(x_i,x_{-i}^*)
@@ -261,24 +262,36 @@ For $K=\prod_i[a_i,b_i]$, define $F_i=-\partial_i u_i$.
  (y_i-x_i^*)F_i(x^*)\geq0\quad\text{for every }y_i\in[a_i,b_i].
 \]
 Sum these individual inequalities to obtain
-\begin{block}{The variational inequality}
+\setcounter{theorem}{0}
+\begin{lemma}[Nash equilibrium and the VI]
 \[
  x^*\in\mathrm{NE}
  \quad\Longleftrightarrow\quad
  \langle y-x^*,F(x^*)\rangle\geq0\quad\text{for every }y\in K.
 \]
-\end{block}
+\end{lemma}
 Conversely, vary one coordinate of $y$ at a time to recover each player's condition.
 Own-action concavity makes these first-order conditions sufficient.
 \end{frame}
 
 
 \begin{frame}{Sign equivalence on rectangular domains}
-\begin{block}{Sign-equivalent transformation}
-If every component of $F$ and $\widetilde F$ has the same sign at every feasible profile, then on a product of individual intervals the two variational inequalities have \alert{exactly the same solution set}.
-\end{block}
-\begin{center}
-\renewcommand{\arraystretch}{1.15}
+\small\compactmath
+\setcounter{theorem}{1}
+\begin{definition}[Sign equivalence]
+$F$ and $\widetilde F$ are sign-equivalent on $K$ if
+$\sgn F_i(x)=\sgn\widetilde F_i(x)$ for every $i$ and every $x\in K$.
+\end{definition}
+\setcounter{theorem}{0}
+\begin{theorem}[Part (ii): rectangular domains]
+If $K=\prod_i[a_i,b_i]$ and $F,\widetilde F$ are sign-equivalent on $K$, then
+\[
+ \Sol(K,F)=\Sol(K,\widetilde F).
+\]
+\end{theorem}
+\smallskip
+{\centering
+\renewcommand{\arraystretch}{1.0}
 \begin{tabular}{lll}
 \toprule
 Player's choice & Equilibrium condition & What matters\\
@@ -288,29 +301,32 @@ Interior & $F_i=0$ & Zero\\
 Upper bound & $F_i\leq0$ & Sign\\
 \bottomrule
 \end{tabular}
-\end{center}
-Independent coordinate deviations make this table equivalent to the VI.
-Keeping every sign therefore keeps every solution, including boundary solutions.
+\par}
+\smallskip
+Coordinate deviations give these conditions, including boundary solutions.
 \end{frame}
 
 
 \begin{frame}{Two constructions of a sign-equivalent operator}
 \compactmath
-\begin{block}{Positive rescaling}
+\setcounter{proposition}{0}
+\begin{proposition}[SET 1 and SET 2]
+Finite compositions of the following componentwise operations preserve signs.
+\begin{enumerate}
+\item \textbf{Positive rescaling:}
 \[
  \widetilde F_i(x)=\alpha_i(x)F_i(x),\qquad \alpha_i(x)>0\quad\text{on all of }K.
 \]
-The factor can depend on the full profile, as in oligopoly pricing.
-\end{block}
-\begin{block}{An increasing transformation of both sides}
-If $F_i=A_i-B_i$ and $h_i$ is strictly increasing, then
+\item \textbf{An increasing transformation:} if $F_i=A_i-B_i$ and $h_i$ is strictly increasing,
 \[
  \widetilde F_i=h_i(A_i)-h_i(B_i)
  \quad\Longrightarrow\quad \sgn\widetilde F_i=\sgn F_i.
 \]
-\end{block}
-Example 2 uses $h(t)=e^t$ in its second comparison.
-Logs require positive arguments. Inverse functions require a valid range.
+\end{enumerate}
+For strictly decreasing $h_i$, reverse the order: $h_i(B_i)-h_i(A_i)$.
+\end{proposition}
+The rescaling factor may depend on the full profile, as in oligopoly pricing.
+Our Example 2 uses $h(t)=e^t$. Logs and inverses require valid domains.
 \end{frame}
 
 
@@ -357,21 +373,26 @@ The argument covers constrained solutions as well as interior zeros.
 
 
 \begin{frame}{What a better representation can reveal}
+\compactmath
+Let $K$ be convex and $\widetilde F$ continuously differentiable.
 \begin{columns}[T,onlytextwidth]
 \column{0.48\textwidth}
-\begin{block}{$P$-property route}
-A $P$-matrix has positive principal minors. The paper uses this condition on the
-transformed Jacobian over a rectangle to establish \alert{at most one} equilibrium.
-\medskip
+\setcounter{theorem}{1}
+\begin{lemma}[Part (ii): $P$-property]
+On a rectangle $K$, if $D\widetilde F(x)$ is a $P$-matrix for every $x\in K$,
+then the VI has \alert{at most one} solution.
+\end{lemma}
+A $P$-matrix has positive principal minors.
+\medskip\par
 \textbf{Used for:} oligopoly pricing, peer effects, CES complements.
-\end{block}
 \column{0.48\textwidth}
-\begin{block}{Potential route}
-A symmetric transformed Jacobian can yield a potential. Strict convexity then gives
-\alert{at most one} constrained minimizer.
-\medskip
+\setcounter{theorem}{2}
+\begin{lemma}[Potential]
+If $D\widetilde F$ is symmetric and positive semidefinite on $K$, the VI
+minimizes a convex potential with $\nabla\Phi=\widetilde F$.
+If it is positive definite, there is \alert{at most one} solution.
+\end{lemma}
 \textbf{Used for:} network games, public goods, multiplex interactions.
-\end{block}
 \end{columns}
 \medskip
 Existence needs its own argument in each application.
@@ -490,25 +511,31 @@ Looking only for zeros would miss equilibria with binding bounds.
 
 
 \begin{frame}{The demand restrictions behind uniqueness}
+\small\compactmath
+Write $\ell_i=\log Q_i$. Demand is positive, $C^2$, and decreasing in own price.
+\begingroup
+\renewcommand{\theassumption}{E\arabic{assumption}}
+\setcounter{assumption}{0}
+\begin{assumption}[Own-price log-concavity]
 \compactmath
-Write $\ell_i=\log Q_i$. Demand is positive, smooth, and decreasing in own price.
-\begin{enumerate}
- \item \textbf{E1: own-price log-concavity}
  \[
  \frac{\partial^2\ell_i}{\partial p_i^2}\leq0.
  \]
- \item \textbf{E2: cross-price log-supermodularity}
+\end{assumption}
+\begin{assumption}[Cross-price log-supermodularity]
+\compactmath
  \[
  \frac{\partial^2\ell_i}{\partial p_i\partial p_j}\geq0
  \quad(j\ne i,\ \text{including the outside option }j=0).
  \]
- \item \textbf{E3: common-price-shift invariance}
+\end{assumption}
+\begin{assumption}[Common-price-shift invariance]
+\compactmath
  \[
- Q_i(p_1+t,\ldots,p_n+t,p_0+t)=Q_i(p_1,\ldots,p_n,p_0).
+ Q_i(p_1+t,\ldots,p_n+t,p_0+t)=Q_i(p_1,\ldots,p_n,p_0),\quad i=0,\ldots,n.
  \]
-\end{enumerate}
-The logit example satisfies all three. The outside price is fixed during the game;
-E3 describes demand when \emph{all} option prices shift together.
+\end{assumption}
+\endgroup
 \end{frame}
 
 
@@ -597,10 +624,12 @@ rules out two VI solutions, including solutions with binding price bounds.
 
 \begin{frame}{Existence and uniqueness in the pricing game}
 \compactmath
-\begin{block}{Uniqueness}
-E1--E3 give strict row diagonal dominance and the $P$-condition for the markup gap.
-SET transfers \alert{at most one} VI solution back to the pricing game.
-\end{block}
+\setcounter{proposition}{3}
+\begin{proposition}[Oligopoly pricing]
+Under E1--E3, the pricing game on $\prod_i[a_i,b_i]$ with $a_i\geq c_i$
+has \alert{at most one} pure-strategy Nash equilibrium.
+\end{proposition}
+The proof uses strict row diagonal dominance of the transformed markup gap.
 \begin{block}{Existence on finite price intervals}
 Each firm has a unique best response on its compact interval.
 Continuous profits make this best response continuous.
@@ -696,18 +725,22 @@ SET exposes a useful certificate that the original derivative does not have.
 
 
 \begin{frame}{Existing application: nonlinear peer effects}
+\compactmath
 \begin{block}{A social norm need not be the average peer}
 \[
 \widetilde x_{-i}(\beta)=\left(\sum_j\widetilde g_{ij}x_j^{\beta}\right)^{1/\beta},
 \qquad
 x_i=(1-\lambda_2)a_i+(\lambda_1+\lambda_2)\widetilde x_{-i}(\beta).
 \]
+Here $\widetilde g_{ij}=g_{ij}/d_i$ are row-normalized links.
 \end{block}
-\begin{itemize}
-\item $\beta=1$ recovers linear-in-means; other values change whose behavior is most influential.
-\item Taking logs exposes a $P$-property: under the paper's parameter restrictions, \alert{any solution is unique}.
-\item The result is conditional on existence; the transformation alone does not supply it.
-\end{itemize}
+\setcounter{proposition}{2}
+\begin{proposition}[Nonlinear peer effects]
+For $a\gg0$, $0<\lambda_1+\lambda_2<1$, and $0<\lambda_1<1$, the system has
+\alert{at most one positive solution}.
+\end{proposition}
+$\beta=1$ recovers linear-in-means; other values change relative peer influence.
+Taking logs reveals the $P$-property. Existence remains a separate question.
 \end{frame}
 
 
@@ -814,20 +847,26 @@ Hence $\lVert z-w\rVert_\infty\leq\alpha\lVert z-w\rVert_\infty$, so $z=w$.
 
 
 \begin{frame}{The spectral existence threshold}
-\begin{block}{Theorem 4}
-For $\bar\delta=\lambda_{\max}(G)^{-1/\beta}$:
+\small\compactmath
+\setcounter{theorem}{3}
+\begin{theorem}[CES equilibrium]
+Let $Ge=\lambda_{\max}(G)e$, $e\gg0$, and $\bar\delta=\lambda_{\max}(G)^{-1/\beta}$.
 \begin{itemize}
- \item $0<\delta<\bar\delta$: a unique positive equilibrium exists.
- \item $\delta\uparrow\bar\delta$: all actions diverge, with convergent ratios.
- \item $\delta\geq\bar\delta$: no finite positive equilibrium exists.
+ \item[(i)] $0<\delta<\bar\delta$: a unique positive equilibrium exists, monotone in $a$ and $\delta$.
+ \item[(ii)] As $\delta\uparrow\bar\delta$, all actions diverge and
+ $x_i^*/x_j^*\to(e_i/e_j)^{1/\beta}$.
+ \item[(iii)] $\delta>\bar\delta$: no finite positive equilibrium exists.
 \end{itemize}
-\end{block}
-\medskip
-On a $d$-regular network with $a_i=a$,
+\end{theorem}
+The appendix proof also excludes $\delta=\bar\delta$.
+\setcounter{theorem}{1}
+\begin{example}[Paper example: regular network]
+For common degree $d\geq1$, $a_i=a>0$, and $\delta<\bar\delta$,
 \[
  x_i^*=\frac{a}{1-\delta d^{1/\beta}},\qquad
  \bar\delta=d^{-1/\beta}.
 \]
+\end{example}
 \end{frame}
 
 \begin{frame}{CES existence: a Perron upper bound}
@@ -874,7 +913,8 @@ No finite positive equilibrium can exist at or above $\bar\delta$.
 \end{frame}
 
 \begin{frame}{Comparative statics below the threshold}
-\begin{block}{How shocks change behavior}
+\setcounter{theorem}{3}
+\begin{theorem}[Part (i): comparative statics]
 Within the region where a finite equilibrium exists,
 \[
  a'\geq a\quad\Longrightarrow\quad x^*(a',\delta,\beta)\geq x^*(a,\delta,\beta),
@@ -882,7 +922,7 @@ Within the region where a finite equilibrium exists,
 \[
  \delta'\geq\delta\quad\Longrightarrow\quad x^*(a,\delta',\beta)\geq x^*(a,\delta,\beta).
 \]
-\end{block}
+\end{theorem}
 \begin{itemize}
  \item A higher individual baseline or stronger peer interaction raises equilibrium effort across the network.
  \item Equilibrium payoff is $u_i(x^*)=\tfrac12(x_i^*)^2$: changes in effort also change welfare.
@@ -954,12 +994,13 @@ For the positive unit Perron vector $e$,
 \[
  Ge=\lambda_{\max}(G)e,\qquad e\gg0.
 \]
-\begin{block}{Theorem 4(ii)}
+\setcounter{theorem}{3}
+\begin{theorem}[Part (ii): limiting ratios]
 \[
  \lim_{\delta\uparrow\bar\delta}\frac{x_i^*}{x_j^*}
  =\left(\frac{e_i}{e_j}\right)^{1/\beta}.
 \]
-\end{block}
+\end{theorem}
 \begin{itemize}
  \item $\beta=1$: $x^*/\lVert x^*\rVert_2\to e$.
  \item General $\beta>0$: the vector $(x^*)^\beta$ approaches the Perron direction.
@@ -1064,7 +1105,8 @@ On an undirected network, player $i$ chooses $x_i\geq0$ and receives
  u_i(x)=b\!\left(x_i+\delta\sum_jg_{ij}x_j\right)-c(x_i),
  \qquad 0<\delta\leq1.
 \]
-\begin{block}{Assumption 2: benefits, costs, and a marginal crossing}
+\setcounter{assumption}{1}
+\begin{assumption}[Benefits, costs, and a marginal crossing]
 \[
  b'>0,\qquad b''<0,\qquad c'(x)>0\ (x>0),\qquad c''\geq0,
 \]
@@ -1072,7 +1114,7 @@ On an undirected network, player $i$ chooses $x_i\geq0$ and receives
  b'(0)>c'(0),\qquad
  \lim_{x\to\infty}b'(x)<\lim_{x\to\infty}c'(x).
 \]
-\end{block}
+\end{assumption}
 The positive autarky effort $k^*$ uniquely solves $b'(k^*)=c'(k^*)$.
 
 The benchmark of Bramoull\'e and Kranton (2007) has $c(x)=x$ and $\delta=1$.
@@ -1179,51 +1221,56 @@ For any vector $v$, the Rayleigh bound gives
  v^\top D^2\Psi\,v
  \geq[1+\delta\lambda_{\min}(G)]\lVert v\rVert_2^2.
 \]
-\begin{block}{Theorem 5: a sufficient condition}
-If $1+\delta\lambda_{\min}(G)>0$, then $\Psi$ is strictly convex.
-The transformed VI therefore has at most one solution.
-Together with the earlier existence argument, this gives exactly one Nash equilibrium.
-\end{block}
-The nonnegative extra curvature $-h'$ can support uniqueness beyond this simple bound.
-The complete-network example below shows why the bound is not necessary.
+\setcounter{theorem}{4}
+\begin{theorem}[Public-good equilibrium]
+Under Assumption 2, if $1+\delta\lambda_{\min}(G)>0$, the paper's maximization
+potential $\phi^{\mathrm{BKC}}$ is strictly concave and the game has a unique Nash equilibrium.
+\end{theorem}
+On $K$, $\Psi=-\phi^{\mathrm{BKC}}+\text{constant}$, using a finite integration reference.
+Strict convexity gives at most one solution; earlier compactness gives existence.
+The extra curvature $-h'$ can give uniqueness beyond the bound, as the complete-network example shows.
 \end{frame}
 
 
 \begin{frame}{Zero marginal cost at zero implies full participation}
 \small\compactmath
-Now suppose $c$ is strictly convex, $c'(0)=0$, and $\delta=1$,
-as in Proposition 7.
-\begin{block}{Every equilibrium is interior}
-At any finite profile with $x_i=0$,
+Maintain Assumption 2, add strict convexity of $c$, and set $\delta=1$.
+\setcounter{assumption}{2}
+\begin{assumption}[Zero marginal cost at zero]
+$b'(0)>c'(0)=0$.
+\end{assumption}
+\setcounter{proposition}{6}
+\begin{proposition}[Part (i): full participation]
+Every Nash equilibrium is interior: $x_i^*>0$ for every player.
+\end{proposition}
+\textbf{Proof (independent of uniqueness).} At any finite profile with $x_i=0$,
 \[
  \left.\frac{\partial u_i}{\partial x_i}\right|_{x_i=0}
    =b'\!\Bigl(\sum\nolimits_jg_{ij}x_j\Bigr)-c'(0)>0.
 \]
-Hence $x_i^*>0$ for every player at every Nash equilibrium.
-\end{block}
 All equilibrium conditions therefore hold with equality:
 \[
  b'\!\Bigl(x_i^*+\sum\nolimits_jg_{ij}x_j^*\Bigr)=c'(x_i^*).
 \]
-Full participation does not require equilibrium uniqueness.
 \end{frame}
 
 \begin{frame}{Complete networks: convex costs remove the continuum}
 \small\compactmath
-Take the complete network with $n\geq2$ and $\delta=1$. Every player receives total provision
-$S=\sum_jx_j$.
+On a complete network with $n\geq2$ and $\delta=1$, write $S=\sum_jx_j$.
 \begin{columns}[T,onlytextwidth]
 \column{0.48\textwidth}
-\begin{block}{Strictly convex costs, $c'(0)=0$}
+\setcounter{proposition}{6}
+\begin{proposition}[Part (iii)]
+Under Assumptions 2--3 and strictly convex costs, the equilibrium is unique:
+\[
+ x_i^*=\bar x,\qquad b'(n\bar x)=c'(\bar x).
+\]
+\end{proposition}
+At any equilibrium,
 \[
  c'(x_i)=b'(S)\quad\text{for all }i.
 \]
-Strictly increasing $c'$ forces equal effort.
-\[
- x_i=\bar x,\qquad b'(n\bar x)=c'(\bar x).
-\]
-The function $b'(nz)-c'(z)$ strictly decreases and has exactly one zero.
-\end{block}
+Increasing $c'$ forces equal effort; the decreasing function $b'(nz)-c'(z)$ crosses zero once.
 \column{0.48\textwidth}
 \begin{block}{Linear costs, $c(x)=x$}
 With $b'(k^*)=1$, every profile satisfying
@@ -1241,40 +1288,45 @@ though $1+\delta\lambda_{\min}(G)=0$.
 
 \begin{frame}{Network structure determines effort rankings}
 \small\compactmath
-Maintain homogeneous $b,c$, strictly convex costs, $c'(0)=0$, and $\delta=1$.
+Maintain Assumptions 2--3, homogeneous $b,c$, strictly convex $c$, and $\delta=1$.
 Let $N_i$ and $\overline N_i=N_i\cup\{i\}$ denote open and closed neighborhoods.
-\begin{block}{Neighborhood inclusion}
+\setcounter{proposition}{6}
+\begin{proposition}[Part (ii): neighborhood inclusion]
 At every equilibrium,
 \[
- N_i\subsetneq N_j\ \text{ or }\ 
- \overline N_i\subsetneq\overline N_j
- \quad\Longrightarrow\quad x_i^*>x_j^*.
+ N_i\subseteq N_j\ \text{ or }\quad
+ \overline N_i\subseteq\overline N_j
+ \quad\Longrightarrow\quad x_i^*\geq x_j^*.
 \]
-\end{block}
-\begin{itemize}
- \item \textbf{Star, $n\geq3$.} Leaves choose equal effort. The hub contributes less.
- \item \textbf{Nested split graph.} If $d_i<d_j$, then $x_i^*>x_j^*$.
-\end{itemize}
+Proper inclusion makes the effort inequality strict.
+\end{proposition}
+\setcounter{theorem}{1}
+\begin{corollary}[Nested split graphs]
+Under the same assumptions, if $G$ is an NSG, then
+$d_i<d_j$ implies $x_i^*>x_j^*$ at every Nash equilibrium.
+\end{corollary}
+\textbf{Star, $n\geq3$.} Proposition 7(iv) gives equal leaf effort, strictly above the hub's.
 Degree alone does not imply this ranking on arbitrary networks.
 \end{frame}
 
 \begin{frame}{Why the hub contributes less in a star}
 \small\compactmath
-Let $n\geq3$ and $\delta=1$, with homogeneous functions, strictly convex costs,
-and $c'(0)=0$. Write $x_H$ for the hub's effort.
+Maintain Assumptions 2--3, homogeneous $b,c$, strictly convex $c$, and $\delta=1$.
+\setcounter{proposition}{6}
+\begin{proposition}[Part (iv): star network]
+In a star with $n\geq3$, every equilibrium has common leaf effort $x_L>x_H$, where $x_H$ is the hub's effort.
+\end{proposition}
 \begin{enumerate}
- \item Every leaf faces the same peer effort $x_H$ and has a unique best response.
- Thus all leaves choose one common effort $x_L>0$.
+ \item All leaves face $x_H$. Their unique best response gives one common $x_L>0$.
  \item The hub and a leaf satisfy
  \[
  c'(x_H)=b'\!\left(x_H+(n-1)x_L\right),\qquad
  c'(x_L)=b'(x_H+x_L).
  \]
- \item Since $(n-2)x_L>0$ and $b'$ is strictly decreasing,
+ \item Since $(n-2)x_L>0$, decreasing $b'$ and increasing $c'$ imply
  \[
- c'(x_H)<c'(x_L).
+ c'(x_H)<c'(x_L)\quad\Longrightarrow\quad\boxed{x_H<x_L}.
  \]
- Strictly increasing $c'$ then gives $\boxed{x_H<x_L}$.
 \end{enumerate}
 The proof applies to every equilibrium, without a uniqueness assumption.
 \end{frame}
@@ -1311,7 +1363,7 @@ Suitable transformations can reveal structure absent from the original Jacobian.
 
 \appendix
 
-\begin{frame}{Backup: a formal coordinate proof of Theorem 1}
+\begin{frame}{Backup: a coordinate proof of Theorem 1(ii)}
 \small\compactmath
 Let $K=\prod_i K_i$ and suppose $x^*\in\operatorname{Sol}(K,F)$.
 For every $i$ and $t\in K_i$,
@@ -1388,7 +1440,7 @@ $\delta>1$ & Unique negative solution & None on $\R_+^2$\\
 \end{center}
 \end{frame}
 
-\begin{frame}{Backup: complete-network uniqueness without the strict spectral bound}
+\begin{frame}{Backup: proof of Proposition 7(iii)}
 \small\compactmath
 Assume homogeneous $b,c$, strictly convex $c$, $c'(0)=0$, and $\delta=1$.
 On the complete network, write $S=\sum_jx_j$.
